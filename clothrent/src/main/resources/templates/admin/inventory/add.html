@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/public/head::head(~{::title},~{},~{})">
+    <title>商品入库-云裳·汉服商城</title>
+</head>
+
+<body>
+<style type="text/css">
+    .weadmin-body{
+        padding: 20px;
+    }
+    .layui-form-item {
+        margin-bottom: 30px;
+        clear: both;
+        *zoom: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: left;
+        width: 10%;
+        min-width: 110px;
+    }
+    .layui-form-item .layui-input-inline {
+        float: left;
+        width: 90%;
+    }
+
+    .layui-form-item .wrapper-item{
+        width:50%
+    }
+    .wrapper-item .layui-form-label {
+        float: left;
+        width: 30%;
+        min-width: 110px;
+    }
+    .wrapper-item .layui-input-inline {
+        float: left;
+        width: 60%;
+    }
+    .we-red{
+        color: red;
+    }
+</style>
+<div class="weadmin-body">
+    <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data">
+        <input type="hidden" name="type" value="1"/>
+        <div class="layui-form-item">
+            <label for="goodsId" class="layui-form-label">
+                <span class="we-red">*</span>入库商品
+            </label>
+            <div class="layui-input-inline" >
+                <select  name="goodsId" id="goodsId" th:placeholder="请选择入库商品">
+                    <option  th:each="object:${goodsList}" th:value="${object.id}">[[${object.name}]]</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="changeStock" class="layui-form-label">
+                <span class="we-red">*</span>入库数量
+            </label>
+            <div class="layui-input-inline "  >
+                <input type="number"  id="changeStock"  name="changeStock" lay-verify="required"
+                       placeholder="请输入入库数量" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="price" class="layui-form-label">
+                <span class="we-red">*</span>总费用
+            </label>
+            <div class="layui-input-inline "  >
+                <input type="number"  id="price"  name="price" lay-verify="required"
+                       placeholder="请输入总费用" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="supplier" class="layui-form-label">
+                <span class="we-red">*</span>供应商
+            </label>
+            <div class="layui-input-inline "  >
+                <input type="text"  id="supplier"  name="supplier" lay-verify="required"
+                       placeholder="请输入供应商" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="remark" class="layui-form-label">
+                <span class="we-red">*</span>备注
+            </label>
+            <div class="layui-input-inline "  >
+                <input type="text"  id="remark"  name="remark" lay-verify="required"
+                       placeholder="请输入备注" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <button style="width: 25%;max-width: 300px;" class="layui-btn"   lay-filter="add" lay-submit>入库</button>
+        </div>
+    </form>
+</div>
+<!-- 百度编辑器配置文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.config.js}"></script>
+<!-- 百度编辑器编辑器源码文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.all.js}"></script>
+
+<script type="text/javascript">
+    layui.use(['form', 'layer','upload', 'jquery','laydate', 'admin'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            laydate = layui.laydate,
+            upload = layui.upload,
+            layer = layui.layer;
+
+
+        //监听提交
+        form.on('submit(add)', function (data) {
+            console.log(data.field);
+            var formData = new FormData($("#form")[0]);
+            $.ajax({
+                url: "/inventory/add",
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function(){
+                    //返回的参数item，即为当前的input DOM对象
+                    index = layer.load(1,{shade: [0.3,'grey']});
+                },
+                success: function (res) {
+                    //关闭遮罩层
+                    layer.close(index);
+                    if (res.success == true) {
+                        layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                            refreshParent();
+                        });
+                    } else {
+                        layer.msg(res.msg, {icon: 2, time: 1500});
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res, {icon: 2, time: 1500});
+                },
+                complete: function () {
+                }
+            });
+            return false;
+        });
+    });
+    /*清除回显图片*/
+    function clearImg() {
+        $("#imgBox").empty();
+    }
+</script>
+</body>
+
+</html>

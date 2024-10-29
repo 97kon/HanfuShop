@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/public/head::head(~{::title},~{},~{})">
+    <title>订单明细列表-云裳·汉服商城</title>
+</head>
+<body>
+<style>
+    .test-table-reload-btn{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .layui-table-cell {
+        padding: 0;
+    }
+    .layui-btn .layui-icon {
+        margin-right: 3px;
+        margin-left: 3px;
+        font-size: 18px;
+        vertical-align: bottom;
+    }
+</style>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <span>订单明细列表</span>
+                    <a class="layui-btn " style="line-height:1.6em;margin-top:3px;float:right"
+                       href="javascript:location.replace(location.href);" title="刷新">
+                        <i class="layui-icon" style="right:1.2em">&#xe666;</i></a>
+                </div>
+                <div class="layui-card-body">
+                    <div class="test-table-reload-btn" style="margin-bottom: 10px;">
+                        <form id="search-form" class="layui-form">
+                            <input type="hidden" name="orderId" th:value="${orderId}"/>
+                            <div class="layui-inline">
+                                <input class="layui-input"  placeholder="请输入用户名称" name="userName"  autocomplete="off">
+                            </div>
+                            <div class="layui-inline">
+                                <input class="layui-input"   placeholder="请输入订单号" name="code"  autocomplete="off">
+                            </div>
+                           
+                        </form>
+                        <button class="layui-btn"  style="float:left" data-type="reload" id="formsearch">搜索</button>
+                        <button class="layui-btn"  style="float:left"  id="formreset">重置</button>
+                    </div>
+                </div>
+                <div class="layui-card-body">
+                    <table class="layui-hide" id="test-table-reload" lay-filter="test-table-reload"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    layui.config({base:'/static/common/plugs/tablePlug/'}).use(['tablePlug'], function(){
+        var $ = layui.jquery
+            , layer = layui.layer //弹层
+            , form = layui.form //弹层
+            , table = layui.table //表格
+            , tablePlug = layui.tablePlug //表格插件
+        tablePlug.smartReload.enable(true);//处理不闪动的关键代码
+        //方法级渲染
+        table.render({
+            elem: '#test-table-reload'
+            ,id:'test-table-reload'
+            ,url: '/item/list'
+            ,where: $('#search-form').parseForm()
+            ,initSort:{field:'id', type:'desc'}
+            ,even: true //开启隔行背景
+            ,defaultToolbar: ['filter', 'print', 'exports']
+            ,toolbar: '#toolbarHead'
+            ,smartReloadModel:true  //处理不闪动的关键代码
+            ,cols: [
+                [
+                // {checkbox: true, fixed: 'left'}
+                {field:'id', title: 'ID',width:50,  sort: true, align:'center'}
+                ,{field:'orderId', title: '订单Id',minWidth:30, align:'center'}
+                ,{field:'code', title: '订单号',minWidth:170, align:'center'}
+                ,{field:'userName', title: '会员名称',minWidth:100, align:'center'}
+                ,{field:'goodsName', title: '物品名称',minWidth:300, align:'center'}
+                ,{field:'categoryName', title: '物品分类', align:'center'}
+                ,{field:'price', title: '物品单价', align:'center'}
+                ,{field:'number', title: '购买数量', align:'center'}
+                ,{field:'createTime', title: '订购时间',minWidth:180, align:'center'}
+              ]
+            ]
+            ,request: {
+                pageName: 'pageNum' //页码的参数名称，默认：page
+                ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+            }
+            ,parseData: function(res){ //res 即为原始返回的数据
+                return {
+                    "code": res.code, //解析接口状态
+                    "msg": res.msg, //解析提示文本
+                    "count": res.data.total, //解析数据长度
+                    "data": res.data.rows //解析数据列表
+                };
+            }
+            ,page: true
+            ,height: 'full-150'
+            ,done: function(res, curr, count){
+               return false;
+            }
+        });
+
+
+
+        var $ = layui.$, active = {
+            reload: function(){
+                //执行重载
+                table.reload('test-table-reload', {
+                   page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    ,where: $('#search-form').parseForm()
+                });
+            }
+        };
+
+        // //搜索
+        $("#formsearch").on('click',function () {
+            table.reload('test-table-reload', {
+                page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: $('#search-form').parseForm()
+            });
+        });
+        //重置
+        $("#formreset").on('click',function () {
+           $("#search-form")[0].reset();
+           layui.form.render();
+           table.reload('test-table-reload', {
+                page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: $('#search-form').parseForm()
+            });
+        });
+
+        // $('#formsearch').on('click', function(){
+        //     var type = $(this).data('type');
+        //     active[type] ? active[type].call(this) : '';
+        // });
+    });
+
+
+
+
+    function showMsg(msg) {
+        layer.msg(msg)
+    }
+
+
+</script>
+
+</body>
+</html>

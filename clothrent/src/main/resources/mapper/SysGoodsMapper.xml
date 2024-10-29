@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clothrent.mapper.SysGoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.clothrent.entity.SysGoods">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="category_id" property="categoryId" />
+        <result column="category_name" property="categoryName" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="catgegory_code" property="catgegoryCode" />
+        <result column="second_c_id" property="secondCId" />
+        <result column="second_c_name" property="secondCName" />
+        <result column="second_c_code" property="secondCCode" />
+        <result column="tags" property="tags" />
+        <result column="cloth_size" property="clothSize" />
+        <result column="state" property="state" />
+        <result column="stock" property="stock" />
+        <result column="price" property="price" />
+        <result column="discount" property="discount" />
+        <result column="discount_radio" property="discountRadio" />
+        <result column="content" property="content" />
+        <result column="goods_pic1" property="goodsPic1" />
+        <result column="goods_pic2" property="goodsPic2" />
+        <result column="goods_pic3" property="goodsPic3" />
+        <result column="goods_pic4" property="goodsPic4" />
+        <result column="goods_pic5" property="goodsPic5" />
+        <result column="sale_number" property="saleNumber" />
+        <result column="comment_num" property="commentNum" />
+        <result column="feedback_rate" property="feedbackRate" />
+        <result column="field0" property="field0" />
+        <result column="field1" property="field1" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code,comment_num,feedback_rate,cloth_size, name,user_id,user_name, category_id, category_name, catgegory_code, second_c_id, second_c_name, second_c_code, tags, state, stock, price, discount, discount_radio, content, goods_pic1, goods_pic2, goods_pic3, goods_pic4, goods_pic5, sale_number, field0, field1, create_time, update_time
+    </sql>
+
+
+    <select id="countNumGroupCategory" resultType="java.util.HashMap">
+        select count(1) as number,second_c_name as name  from tb_sys_goods group by second_c_name
+    </select>
+    <select id="countCommentNumGroupCategory" resultType="java.util.HashMap">
+        select sum(comment_num) as number,second_c_name as name  from tb_sys_goods group by second_c_name
+    </select>
+
+
+
+    <select id="avgCommentGroupCategory" resultType="java.util.HashMap">
+        select  CAST(AVG(comment_num) AS DECIMAL(10,2))  as number ,second_c_name as name from tb_sys_goods group by second_c_name order by second_c_name asc;
+    </select>
+    <select id="avgPriceGroupCategory" resultType="java.util.HashMap">
+        select  CAST(AVG(price) AS DECIMAL(10,2))  as number ,second_c_name as name from tb_sys_goods group by second_c_name order by second_c_name asc;
+    </select>
+
+    <select id="avgRateGroupCategory" resultType="java.util.HashMap">
+        select  CAST(AVG(feedback_rate) AS DECIMAL(10,2))  as number ,second_c_name as name from tb_sys_goods group by second_c_name order by second_c_name asc;
+    </select>
+
+    <select id="priceTopN" resultType="java.util.HashMap">
+        select price as number ,name from tb_sys_goods order by price desc limit 50;
+    </select>
+
+    <select id="commentNumTopN" resultType="java.util.HashMap">
+        select comment_num as number,name from tb_sys_goods order by comment_num desc limit 50
+    </select>
+
+    <select id="feedbackRateTopN" resultType="java.util.HashMap">
+        select feedback_rate as number,name from tb_sys_goods order by feedback_rate desc limit 50
+    </select>
+
+    <select id="getOneDiscount" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        from tb_sys_goods order by price-discount desc LIMIT 1
+    </select>
+
+    <select id="getOriginGoodsIdList" resultType="java.lang.String">
+        select  field0 from tb_sys_goods where field0 is not null
+    </select>
+
+</mapper>

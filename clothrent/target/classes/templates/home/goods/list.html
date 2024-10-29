@@ -1,0 +1,845 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head th:replace="home/public/header::head(~{::title},~{::links},~{})">
+    <title>商品列表-云裳·汉服商城</title>
+    <links>
+        <link rel="stylesheet" href="/static/layuiadmin/layui/css/layui.css"  media="all">
+    </links>
+</head>
+<body>
+<style type="text/css">
+    .mynice-select {
+        -webkit-tap-highlight-color: transparent;
+        background-color: #fff;
+        border-radius: 5px;
+        border: solid 1px #e8e8e8;
+        box-sizing: border-box;
+        clear: both;
+        cursor: pointer;
+        display: block;
+        float: left;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: normal;
+        height: 42px;
+        line-height: 40px;
+        outline: none;
+        padding-left: 18px;
+        padding-right: 30px;
+        position: relative;
+        text-align: left !important;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        white-space: nowrap;
+        width: auto;
+    }
+
+    .myw-100 {
+        width: 100%!important;
+    }
+
+    .myform-control {
+        display: block;
+        width: 100%;
+        min-height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .mynice-select:after {
+        border-bottom: 2px solid #999;
+        border-right: 2px solid #999;
+        content: '';
+        display: block;
+        height: 5px;
+        margin-top: -4px;
+        pointer-events: none;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        -webkit-transform-origin: 66% 66%;
+        -ms-transform-origin: 66% 66%;
+        transform-origin: 66% 66%;
+        -webkit-transform: rotate(
+                45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(
+                45deg);
+        -webkit-transition: all 0.15s ease-in-out;
+        transition: all 0.15s ease-in-out;
+        width: 5px;
+    }
+
+    .myactive{
+        background-color: rgba(157, 215, 107, 0.82);
+        font-size: 16px;
+        padding: 12px 15px 10px;
+        color: white;
+    }
+    .menu-item-has-children a:hover{
+        padding:12px 15px 10px;
+        font-size: 16px;
+        color: #ffc107;
+    }
+
+    .breadcrumbs-area {
+        padding: 100px 0;
+        background: #f6f6f6 url(/static/common/images/banner4.jpg) no-repeat scroll center center/cover;
+    }
+    .filter_area .search {
+        position: relative;
+        height: 46px;
+        width: 100%;
+        background: url(/static/common/images/search_input.png) no-repeat 0 0;
+        zoom: 1;
+    }
+    .filter_area .condition {
+        margin: 17px 0 0;
+        padding: 16px 0 0 20px;
+        background-color: #f7f7f7;
+        color: #666;
+        line-height: 22px;
+        font-size: 12px;
+    }
+    .condition .item {
+        clear: both;
+        width: 100%;
+        overflow: hidden;
+    }
+    .condition .item dt {
+        float: left;
+        padding: 0 0 20px;
+    }
+    .condition .item dd {
+        float: left;
+        padding: 0 6px 20px 2px;
+    }
+    .condition .item a:link, .condition .item a:visited {
+        color: #3cb0d0;
+    }
+    .condition .item a {
+        display: inline-block;
+        padding: 0 5px;
+    }
+    .condition .item .selected:link, .condition .item .selected:visited, .condition .item .selected:hover, .condition .item .selected:active {
+        color: #fff;
+        background-color: #3cb0d0;
+    }
+    .filter_area .search .kwd {
+        float: left;
+        height: 16px;
+        width: 632px;
+        margin: 14px 8px 0 12px;
+        background: 0;
+        border: 0;
+        outline: 0;
+        line-height: 16px;
+        color: #999;
+        font-size: 14px;
+    }
+    .filter_area .search .sub_btn {
+        float: left;
+        width: 69px;
+        height: 46px;
+        background: 0;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        outline: 0;
+    }
+    .multi-line2 {
+        min-height: 42px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: clip;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+    .product-area .single-product .product-content {
+        background-color: #efedee;
+        padding: 0 10px 20px;
+    }
+    .product-image{
+        border: 1px solid #efedee;
+    }
+
+    .contRightH {line-height: 38px;}
+    .contRightH h2 {float: left; font-size: 24px; color: #585858;}
+    .contRightH p {float: right; font-size: 12px; color: #808080;}
+    .contRightH p a {color: #808080;}
+    .contRightH p a:hover,
+    .contRightH p span {color: #FF5722;}
+    .contRightLine {height: 8px; margin-top: 10px; background: url(/static/common/images/cont_tit_bg.png) no-repeat center; background-size: cover;}
+
+    .mysortspan span{
+        margin-right: -4px;
+        padding: 5px 8px;
+        border: 1px solid #CCC;
+        background: #FFF;
+        color: #333;
+        cursor: pointer;
+    }
+    .mysortspan span.spanselected{
+        border-color: #e4393c;
+        background: #e4393c;
+        color: #FFF;
+    }
+    .mysortspan a{
+        margin-right: -4px;
+        padding: 5px 8px;
+        border: 1px solid #CCC;
+        background: #FFF;
+        color: #333;
+        cursor: pointer;
+    }
+    .mysortspan a.spanselected{
+        border-color: #e4393c;
+        background: #e4393c;
+        color: #FFF;
+    }
+    @media (min-width: 1200px){
+    .col-xl-20 {
+        flex: 0 0 auto;
+        width: 20%;
+        }
+    }
+    @media (min-width: 1800px){
+        .col-xl-16 {
+            flex: 0 0 auto;
+            width: 16.666667%;
+        }
+    }
+    input[type="checkbox"] {
+         display: inline;
+    }
+    .goodsCheckbox{
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #858585;
+        border-radius: 0px;
+    }
+
+    input[type="checkbox"]:checked::before {
+        content: "\2714";
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #7D7D7D;
+        border-radius:0px;
+        color: #fe250e;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .addBatch{
+        cursor: pointer;
+        padding: 10px 10px;
+        background-color: #e4393c;
+        color: white;
+    }
+
+</style>
+
+    <div class="shop-wrapper">
+
+        <!-- Header Area Start Here -->
+        <div th:replace="home/public/header::headmenu"></div>
+        <!-- Header Area End Here -->
+
+        <!-- Breadcrumb Area Start Here -->
+        <!--<div class="breadcrumbs-area position-relative">-->
+            <!--<div class="container">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-12 text-center">-->
+                        <!--<div class="breadcrumb-content position-relative section-content">-->
+                            <!--<h3 class="title-3">商品列表</h3>-->
+                            <!--<ul>-->
+                                <!--<li><a href="/home/index">首页</a></li>-->
+                                <!--<li>商品</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--banner-->
+
+        <!-- Breadcrumb Area End Here -->
+        <!-- Shop Main Area Start Here -->
+        <div class="shop-main-area" id="container">
+            <div class="container container-default custom-area">
+                <div>
+                    <div style="width: 100%;display: flex;justify-content: space-between;">
+                        <h2>商品列表</h2>
+                        <p>您的位置：<a href="/home/index">首页</a>  &gt;  <a href="/home/goods/homeListPage">商品列表</a> &gt; </p>
+                    </div>
+                    <div class="contRightLine"></div>
+                </div>
+                <!--banner-->
+                <div style="margin-top: 10px;">
+                    <div class="filter_area">
+                        <div class="search">
+                            <input type="text" class="kwd" id="name" name="name" v-model="currGoodsName"  value="" placeholder="搜商品..." data-detect-oninput="1">
+                            <input type="button" @click="searchList()" data-beacon="click_search" class="sub_btn" value="">
+
+                        </div>
+
+                        <!-- filter 条件 begin 从freemark中提取 -->
+                        <div class="filter_area clrfix">
+                            <div class="condition">
+                                <dl class="item tag">
+                                    <dt class="tit">一级分类：</dt>
+                                    <dd><a href="javascript:;" @click="changeFirstCategory('all',$event.target)" rel="nofollow" data-beacon="click_filtrate_style_0" class="selected">全部</a></dd>
+                                    <dd  v-for="item in firstCategoryList">
+                                        <a href="javascript:;" @click="changeFirstCategory(item.id,$event.target)" rel="nofollow" data-beacon="click_filtrate_style_1">{{item.name}}</a>
+                                    </dd>
+                                </dl>
+                                <dl class="item tag">
+                                    <dt class="tit">二级分类：</dt>
+                                    <dd><a href="javascript:;" @click="changeSeconCategory('all',$event.target)" id="secondCategoryAll" rel="nofollow" data-beacon="click_filtrate_style_0" class="selected">全部</a></dd>
+                                    <dd  v-for="item in secondCategoryList">
+                                        <a href="javascript:;" @click="changeSeconCategory(item.id,$event.target)" rel="nofollow" data-beacon="click_filtrate_style_1">{{item.name}}</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div><!-- filter 条件 end -->
+
+                    </div>
+
+                </div>
+                <div class="row flex-row-reverse">
+                    <div class="col-lg-12 col-12 col-custom">
+                        <!--shop toolbar start-->
+                        <div class="shop_toolbar_wrapper" style="">
+                            <div class="mysortspan">
+                                <a href="javascript:;" @click="changeSort(1,$event.target)" class="spanselected">综合排序<i class="fa fa-long-arrow-down"></i></a>
+                                <a @click="changeSort(2,$event.target)">销量从高到底<i class="fa fa-long-arrow-down"></i></a>
+                                <a @click="changeSort(3,$event.target)">销量从低到高<i class="fa fa-long-arrow-up"></i></a>
+                                <a @click="changeSort(4,$event.target)">价格从低到高<i class="fa fa-long-arrow-up"></i></a>
+                                <a @click="changeSort(5,$event.target)">价格从高到低<i class="fa fa-long-arrow-down"></i></a>
+                                <a @click="changeSort(6,$event.target)">日期从前到后<i class="fa fa-long-arrow-up"></i></a>
+                                <a @click="changeSort(7,$event.target)">日期从后到前<i class="fa fa-long-arrow-down"></i></a>
+                            </div>
+                            <div>
+<!--                                <span class="addBatch" @click="addBatchCart()">批量加入购物车</span>-->
+                            </div>
+                            <!--<div class="shop_toolbar_btn">-->
+                                <!--<button data-role="grid_3" type="button" class="active btn-grid-3" data-toggle="tooltip" title="3"><i class="fa fa-th"></i></button>-->
+                                <!--&lt;!&ndash; <button data-role="grid_4" type="button"  class=" btn-grid-4" data-toggle="tooltip" title="4"></button> &ndash;&gt;-->
+                                <!--<button data-role="grid_list" type="button" class="btn-list" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>-->
+                            <!--</div>-->
+                            <!--<div class="shop-select">-->
+                                <!--<form class="d-flex flex-column w-100" action="#">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<select class="myform-control mynice-select myw-100" @change="changeSort()" v-model="sortColumn">-->
+                                            <!--<option selected value="1">最新日期排序</option>-->
+                                            <!--<option value="2">销量从高到底排序</option>-->
+                                            <!--<option value="3">销量从低到高排序</option>-->
+                                            <!--<option value="4">价格从低到高排序</option>-->
+                                            <!--<option value="5">价格从高到低排序</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                        </div>
+                        <!--shop toolbar end-->
+                        <!-- Shop Wrapper Start -->
+                        <div class="row shop_wrapper grid_3" style="min-height: calc(100vh - 94px - 56.39px - 121px - 63px - 87px - 56px - 163px)">
+                            <!--//-->
+                            <div class=" col-custom product-area col-xl-16 col-xl-20 col-lg-3 col-md-3 col-sm-3 "  v-for="item in goodsList" >
+                                <div class="single-product position-relative">
+                                    <div class="product-image">
+                                        <a class="d-block" :href="'/home/goods/detail/'+item.id">
+                                            <img style="height: 200px" :src="'/file/fileDown?saveName='+item.goodsPic1" alt="" class="product-image-1 w-100">
+                                            <img v-if="item.goodsPic2!=null&&item.goodsPic2!=''" style="height: 200px" :src="'/file/fileDown?saveName='+item.goodsPic2" alt="" class="product-image-2 position-absolute w-100">
+                                            <img v-if="item.goodsPic2==null||item.goodsPic2==''" style="height: 200px" :src="'/file/fileDown?saveName='+item.goodsPic1" alt="" class="product-image-2 position-absolute w-100">
+                                        </a>
+
+<!--                                        <input type="checkbox" name="goodsId" :val="item.id" @click="chooseGoods(item.id)" class="goodsCheckbox" />-->
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-title" >
+                                            <span class="regular-price " style="font-size: 20px;color: #ff2222">{{'￥'+item.price}}</span>
+                                            <!--<span class="old-price"><del>{{'￥'+item.price}}</del></span>-->
+                                        </div>
+                                        <div class="product-rating" style="padding-top: 2px;padding-bottom: 10px">
+                                            <p class="title-2 multi-line2">
+                                                {{item.name}}
+                                                <!--<a :href="'/home/goods/detail/'+item.id">{{item.name}}</a>-->
+                                            </p>
+                                        </div>
+                                        <div class=" price-box">
+                                            <i>销量：{{item.saleNumber}}</i>
+                                            <!--<i class="fa">库存：{{item.stock}}</i>-->
+                                        </div>
+
+
+                                    </div>
+                                    <div class="add-action d-flex position-absolute" style="color: #00aeff">
+                                        <a href="javascript:;" @click="addCart(item.id,1)" title="添加购物车" style="display: flex;align-items: center;color: #e4393c">
+                                            <i class="ion-bag"></i>
+                                        </a>
+                                        <a href="javascript:;" @click="immediateOrder(item.id,1)" title="立即购买" style="display: flex;align-items: center;color: #e4393c">
+                                            <i class="ion-eye"></i>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Shop Wrapper End -->
+                        <!-- Bottom Toolbar 分页器  Start -->
+                        <div class="row">
+                            <div class="col-sm-12 col-custom">
+                                <div class="toolbar-bottom mt-30">
+                                    <div class="layui-row text-center">
+                                        <div id="laypage"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Bottom Toolbar End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Area Start Here -->
+        <div style="position: relative">
+            <footer th:replace="home/public/footer::footer"></footer>
+        </div>
+        <!-- Footer Area End Here -->
+    </div>
+
+
+
+    <!-- Scroll to Top Start -->
+    <a class="scroll-to-top" href="#">
+        <i class="ion-chevron-up"></i>
+    </a>
+    <!-- Scroll to Top End -->
+
+    <!-- JS
+============================================ -->
+
+    <!-- jQuery JS -->
+    <script src="/static/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <!-- jQuery Migrate JS -->
+    <script src="/static/assets/js/vendor/jQuery-migrate-3.3.0.min.js"></script>
+    <!-- Modernizer JS -->
+    <script src="/static/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/static/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="/static/assets/js/plugins/slick.min.js"></script>
+    <!-- Countdown JS -->
+    <script src="/static/assets/js/plugins/jquery.countdown.min.js"></script>
+    <!-- Ajax JS -->
+    <script src="/static/assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Nice Select JS -->
+    <script src="/static/assets/js/plugins/jquery.nice-select.min.js"></script>
+    <!-- Jquery Ui JS -->
+    <script src="/static/assets/js/plugins/jquery-ui.min.js"></script>
+    <!-- jquery magnific popup js -->
+    <script src="/static/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/assets/js/main.js"></script>
+
+    <script th:inline="javascript">
+        var userId='[[${session?.user?.id}]]';
+        var hrefCategoryId='[[${categoryId}]]';// 从头部菜单跳转带过来的分类ID
+        var hrefsecondCCode='[[${secondCCode}]]';// 从头部菜单跳转带过来的分类CODe
+        var hrefcatgegoryCode=[[${catgegoryCode}]];// 从头部菜单跳转带过来的分类CODe
+        var hrefGoodsName=[[${name}]];// 从头部菜单跳转带过来的商品名称
+
+        /*初始化layui的分页插件*/
+        function initLayui() {
+            layui.use(['laydate','laypage'], function () {
+                var laypage = layui.laypage,
+                    laydate = layui.laydate;
+                //执行一个laypage实例
+                laypage.render({
+                    elem: 'laypage' //注意，这里的 test1 是 ID，不用加 # 号
+                    , count: app.$data.total //数据总数，从服务端得到
+                    ,theme: '#FF5722'
+                    ,curr:pageIndex
+                    ,groups:7  // 连续出现的页码个数 默认值5
+                    , limit: pageSize //每页显示的条数。laypage将会借助 count 和 limit 计算出分页数。
+                    , limits: [ 30,40, 50,60] //每页条数的选择项。如果 layout 参数开启了 limit，则会出现每页条数的select选择框
+                    , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                    , jump: function (obj, first) {
+                        //obj包含了当前分页的所有参数，比如：
+                        pageSize = obj.limit;
+                        pageIndex = obj.curr;
+                        //首次不执行
+                        if (!first) {
+                            pagination(obj.curr, obj.limit);
+                        }
+                    }
+                });
+
+            });
+        }
+
+        var that = this;
+        var app = new Vue({
+            el: "#container",
+            data: {
+                goodsList: []
+                ,goodsIdArray:[] // 多选框用户选择的商品
+                ,bookPeopleList: [] //
+                ,firstCategoryList: [] //一级菜单
+                ,secondCategoryList: [] //二级菜单
+                ,sortColumn: 1 // 排序规则，默认为1 最新日期排序
+                ,bookPeople:"" //book_people
+                ,column:"id"
+                ,isAsc:"desc"
+                ,menuList:[] // 左侧分类菜单
+                ,firstCategoryCode:'' // 一级分类CODe
+                ,firstCategoryId:'' // 一级分类Id
+                ,secondCategoryCode:'' //二级分类CODE
+                ,secondCategoryId:'' //二级分类Id
+                ,currCategoryId:'' // 当前选中的分类
+                ,currGoodsName:'' // 当前选中的商品名称
+                ,currGoods:'' // 当前选中的商品
+                ,quickViewFlag:false
+                ,total:0
+                ,initLayui: false//是否可以渲染layui，请求到数据后才可以
+            },
+            created: function () {
+                console.log("当前是VUE生命周期created方法，获取的hrefCategoryId为：",hrefCategoryId);
+                if(hrefCategoryId!=''&&hrefCategoryId!='null'&&hrefCategoryId){
+                    this.currCategoryId=hrefCategoryId;
+                    this.firstCategoryId=hrefCategoryId;
+                    console.log("...currCategoryId....",this.currCategoryId)
+                }
+                if(hrefGoodsName!=''&&hrefGoodsName!='null'&&hrefGoodsName){
+                    this.currGoodsName=hrefGoodsName;
+                    console.log("...currGoodsName....",this.currGoodsName)
+                }
+                if(hrefsecondCCode!=''&&hrefsecondCCode!='null'&&hrefsecondCCode){
+                    this.secondCategoryCode=hrefsecondCCode;
+                    console.log("....secondCategoryCode...",this.secondCategoryCode)
+                }
+                if(hrefcatgegoryCode!=''&&hrefcatgegoryCode!='null'&&hrefcatgegoryCode){
+                    this.firstCategoryCode=hrefcatgegoryCode;
+                    console.log("....firstCategoryCode...",this.firstCategoryCode)
+                }
+
+            },
+            methods:{
+                chooseGoods:function(val,e){
+                    console.log("当前选择的商品：",val);
+                    if(this.goodsIdArray.includes(val)){//如果包含则删除
+                        this.goodsIdArray.splice(this.goodsIdArray.findIndex(item => item === val), 1)
+                    }else{
+                        this.goodsIdArray.push(val);
+                    }
+                    console.log("当前全部goodsIdArray：",this.goodsIdArray);
+                },
+                addBatchCart:function () {
+                    if(!userId||userId==''||userId=='null'||userId=='undefined'){
+                        layer.msg("请先登录！", {icon: 2, time: 1500},function () {
+                            window.location.href="/home/login";
+                        });
+                        return false;
+                    }
+                    if(this.goodsIdArray.length==0){
+                        layer.msg("请选择商品！", {icon: 2, time: 1500});
+                        return false;
+                    }
+                    $.ajax({
+                        url: "/home/cart/addBatchCart",
+                        type: "post",
+                        data: {"userId":userId,"goodsIdList":this.goodsIdArray.join(",")},
+                        processData: true,
+                        contentType: 'application/x-www-form-urlencoded',
+                        beforeSend: function(){
+                            //返回的参数item，即为当前的input DOM对象
+                            index = layer.load(1,{shade: [0.3,'grey']});
+                        },
+                        success: function (res) {
+                            //关闭遮罩层
+                            layer.close(index);
+                            if (res.success == true) {
+                                layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                                    window.location.href="/home/cart/detail?userId="+userId
+                                });
+                            } else {
+                                layer.msg(res.msg, {icon: 2, time: 1500});
+                            }
+                        },
+                        error: function (res) {
+                            layer.msg(res, {icon: 2, time: 1500});
+                        },
+                        complete: function () {
+                        }
+                    });
+                },
+
+                // 改变一级分类
+                changeFirstCategory:function (val,e) {//一级分类
+                    changeClass(e,val);
+                    console.log('changeFirstCategory:',val)
+
+                    this.firstCategoryId=val;
+                    this.currCategoryId=val;
+                    if(val=='all'){
+                        this.firstCategoryId="";
+                        this.secondCategoryId="";
+                        this.currCategoryId="";
+                        querySecondCategoryList();
+                        //说明选择了全部
+                        let parent = $("#secondCategoryAll").parent().parent();
+                        parent.children().each(function (index) {
+                            $(this).find("a").removeClass("selected");
+                        });
+                        $("#secondCategoryAll").addClass("selected");
+
+                    }else{
+                        var requestPath = "/home/category/list?orderByColumn=code&isAsc=asc&parentId="+val;
+                        $.post(requestPath, function (res) {
+                            app.$data.secondCategoryList = res.data.rows;
+                        });
+                    }
+                    console.log('改变后的 firstCategoryId：',this.firstCategoryId);
+                    searchList();
+                },
+                // 改变二级分类
+                changeSeconCategory:function (val,e) {//二级分类
+                    changeClass(e,val);
+                    console.log('changeSeconCategory:',val)
+
+                    this.secondCategoryCode=val;
+                    this.secondCategoryId=val;
+                    if(val=='all'){
+                        this.secondCategoryCode="";
+                        this.secondCategoryId="";
+                    }
+                    console.log('改变后的 secondCategoryId：',this.secondCategoryId);
+                    searchList();
+                },
+
+                getBookPeople:function(){
+                    $.post("/home/dictValue/list",{"dictCode":"book_people"}, function (res) {
+                        app.$data.bookPeopleList = res.data.rows;
+                    });
+                },
+                changeSort:function(val,e){
+                    console.log('changeSort val e',val,e);
+                  switch (val) {
+                      case 1:this.column='id';this.isAsc='desc';break;
+                      case 2:this.column='saleNumber';this.isAsc='desc';break;
+                      case 3:this.column='saleNumber';this.isAsc='asc';break;
+                      case 4:this.column='discount';this.isAsc='asc';break;
+                      case 5:this.column='discount';this.isAsc='desc';break;
+                      case 6:this.column='create_time';this.isAsc='asc';break;
+                      case 7:this.column='create_time';this.isAsc='desc';break;
+                  }
+                //说明选择了全部
+                let parent = $(e).parent().parent();
+                parent.children().each(function (index) {
+                    $(this).find("a").removeClass("spanselected");
+                });
+                $(e).addClass("spanselected");
+                  searchList('');
+                },
+                clearCategory:function(){
+                  this.currCategoryId='';
+                    searchList('');
+                },
+                quickView:function(checkGoods){
+                    console.log("当前快速查看的商品为：",checkGoods)
+                    this.quickViewFlag=true;
+                    this.currGoods=checkGoods;
+                },
+                changeCategory:function(categoryId){
+                    console.log("当前选中的分类ID：",categoryId);
+                    this.currCategoryId=categoryId;
+                    searchList(categoryId);
+                },
+                searchList:function () {
+                    searchList('');
+                }
+                ,open: function (title, url,width,height) {
+                    WeAdminShow(title, url,width,height);
+                },
+                addCart:function (goodsId,number) {
+                    if(number>99){
+                        layer.msg("最大订购99件！", {icon: 2, time: 1500});
+                        $("#number").val(99);
+                        return false;
+                    }
+                    if(!userId||userId==''||userId=='null'||userId=='undefined'){
+                        layer.msg("请先登录！", {icon: 2, time: 1500},function () {
+                            window.location.href="/home/login";
+                        });
+                        return false;
+                    }
+                    $.ajax({
+                        url: "/home/cart/add",
+                        type: "post",
+                        data: {"userId":userId,"goodsId":goodsId,"number":number},
+                        processData: true,
+                        contentType: 'application/x-www-form-urlencoded',
+                        beforeSend: function(){
+                            //返回的参数item，即为当前的input DOM对象
+                            index = layer.load(1,{shade: [0.3,'grey']});
+                        },
+                        success: function (res) {
+                            //关闭遮罩层
+                            layer.close(index);
+                            if (res.success == true) {
+                                layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                                    window.location.href="/home/cart/detail?userId="+userId
+                                });
+                            } else {
+                                layer.msg(res.msg, {icon: 2, time: 1500});
+                            }
+                        },
+                        error: function (res) {
+                            layer.msg(res, {icon: 2, time: 1500});
+                        },
+                        complete: function () {
+                        }
+                    });
+                },
+                immediateOrder:function (goodsId,number) {
+                    if (!userId || userId == '' || userId == 'null' || userId == 'undefined') {
+                        layer.msg("请先登录！", {icon: 2, time: 1500}, function () {
+                            window.location.href = "/home/login";
+                        });
+                        return false;
+                    }
+                    window.location.href="/home/order/immediateOrderPage?goodsId="+goodsId+"&number="+number;
+                }
+            },
+            watch: {//监听data中的数据变化
+                'initLayui': function (newVal) {
+                    if (newVal)
+                        that.initLayui();
+                }
+            }
+        });
+
+        var pageIndex = 1;
+        var pageSize = 30;
+        var totalCount = 30;
+
+        function  pagination(pageIndex, pageSize){
+            /*获取列表*/
+            searchList(app.$data.currCategoryId);
+        }
+
+        /*获取列表*/
+        searchList(app.$data.currCategoryId);
+        function searchList(categoryId) {
+            if(!categoryId||categoryId==undefined||categoryId=='null'){
+                categoryId='';
+            }
+            var requestPath = "/home/goods/list/?pageNum=" + pageIndex + "&pageSize=" + pageSize+"&name="+$("#name").val()+"&orderByColumn="+app.$data.column+"&isAsc="+app.$data.isAsc;
+            $.post(requestPath,{"secondCId":app.$data.secondCategoryId,"categoryId":app.$data.currCategoryId}, function (res) {
+                totalCount = res.data.total;
+                app.$data.total = res.data.total;
+                app.$data.goodsList = res.data.rows;
+                app.$data.initLayui = true;
+                that.initLayui();
+            });
+        }
+
+        function queryHostList() {
+            var requestPath = "/home/goods/list/?pageNum=" + 1 + "&pageSize=" + 6+"&orderByColumn=saleNumber&isAsc=desc";
+            $.post(requestPath, function (res) {
+                app.$data.hotList = res.data.rows;
+            });
+        }
+        function queryMenuCategory() {
+            var requestPath = "/home/category/menuList";
+            $.post(requestPath, function (res) {
+                app.$data.menuList = res.data;
+            });
+        }
+        // 获取一级菜单
+        function  queryFirstCategory() {
+            var requestPath = "/home/category/list?parentId=0&orderByColumn=code&isAsc=asc";
+            $.post(requestPath, function (res) {
+                app.$data.firstCategoryList = res.data.rows;
+            });
+        }
+
+        function  querySecondCategoryList() {
+            var requestPath = "/home/category/seconList?orderByColumn=code&isAsc=asc&level=2";
+            $.post(requestPath, function (res) {
+                app.$data.secondCategoryList = res.data;
+            });
+        }
+
+
+        function changeClass(e,val) {
+
+            //说明选择了全部
+            let parent = $(e).parent().parent();
+            parent.children().each(function (index) {
+                $(this).find("a").removeClass("selected");
+            });
+            $(e).addClass("selected");
+
+            // if(val=='all'){
+            //     //说明选择了全部
+            //     let parent = $(e).parent().parent();
+            //     parent.children().each(function (index) {
+            //         $(this).find("a").removeClass("selected");
+            //         if(index==1){
+            //             $(this).find("a").addClass("selected");
+            //         }
+            //     });
+            // }else{
+            //     let parent = $(e).parent().parent();
+            //     parent.children().eq(1).find("a").removeClass("selected");
+            // }
+        }
+        app.getBookPeople();
+        queryFirstCategory();
+        querySecondCategoryList();
+        queryMenuCategory();
+    </script>
+
+</body>
+
+</html>

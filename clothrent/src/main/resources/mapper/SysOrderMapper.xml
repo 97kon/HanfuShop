@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clothrent.mapper.SysOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.clothrent.entity.SysOrder">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="state" property="state" />
+        <result column="price" property="price" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="saler_id" property="salerId" />
+        <result column="saler_name" property="salerName" />
+        <result column="user_address_id" property="userAddressId" />
+        <result column="address" property="address" />
+        <result column="express_num" property="expressNum" />
+        <result column="refuse_desc" property="refuseDesc" />
+        <result column="remark" property="remark" />
+        <result column="field0" property="field0" />
+        <result column="field1" property="field1" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, state, saler_id,saler_name,price, user_id, user_name, user_address_id, address, express_num, refuse_desc, remark, field0, field1, create_time, update_time
+    </sql>
+
+</mapper>

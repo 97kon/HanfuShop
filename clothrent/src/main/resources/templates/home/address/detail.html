@@ -1,0 +1,398 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head th:replace="home/public/header::head(~{::title},~{::links},~{})">
+    <title>我的收货地址-云裳·汉服商城</title>
+    <links>
+        <link rel="stylesheet" href="/static/home/cart/css/base2.css">
+        <link rel="stylesheet" href="/static/home/cart/css/checkout.css">
+        <link rel="stylesheet" href="/static/common/plugs/layui/css/layui.css">
+        <link rel="stylesheet" href="/static/home/cart/css/modal.css">
+    </links>
+</head>
+
+<body>
+<style type="text/css">
+    .checkout-title {
+         margin-top: 0px;
+        position: relative;
+        margin-bottom: 41px;
+        text-align: center;
+    }
+
+    .layui-form-item {
+        margin-bottom: 30px;
+        clear: both;
+        *zoom: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: left;
+        width: 10%;
+        min-width: 110px;
+    }
+    .layui-form-item .layui-input-inline {
+        float: left;
+        width: 90%;
+    }
+
+    .layui-form-item .wrapper-item{
+        width:50%
+    }
+    .wrapper-item .layui-form-label {
+        float: left;
+        width: 30%;
+        min-width: 110px;
+    }
+    .wrapper-item .layui-input-inline {
+        float: left;
+        width: 60%;
+    }
+    .we-red{
+        color: red;
+    }
+    .shipping-method li {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px;
+        padding: 10px;
+        background: #fff;
+        border: 2px solid #e9e9e9;
+        font-size: 18px;
+        line-height: 26px;
+        text-align: center;
+        color: #999;
+        font-family: "Moderat";
+        cursor: pointer;
+    }
+    .shipping-method li img {
+       width: 130px;
+        height: 130px;
+    }
+
+    .cart-foot-wrap {
+        height: 54px;
+        line-height: 54px;
+        margin-top: -18px;
+        font-size: 18px;
+    }
+
+    .checkout-addr .next-btn-wrap {
+        padding: 0px 0;
+        border-top: 1px solid #e9e9e9;
+        text-align: center;
+    }
+    .breadcrumbs-area {
+        padding: 100px 0;
+        background: #f6f6f6 url(/static/common/images/meishi2.jpg) no-repeat scroll center center/cover;
+    }
+</style>
+
+    <div class="contact-wrapper">
+
+        <!-- Header Area Start Here -->
+        <div th:replace="home/public/header::headmenu"></div>
+        <!-- Header Area End Here -->
+
+        <!-- Breadcrumb Area Start Here -->
+        <div class="breadcrumbs-area position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="breadcrumb-content position-relative section-content">
+                            <h3 class="title-3">收货地址</h3>
+                            <ul>
+                                <li><a href="/home/index">首页</a></li>
+                                <li>收货地址</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End Here -->
+
+        <!-- cart main wrapper start -->
+        <div class="cart-main-wrapper  mb-no-text" style="min-height: 500px">
+            <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                    <symbol id="icon-add" viewBox="0 0 32 32">
+                        <title>add2</title>
+                        <path class="path1" d="M15 17h-13.664c-0.554 0-1.002-0.446-1.002-1 0-0.552 0.452-1 1.002-1h13.664v-13.664c0-0.554 0.446-1.002 1-1.002 0.552 0 1 0.452 1 1.002v13.664h13.664c0.554 0 1.002 0.446 1.002 1 0 0.552-0.452 1-1.002 1h-13.664v13.664c0 0.554-0.446 1.002-1 1.002-0.552 0-1-0.452-1-1.002v-13.664z"></path>
+                    </symbol>
+                    <symbol id="icon-ok" viewBox="0 0 39 32">
+                        <title>ok</title>
+                        <path class="path1" d="M14.084 20.656l-7.845-9.282c-1.288-1.482-3.534-1.639-5.016-0.351s-1.639 3.534-0.351 5.016l10.697 12.306c1.451 1.669 4.057 1.623 5.448-0.096l18.168-22.456c1.235-1.527 0.999-3.765-0.528-5.001s-3.765-0.999-5.001 0.528l-15.573 19.337z"></path>
+                    </symbol>
+                    <symbol id="icon-edit" viewBox="0 0 32 32">
+                        <title>edit</title>
+                        <path class="path1" d="M25.599 11.292l-4.892-4.892 3.825-3.825 4.892 4.892-3.825 3.825zM4.732 23.308l3.959 3.959-5.939 1.98 1.98-5.939zM10.666 26.225l-4.892-4.892 13.425-13.425 4.892 4.892-13.425 13.425zM31.687 6.713l-6.4-6.4c-0.417-0.417-1.091-0.417-1.508 0l-20.267 20.267c-0.114 0.115-0.191 0.25-0.242 0.393-0.003 0.009-0.012 0.015-0.015 0.025l-3.2 9.6c-0.128 0.383-0.029 0.806 0.257 1.091 0.203 0.204 0.476 0.313 0.754 0.313 0.112 0 0.227-0.017 0.337-0.054l9.6-3.2c0.011-0.003 0.017-0.013 0.027-0.016 0.142-0.052 0.276-0.128 0.39-0.242l20.267-20.267c0.417-0.416 0.417-1.091 0-1.508v0z"></path>
+                    </symbol>
+                    <symbol id="icon-del" viewBox="0 0 26 32">
+                        <title>delete</title>
+                        <path class="path1" d="M17.723 28c0.543 0 0.984-0.448 0.984-1v-12c0-0.552-0.441-1-0.984-1s-0.985 0.448-0.985 1v12c0 0.552 0.441 1 0.985 1v0zM7.877 28c0.543 0 0.984-0.448 0.984-1v-12c0-0.552-0.441-1-0.984-1s-0.985 0.448-0.985 1v12c0 0.552 0.441 1 0.985 1v0zM12.8 28c0.543 0 0.985-0.448 0.985-1v-12c0-0.552-0.441-1-0.985-1s-0.984 0.448-0.984 1v12c0 0.552 0.441 1 0.984 1v0zM23.631 4h-5.908v-2c0-1.104-0.882-2-1.969-2h-5.908c-1.087 0-1.969 0.896-1.969 2v2h-5.908c-1.087 0-1.969 0.896-1.969 2v2c0 1.104 0.882 2 1.969 2v18c0 2.208 1.765 4 3.939 4h13.784c2.174 0 3.938-1.792 3.938-4v-18c1.087 0 1.969-0.896 1.969-2v-2c0-1.104-0.882-2-1.969-2v0zM9.846 3c0-0.552 0.441-1 0.984-1h3.938c0.544 0 0.985 0.448 0.985 1v1h-5.908v-1zM21.662 28c0 1.104-0.882 2-1.969 2h-13.784c-1.087 0-1.97-0.896-1.97-2v-18h17.723v18zM22.646 8h-19.692c-0.543 0-0.985-0.448-0.985-1s0.441-1 0.985-1h19.692c0.543 0 0.984 0.448 0.984 1s-0.441 1-0.984 1v0z"></path>
+                    </symbol>
+                    <symbol id="icon-clock" viewBox="0 0 32 32">
+                        <title>clock</title>
+                        <path class="path1" d="M29.333 16c0-7.364-5.97-13.333-13.333-13.333s-13.333 5.97-13.333 13.333c0 7.364 5.97 13.333 13.333 13.333s13.333-5.97 13.333-13.333v0 0 0 0 0 0zM0 16c0-8.837 7.163-16 16-16s16 7.163 16 16c0 8.837-7.163 16-16 16s-16-7.163-16-16zM14.667 14.667v1.333h2.667v-10.667h-2.667v9.333zM24 18.667h1.333v-2.667h-10.667v2.667h9.333z"></path>
+                    </symbol>
+                </defs>
+            </svg>
+            <div class="container" id="app">
+                <div class="checkout-addr">
+
+                    <!--<div class="checkout-title">-->
+                        <!--<span>收货地址</span>-->
+                    <!--</div>-->
+                    <div class="addr-list-wrap">
+                        <div class="addr-list">
+                            <ul>
+                                <li v-for="(item,index) in filterAddress " :class="{'check':item.id==currenId}" @click="currenId = item.id">
+                                    <dl>
+                                        <dt >{{item.receiverName }}</dt>
+                                        <dd class="address" > {{ item.address}}</dd>
+                                        <dd class="tel" >{{ item.mobile}}</dd>
+                                    </dl>
+                                    <div class="addr-opration addr-edit">
+                                        <a href="javascript:;" class="addr-edit-btn" @click="update(item)">
+                                            <svg class="icon icon-edit" style="height: 20px">
+                                                <use xlink:href="#icon-edit"></use>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="addr-opration addr-del">
+                                        <a href="javascript:;" class="addr-del-btn" @click="del(item.id)">
+                                            <svg class="icon icon-del" style="height: 20px">
+                                                <use xlink:href="#icon-del"></use>
+                                            </svg>
+
+                                        </a>
+                                    </div>
+                                    <div class="addr-opration addr-set-default" v-if="item.isDefault!=1">
+                                        <a href="javascript:;" class="addr-set-default-btn" @click="setDefault(item.id)">
+                                            <i>设为默认</i>
+                                        </a>
+                                    </div>
+                                    <div class="addr-opration addr-default" v-if="item.isDefault==1">默认地址</div>
+                                </li>
+
+                                <li class="addr-new">
+                                    <div class="add-new-inner" @click="addAddress()">
+                                        <i class="icon-add">
+                                            <svg class="icon icon-add"><use xlink:href="#icon-add"></use></svg>
+                                        </i>
+                                        <p>添加新地址</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="shipping-addr-more">
+                            <!-- limitNum = addressList.length 这个方法和 @click="loadMore"是一样的
+                            这页面中 一律不要使用 this
+                            -->
+                            <a class="addr-more-btn up-down-btn" href="javascript:;"  @click="loadMore">
+                                more
+                                <i class="i-up-down">
+                                    <i class="i-up-down-l"></i>
+                                    <i class="i-up-down-r"></i>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!--模态框-->
+                <div class="md-modal modal-msg md-modal-transtion " id="showModal" :class="{'md-show': changeFlag}">
+                    <div class="md-modal-inner">
+                        <div class="md-content">
+                            <div class="confirm-tips">
+                                <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data">
+                                    <div class="layui-form-item">
+                                        <label for="receiverName" class="layui-form-label">
+                                            <span class="we-red">*</span>收货人
+                                        </label>
+                                        <div class="layui-input-inline"  >
+                                            <input type="text" id="receiverName" v-model="receiverName"  name="receiverName" required lay-verify="required"
+                                                   placeholder="请输入收货人" autocomplete="off"  class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label for="mobile" class="layui-form-label">
+                                            <span class="we-red">*</span>联系电话
+                                        </label>
+                                        <div class="layui-input-inline "  >
+                                            <input type="text"  id="mobile" v-model="mobile"  name="mobile" lay-verify="required"
+                                                   placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label for="postCode" class="layui-form-label">
+                                            <span class="we-red">*</span>邮编
+                                        </label>
+                                        <div class="layui-input-inline "  >
+                                            <input type="text"  id="postCode" v-model="postCode" name="postCode" lay-verify="required"
+                                                   placeholder="请输入邮编" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label for="address" class="layui-form-label">
+                                            <span class="we-red">*</span>配送地址
+                                        </label>
+                                        <div class="layui-input-inline "  >
+                                            <input type="text"  id="address" v-model="address" name="address" lay-verify="required"
+                                                   placeholder="请输入配送地址" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="btn-wrap ">
+                                <button class="btn btn--m" id="btnModalConfirm" @click=" saveUpdate()"> 确定</button>
+                                <button class="btn btn--m  btn--red" id="btnModalCancel" @click=" changeFlag = false" > 取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--遮罩层-->
+                <div class="md-overlay" id="showOverLay" v-if=" changeFlag"></div>
+
+            </div>
+        </div>
+
+
+
+        <!-- Footer Area Start Here -->
+        <footer th:replace="home/public/footer::footer"></footer>
+        <!-- Footer Area End Here -->
+
+    </div>
+    <script src="/static/home/cart/js/vue2.min.js"></script>
+    <script src="/static/home/cart/js/vue-resource.min.js"></script>
+<script type="text/javascript">
+    var userId='[[${session?.user?.id}]]';
+    if(userId==''||userId=="null"||userId=="undefined"){
+        window.location.href="/home/login";
+    }
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            addressList:[],     // 定义新的数组
+            cartList:[],     // 被选中的购物车数组
+            totalMoney:0,     // 被选中的购物车数组--总金额
+            limitNum: 5,        //定义当前显示的条数
+            currenId:0,      //
+            id:"",      //
+            receiverName:"",      //
+            mobile:"",      //
+            postCode:"",      //
+            address:"",      //
+            changeFlag:false,      // 是否添加或修改地址 ，默认false
+            shippingMethod:  1   //
+        },
+        filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
+            formatMoney:function (value) { // 默认接收一个参数
+                return "¥ " + value.toFixed(2) +" 元"; // 返回一个¥ 加上2位小数
+            }
+        },
+        computed:{ // 数组过滤器
+            filterAddress:function () {
+                // slice() 返回一个全新的数组 和 之前的数组没有关系
+                return this.addressList.slice(0,this.limitNum); //分隔数组前3个
+            }
+        },
+        mounted:function () { // 钩子函数
+            this.$nextTick(function () {
+                this.getAddressList();
+            })
+        },
+        methods:{
+            // 页面刚开始加载 请求的数据
+            getAddressList:function () {
+                var _this = this;
+                this.$http.get("/home/userAddress/list?userId="+userId).then(function (response) {
+                    console.log(response);
+                    _this.addressList = response.body.data.rows;
+                    _this.currenId=_this.addressList[0].id;
+                    console.log("当前默认选中收货地址id：",_this.currenId)
+                });
+            },
+
+            // 点击更多的方法
+            loadMore:function () {
+                if(this.limitNum==5){
+                    this.limitNum = this.addressList.length;
+                }else{
+                    this.limitNum = 5;
+                }
+
+            },
+            // 点击设置为默认地址
+            setDefault:function (addressId) {
+                var _this = this;
+                _this.addressList.forEach(function (item,index) {
+                    if(item.id == addressId){
+                        item.isDefault = 1;
+                    }else {
+                        item.isDefault = 0;
+                    }
+                });
+                this.$http.post("/home/userAddress/updateDefault?id="+addressId+"&userId="+userId).then(function (res) {
+                    console.log("更新默认地址结果为：",res)
+                })
+            },
+            addAddress:function () {
+                this.changeFlag=true;
+                this.receiverName="";
+                this.mobile="";
+                this.postCode="";
+                this.address="";
+            },
+            update:function(item){
+                this.id=item.id;
+                this.receiverName=item.receiverName;
+                this.mobile=item.mobile;
+                this.postCode=item.postCode;
+                this.address=item.address;
+                this.changeFlag=true;
+            },
+            del:function(id){
+                let data="idList="+id;
+                this.$http.post("/home/userAddress/delete?"+data).then(function (res) {
+                    console.log("删除结果为：",res);
+                    this.$http.get("/home/userAddress/list?userId="+userId).then(function (response) {
+                        console.log("重新获取地址结果为：",response);
+                        this.addressList = response.body.data.rows;
+                    });
+                })
+            },
+            saveUpdate:function () {
+                let data="receiverName="+this.receiverName+"&mobile="+this.mobile+"&postCode="+this.postCode+"&address="+this.address+"&id="+this.id;
+                this.$http.post("/home/userAddress/saveOrUpdate?"+data).then(function (res) {
+                    console.log("添加或更新地址结果为：",res);
+                    this.$http.get("/home/userAddress/list?userId="+userId).then(function (response) {
+                        console.log("重新获取地址结果为：",response);
+                        this.addressList = response.body.data.rows;
+                    });
+                    this.id="";
+                    this.receiverName="";
+                    this.mobile="";
+                    this.postCode="";
+                    this.address="";
+                    this.changeFlag=false;
+                })
+
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head th:replace="home/public/header::head(~{::title},~{::links},~{})">
+    <title>商品详情-云裳·汉服商城</title>
+    <links>
+        <link rel="stylesheet" href="/static/home/cart/css/base2.css">
+        <link rel="stylesheet" href="/static/home/cart/css/checkout.css">
+        <link rel="stylesheet" href="/static/home/cart/css/modal.css">
+    </links>
+</head>
+
+<body>
+<style type="text/css">
+    .breadcrumbs-area {
+        padding: 100px 0;
+        background: #f6f6f6 url(/static/common/images/hanfu4.jpeg) no-repeat scroll center center/cover;
+    }
+    .cart-item-list .cart-item-title {
+         min-height: 58px;
+         padding: 20px 20px 0 160px;
+     }
+    input[type="checkbox"] {
+        display: inline-block;
+    }
+</style>
+
+    <div class="contact-wrapper">
+
+        <!-- Header Area Start Here -->
+        <div th:replace="home/public/header::headmenu"></div>
+        <!-- Header Area End Here -->
+
+
+        <!-- Breadcrumb Area Start Here -->
+        <div class="breadcrumbs-area position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="breadcrumb-content position-relative section-content">
+                            <h3 class="title-3">购物车</h3>
+                            <ul>
+                                <li><a href="/home/index">首页</a></li>
+                                <li>购物车</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End Here -->
+        <!-- cart main wrapper start -->
+        <div class="cart-main-wrapper  mb-no-text" style="min-height: 500px">
+
+            <div id="app">
+
+                <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <symbol id="icon-add" viewBox="0 0 32 32">
+                            <title>add2</title>
+                            <path class="path1" d="M15 17h-13.664c-0.554 0-1.002-0.446-1.002-1 0-0.552 0.452-1 1.002-1h13.664v-13.664c0-0.554 0.446-1.002 1-1.002 0.552 0 1 0.452 1 1.002v13.664h13.664c0.554 0 1.002 0.446 1.002 1 0 0.552-0.452 1-1.002 1h-13.664v13.664c0 0.554-0.446 1.002-1 1.002-0.552 0-1-0.452-1-1.002v-13.664z"></path>
+                        </symbol>
+                        <symbol id="icon-ok" viewBox="0 0 39 32">
+                            <title>ok</title>
+                            <path class="path1" d="M14.084 20.656l-7.845-9.282c-1.288-1.482-3.534-1.639-5.016-0.351s-1.639 3.534-0.351 5.016l10.697 12.306c1.451 1.669 4.057 1.623 5.448-0.096l18.168-22.456c1.235-1.527 0.999-3.765-0.528-5.001s-3.765-0.999-5.001 0.528l-15.573 19.337z"></path>
+                        </symbol>
+                        <symbol id="icon-edit" viewBox="0 0 32 32">
+                            <title>edit</title>
+                            <path class="path1" d="M25.599 11.292l-4.892-4.892 3.825-3.825 4.892 4.892-3.825 3.825zM4.732 23.308l3.959 3.959-5.939 1.98 1.98-5.939zM10.666 26.225l-4.892-4.892 13.425-13.425 4.892 4.892-13.425 13.425zM31.687 6.713l-6.4-6.4c-0.417-0.417-1.091-0.417-1.508 0l-20.267 20.267c-0.114 0.115-0.191 0.25-0.242 0.393-0.003 0.009-0.012 0.015-0.015 0.025l-3.2 9.6c-0.128 0.383-0.029 0.806 0.257 1.091 0.203 0.204 0.476 0.313 0.754 0.313 0.112 0 0.227-0.017 0.337-0.054l9.6-3.2c0.011-0.003 0.017-0.013 0.027-0.016 0.142-0.052 0.276-0.128 0.39-0.242l20.267-20.267c0.417-0.416 0.417-1.091 0-1.508v0z"></path>
+                        </symbol>
+                        <symbol id="icon-del" viewBox="0 0 26 32">
+                            <title>delete</title>
+                            <path class="path1" d="M17.723 28c0.543 0 0.984-0.448 0.984-1v-12c0-0.552-0.441-1-0.984-1s-0.985 0.448-0.985 1v12c0 0.552 0.441 1 0.985 1v0zM7.877 28c0.543 0 0.984-0.448 0.984-1v-12c0-0.552-0.441-1-0.984-1s-0.985 0.448-0.985 1v12c0 0.552 0.441 1 0.985 1v0zM12.8 28c0.543 0 0.985-0.448 0.985-1v-12c0-0.552-0.441-1-0.985-1s-0.984 0.448-0.984 1v12c0 0.552 0.441 1 0.984 1v0zM23.631 4h-5.908v-2c0-1.104-0.882-2-1.969-2h-5.908c-1.087 0-1.969 0.896-1.969 2v2h-5.908c-1.087 0-1.969 0.896-1.969 2v2c0 1.104 0.882 2 1.969 2v18c0 2.208 1.765 4 3.939 4h13.784c2.174 0 3.938-1.792 3.938-4v-18c1.087 0 1.969-0.896 1.969-2v-2c0-1.104-0.882-2-1.969-2v0zM9.846 3c0-0.552 0.441-1 0.984-1h3.938c0.544 0 0.985 0.448 0.985 1v1h-5.908v-1zM21.662 28c0 1.104-0.882 2-1.969 2h-13.784c-1.087 0-1.97-0.896-1.97-2v-18h17.723v18zM22.646 8h-19.692c-0.543 0-0.985-0.448-0.985-1s0.441-1 0.985-1h19.692c0.543 0 0.984 0.448 0.984 1s-0.441 1-0.984 1v0z"></path>
+                        </symbol>
+                        <symbol id="icon-clock" viewBox="0 0 32 32">
+                            <title>clock</title>
+                            <path class="path1" d="M29.333 16c0-7.364-5.97-13.333-13.333-13.333s-13.333 5.97-13.333 13.333c0 7.364 5.97 13.333 13.333 13.333s13.333-5.97 13.333-13.333v0 0 0 0 0 0zM0 16c0-8.837 7.163-16 16-16s16 7.163 16 16c0 8.837-7.163 16-16 16s-16-7.163-16-16zM14.667 14.667v1.333h2.667v-10.667h-2.667v9.333zM24 18.667h1.333v-2.667h-10.667v2.667h9.333z"></path>
+                        </symbol>
+                    </defs>
+                </svg>
+
+
+                <div class="container">
+                    <div >
+                        <!--商品信息-->
+                        <div class="item-list-wrap">
+                            <div class="cart-item">
+                                <div class="cart-item-head">
+                                    <ul>
+                                        <li>商品信息</li>
+                                        <li>商品金额</li>
+                                        <li>商品尺码</li>
+                                        <li>商品数量</li>
+                                        <li>总金额</li>
+                                        <li>编辑</li>
+                                    </ul>
+                                </div>
+                                <!--商品列表信息-->
+
+                                <ul class="cart-item-list">
+                                    <li v-for="(item,index) in cartList"> <!--item of cartList 这两个是一样的-->
+                                        <!--
+                                        这块的 index 是让自己知道
+                                        这块的index 是表示索引的值 和 js原声的 forEach(function(value,index){ }) 是一样的
+                                        jq的 $.each(function(index ,value ){ }) 和它们是相反的
+                                        -->
+                                        <div class="cart-tab-1">
+                                            <div class="cart-item-check">
+                                                <!--v-bind:class="" 里面一定是 一个对象或者是数组的形式
+                                                 v-bind:class="{ }"  v-bind:class="[ ]"
+                                                 -->
+                                                <a href="javascript:;" class="item-check-btn" v-bind:class="{'check':item.checked} " @click="selectedProduct(item)">
+                                                    <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
+                                                </a>
+                                            </div>
+                                            <!--图片-->
+                                            <div class="cart-item-pic">
+                                                <img  v-bind:src="'/file/fileDown?saveName='+item.field1" alt="">
+                                                <!--<img src="{{item.productImage}}" alt=""> 会在浏览器加载时 vue实例没有渲染完是，把它当作图片路径来加载-->
+                                            </div>
+                                            <!--图片后面的文字-->
+                                            <div class="cart-item-title">
+                                                <div class="item-name">
+                                                    {{ item.goodsName }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--第二列-->
+                                        <div class="cart-tab-2">
+                                            <!-- 过滤器的使用方法 | 加方法 -->
+                                            <div class="item-price"> {{ item.price | formatMoney }}</div>
+                                        </div>
+                                        <!--第四列-->
+                                        <div class="cart-tab-3" style="width: 5%;padding-top: 64px">
+                                            <!-- 总金额是当前的单价乘以商品总数-->
+                                            <div class="item-price-total">{{item.clothSize}}</div>
+
+                                        </div>
+                                        <!--第三列-->
+                                        <div class="cart-tab-4" style="padding-top: 58px">
+                                            <div class="item-quantity">
+                                                <div class="select-self select-self-open">
+                                                    <div class="quentity">
+                                                        <!-- 绑定事件 v-on：click 也可以 @click
+                                                        调用方法的同时 我们需要把商品的对象传递过去 item
+                                                         第二个参数 -1 减 1 加
+                                                        -->
+                                                        <a href="javascript:;" v-on:click=" changeMoney(item,-1)" style="padding: 0.5em 10px;border: 1px solid #e9e9e9"> - </a>
+                                                        <!--文本框 放入当前商品数量 v-model   -->
+                                                        <input type="text" disabled v-model="item.number" style="width:50px">
+                                                        <a href="javascript:; " @click=" changeMoney(item,1) " style="padding: 0.5em 10px;border: 1px solid #e9e9e9"> + </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--第四列-->
+                                        <div class="cart-tab-4">
+                                            <!-- 总金额是当前的单价乘以商品总数-->
+                                            <div class="item-price-total">{{item.price*item.number | formatMoney}}</div>
+
+                                        </div>
+
+                                        <!--第五列-->
+                                        <div class="cart-tab-5" style="width: 50px">
+                                            <div class="cart-item-opration">
+                                                <a href="javascript:;" class="item-edit-btn" @click="delConfirm(item)">
+                                                    <svg class="icon icon-del"><use xlink:href="#icon-del"></use></svg>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--footer-->
+                        <div class="cart-foot-wrap">
+                            <!--footer 左边的-->
+                            <div class="cart-foot-l">
+                                <div class="item-all-check">
+                                    <a href="javascript:;">
+                                        <!--v-bind:class 的简写  :class-->
+                                        <span class="item-check-btn" :class="{'check': checkAllFlag}" @click="checkAll(true)">
+                                            <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
+                                        </span>
+                                        <span @click="checkAll(true)"> 全选 </span>
+                                    </a>
+                                </div>
+                                <div class="item-all-del">
+                                    <a href="javascript:;" @click="checkAll(false)"> 取消全选</a>
+                                </div>
+                                <div class="item-all-del">
+                                        <input type="checkbox" name="ifSend" id="ifSend"  v-model="ifSend" title="是否到店自提"/>
+                                        <span>是否到店自提</span>
+                                </div>
+                            </div>
+                            <!--footer 右边的-->
+                            <div class="cart-foot-r">
+                                <div class="item-total">
+                                    总价：<span class="total-price"> {{ totalMoney }}</span>
+                                </div>
+                                <div  class="next-btn-wrap">
+                                    <a href="javascript:;" @click="commitOrder()" class="btn btn--red" > 提交订单 </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--模态框-->
+                <div class="md-modal modal-msg md-modal-transtion " id="showModal" :class="{'md-show': delFlag}">
+                    <div class="md-modal-inner">
+                        <div class="md-top">
+                            <button class="md-close" @click="delFlag= false"> 关闭 </button>
+                        </div>
+                        <div class="md-content">
+                            <div class="confirm-tips">
+                                <p id="cusLanInfo" lan="Cart.Del.Confirm">你确认删除此订单信息吗?</p>
+                            </div>
+                            <div class="btn-wrap ">
+                                <button class="btn btn--m" id="btnModalConfirm" @click=" delProduct()"> YES</button>
+                                <button class="btn btn--m  btn--red" id="btnModalCancel" @click=" delFlag = false" > NO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--遮罩层-->
+                <div class="md-overlay" id="showOverLay" v-if=" delFlag"></div>
+            </div>
+        </div>
+
+
+        <!-- Footer Area Start Here -->
+        <footer th:replace="home/public/footer::footer"></footer>
+        <!-- Footer Area End Here -->
+
+    </div>
+    <script src="/static/home/cart/js/vue2.min.js"></script>
+    <script src="/static/home/cart/js/vue-resource.min.js"></script>
+<script type="text/javascript">
+    var userId='[[${session?.user?.id}]]';
+    layui.use(['form', 'layer'], function () {
+        var form = layui.form,
+            layer = layui.layer;
+    })
+    var vm = new Vue({
+        el:'#app' , // 构造参数，实例需要监听的模型范围，对象 #app 下的任何元素都可以背vue操控
+        data:{      // data 重点 vue的模型
+            totalMoney:0,         // 总金额
+            cartList:[],       // 定义一个数组
+            ifSend:0,
+            checkAllFlag:false,   // 定义是否全选
+            curProduct:'',        // 保存删除的商品信息
+            delFlag:false         // 默认弹出框为false
+        },
+        filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
+            formatMoney:function (value) { // 默认接收一个参数
+                return "¥ " + value.toFixed(2) +" 元"; // 返回一个¥ 加上2位小数
+            }
+        },
+        // 这个方法就相当于jq的ready()方法
+        mounted:function () { //生命周期的一部分，在实例化创建完成后，需要查询某一个方法 需要定义一个mounted 方法
+            this.$nextTick(function () {  // 代码保证 this.$el 在 document 中
+                this.cartView();
+                // 也可以使用 vm.cartView();
+            });
+        },
+        methods:{   // 所有事件的绑定都会在 methods 中定义
+            // cartView() 请求当前的商品的信息
+            cartView:function () {
+                // 通过this 来调用这个 http方法
+                // 通过.then 方法来接受回调  res 就是我们最终拿到的结果
+                // 这个也是可以传递参数的
+                var _this = this;
+                this.$http.get("/home/cart/list?userId="+userId).then(function (res) {
+                    // 这块的 body里面是我们要用的数据 这是vue-resource 插件封装好的
+                    console.log(res);
+                    _this.cartList = res.body.data.rows;
+                    // _this.totalMoney = res.body.result.totalMoney;
+                })
+                /**
+                 ES 6 语法
+                 let _this = this;
+                 this.$http.get("data/cartData.json",{"id":123}).then(res=>{ // 这块的=>就表示的是一个function { }里面就相当与函数体
+                this.cartList = res.body.result.list;  // 好处是 不用吧this 声明到外边来 里面的作用域和外面的作用域是一样的
+                this.totalMoney = res.body.result.totalMoney;
+             })
+                 * */
+            },
+            // 点击 加减 的方法
+            changeMoney:function (product, way) {
+                if( way >0 ){ //当 way>0 就是点击的 +
+                    product.number++; // 数量增加  就相当于 item 的productQuentity
+                }else {
+                    product.number--; // 否则数量减少
+                    if(product.number <1 ){ //
+                        product.number =1;
+                    }
+                }
+                // 更新购物车对应数量
+                this.$http.post("/home/cart/edit?id="+product.id+"&number="+product.number).then(function (res) {
+                    // 这块的 body里面是我们要用的数据 这是vue-resource 插件封装好的
+                    console.log("更新购物车数量结果为：",res);
+                });
+                this.caleTotalPrice();
+            },
+            //如何让Vue 监听一个不存在的变量 单选操作
+            selectedProduct:function (item) { // 接收的参数
+                if( typeof item.checked == 'undefined'){ // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
+                    /**
+                     * 两种全局注册和局部注册  让vue 来监听
+                     * 第一个参数 要添加的对象
+                     * 第二个参数 添加的变量
+                     * 第三个参数 添加的值是什么
+                     * 意思是我们通过 Vue全局注册 往item变量中注册一个checked 属性 它的值是 true
+                     *
+                     * this.$set(item,"checked",true)  局部注册
+                     */
+                    Vue.set(item,"checked",true);
+                }else {
+                    item.checked = !item.checked;
+                }
+                this.caleTotalPrice();
+            },
+            // 定义全选 函数
+            checkAll:function (flag) {
+                this.checkAllFlag = flag ;
+                var _this = this;
+                this.cartList.forEach(function (item,index) { // 用forEach来遍历 cartList
+                    if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
+                        Vue.set(item,"checked",_this.checkAllFlag);  // 没有 先注册
+                    }else {
+                        item.checked = _this.checkAllFlag;
+                    }
+                });
+                this.caleTotalPrice();
+            },
+            // 计算选中商品的总价
+            caleTotalPrice:function () {
+                var _this = this;
+                this.totalMoney = 0;
+                this.cartList.forEach(function (item,index) {
+                    if(item.checked){
+                        _this.totalMoney += item.price * item.number;
+                    }
+                });
+            },
+            // 点击删除 出现弹框
+            delConfirm:function (item) {
+                this.delFlag = true;
+                this.curProduct = item; // 保存当前删除的对象
+            },
+            // 提交订单
+            commitOrder:function(){
+                // 带上当前选择的购物车商品信息
+                let checkedId="";
+                this.cartList.forEach(function (item,index) {
+                    if(item.checked){
+                        checkedId=checkedId+item.id+",";
+                    }
+                });
+                if(checkedId==""){
+                    layer.msg("请选中某个商品！", {icon: 2, time: 1500});
+                    return false;
+                }
+                window.location.href="/home/order/commitPage?userId="+userId+"&cartIdList="+checkedId+"&ifSend="+this.ifSend;
+            },
+            // 点击弹框里面的 ok 确认删除
+            delProduct:function () {
+                // 通过indexof 来搜索当前选中的商品 找到索引 index
+                var index = this.cartList.indexOf(this.curProduct);
+                this.$http.get("/home/cart/delete?idList="+this.curProduct.id).then(function (res) {
+                    // 这块的 body里面是我们要用的数据 这是vue-resource 插件封装好的
+                    console.log(res);
+                })
+                // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
+                this.cartList.splice(index ,1);// 从当前索引开始删，删除一个元素
+                this.delFlag = false; // 删除后 弹框消失
+            }
+        }
+    });
+    /**
+     *  定义全局的 过滤器
+     *  第一个参数 函数名 第二个参数 回调
+     *
+     *  Vue.filter("money",function (value) {
+
+  })
+     */
+
+
+</script>
+
+</body>
+
+</html>

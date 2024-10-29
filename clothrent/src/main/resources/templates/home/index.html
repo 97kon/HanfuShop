@@ -1,0 +1,467 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head th:replace="home/public/header::head(~{::title},~{},~{})">
+    <title>首页-云裳·汉服商城</title>
+</head>
+
+<body>
+<style type="text/css">
+    .slide-1 {
+        background-image: url(/static/common/images/hanfu10.jpg);
+        background-color: rgba(215, 177, 190, 0.9);
+    }
+
+    .slide-2 {
+        background-image: url(/static/common/images/hanfu8.jpg);
+        background-color: rgba(215, 177, 190, 0.9);
+    }
+
+    .slide-3 {
+        background-image: url(/static/common/images/hanfu2.jpg);
+        background-color: rgba(215, 177, 190, 0.9);
+    }
+    .slide-4 {
+        background-image: url(/static/common/images/hanfu1.jpg);
+
+        background-color: rgba(215, 177, 190, 0.9);
+    } .slide-5 {
+          background-image: url(/static/common/images/hanfu16.jpg);
+
+          background-color: rgba(215, 177, 190, 0.9);
+      }
+
+
+
+
+
+    input::-webkit-input-placeholder {
+        color: #aab2bd;
+        font-size: 20px;
+        text-align: center;
+    }
+    .mylist-top-search{
+        position: relative;
+        padding:50px 20%;
+        width: 100%;
+        background-color: rgba(215, 225, 239, 0.4);
+
+    }
+    .mylist-top-search input{
+        width: 100%;
+        height: 50px;
+        border: 2px solid #c1c2cf;
+        /*border-radius: 20px;*/
+    }
+    /*.mylist-top-search input,i{*/
+        /*height: 50px;*/
+    /*}*/
+
+
+    .my-search-icon{
+        position: absolute;
+        right: 21%;
+        font-size: 40px;
+        cursor: pointer;
+        color: rgba(173, 183, 191, 0.75);
+        line-height: 40px;
+    }
+    .multi-line1 {
+        min-height: 1em;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-overflow: clip;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+    .product-image{
+        border: 1px solid #efedee;
+    }
+    .fixDiv{
+        position: absolute;
+        top: 47%;
+        z-index: 800;
+        width: 80%;
+        margin: 0 10%;
+        height: 100px;background-color: rgba(230, 230, 230, 0.51);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    li div.product-image{
+        overflow: hidden;
+    }
+    li div.product-image img{
+        transition: all 0.6s;
+    }
+    li div.product-image img:hover{
+        transform: scale(1.2);
+    }
+    @media (min-width: 1200px){
+        .col-xl-20 {
+            flex: 0 0 auto;
+            width: 20%;
+        }
+    }
+    @media (min-width: 1800px){
+        .col-xl-16 {
+            flex: 0 0 auto;
+            width: 16.666667%;
+        }
+    }
+
+    .multi-line2 {
+        min-height: 2em;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: clip;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+</style>
+
+
+<div class="home-wrapper home-1">
+    <!-- Header Area Start Here -->
+    <div th:replace="home/public/header::headmenu"></div>
+    <!-- Begin Slider Area One -->
+    <div class="slider-area">
+        <div class="fixDiv" >
+            <div class="mylist-top-search">
+                <input type="text"   name="goodsName" style="padding-left: 1%" id="goodsName" autocomplete="off" placeholder="请输入查询的商品名称"/>
+                <!--<i class="layui-icon layui-icon-search my-search-icon"  @click="searchList()" ></i>-->
+                <i class="ion-search my-search-icon" th:onclick="searchList()"></i>
+            </div>
+        </div>
+        <div class="obrien-slider arrow-style" data-slick-options='{
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "infinite": true,
+        "arrows": true,
+        "dots": true,
+        "autoplay" : true,
+        "fade" : true,
+        "autoplaySpeed" : 7000,
+        "pauseOnHover" : false,
+        "pauseOnFocus" : false
+        }' data-slick-responsive='[
+        {"breakpoint":992, "settings": {
+        "slidesToShow": 1,
+        "arrows": false,
+        "dots": true
+        }}
+        ]'>
+
+            <div class="slide-item slide-1 bg-position slide-bg-1 animation-style-01">
+                <div class="slider-content">
+                </div>
+            </div>
+            <div class="slide-item slide-2 bg-position slide-bg-1 animation-style-01">
+                <div class="slider-content">
+                </div>
+            </div>
+
+
+            <div class="slide-item slide-3 bg-position slide-bg-1 animation-style-01">
+                <div class="slider-content">
+                </div>
+            </div>
+            <div class="slide-item slide-4 bg-position slide-bg-1 animation-style-01">
+                <div class="slider-content">
+                </div>
+            </div>
+            <div class="slide-item slide-5 bg-position slide-bg-1 animation-style-01">
+                <div class="slider-content">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Banner Area End Here -->
+
+
+
+
+    <div class="product-area mt-text mb-text-p">
+        <div class="container container-default custom-area">
+            <div class="row">
+                <div class="col-lg-5 m-auto text-center col-custom">
+                    <div class="section-content">
+                        <h2 class="title-1 text-uppercase">畅销商品
+                            <span style="font-size: 22px;color: #b1b1b1;margin:0 0.2rem">/</span>
+                            <a style="font-size: 22px;color: #b1b1b1;" href="/home/goods/homeListPage">更多</a>
+
+                        </h2>
+                        <div class="desc-content">
+                            <p>所有畅销产品现在都为您提供，您可以在任何时间、任何地点购买该产品</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <ul style="display: flex;align-items: flex-start;flex-wrap: wrap;height: 640px;overflow-y: hidden">
+                    <li th:each="item : ${goodsList}" class="col-xl-16 col-xl-20 col-lg-3 col-md-3 col-sm-3" style="padding: 10px 20px;margin-bottom: 40px">
+                        <div class="product-image">
+                            <a class="d-block" th:href="@{/home/goods/detail/}+${item.id}">
+                                <img style="height: 200px"  th:src="@{${'/file/fileDown?saveName='+item.goodsPic1}}" alt="" class="product-image-1 w-100">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <div class="price-box" style="font-size: 1.2rem;color: #e4393c">
+                                <span class="regular-price ">￥[[${item.price}]]</span>
+                            </div>
+                            <div class="product-title">
+                                <p class="title-2 multi-line1">
+                                    [[${item.name}]]
+                                </p>
+                                <!--<h4 class="title-2"> <a th:href="@{/home/goods/detail/}+${item.id}">[[${item.name}]]</a></h4>-->
+                            </div>
+                        </div>
+                        <div class="add-action d-flex position-absolute" style="display: flex;justify-content: space-between;margin-top: 1rem">
+                            <a href="javascript:;" th:onclick="addCart([[${item.id}]],1)" title="添加购物车" style="margin-right: 15px">
+                                <i class="ion-bag" style="font-style: normal;">添加购物车</i>
+                            </a>
+                            <a href="javascript:;" th:onclick="immediateOrder([[${item.id}]],1)" title="立即购买">
+                                <i class="ion-eye" style="font-style: normal;">立即购买</i>
+                            </a>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Product Area End Here -->
+
+    <div class="product-area mt-text mb-text-p">
+        <div class="container container-default custom-area">
+            <div class="row">
+                <div class="col-lg-5 m-auto text-center col-custom">
+                    <div class="section-content">
+                        <h2 class="title-1 text-uppercase">最近上架
+                            <span style="font-size: 22px;color: #b1b1b1;margin:0 0.2rem">/</span>
+                            <a style="font-size: 22px;color: #b1b1b1;" href="/home/goods/homeListPage?type=1">更多</a>
+                        </h2>
+                        <div class="desc-content">
+                            <p>醉后不知天在水，满船清梦压星河</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <ul style="display: flex;align-items: flex-start;flex-wrap: wrap;height: 320px;overflow-y: hidden">
+                    <li th:each="item : ${goodsListNew}" class="col-xl-16 col-xl-20 col-lg-3 col-md-3 col-sm-3" style="padding: 10px 20px;margin-bottom: 40px">
+                        <div class="product-image">
+                            <a class="d-block" th:href="@{/home/goods/detail/}+${item.id}+'?type=1'">
+                                <img style="height: 200px"  th:src="@{${'/file/fileDown?saveName='+item.goodsPic1}}" alt="" class="product-image-1 w-100">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <div class="price-box" style="font-size: 1.2rem;color: #e4393c">
+                                <span class="regular-price ">￥[[${item.price}]]</span>
+                            </div>
+                            <div class="product-title">
+                                <p class="title-2 multi-line2">
+                                    [[${item.name}]]
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="product-area mt-text mb-text-p">
+        <div class="container container-default custom-area">
+            <div class="row">
+                <div class="col-lg-5 m-auto text-center col-custom">
+                    <div class="section-content">
+                        <h2 class="title-1 text-uppercase">猜你喜欢
+                            <span style="font-size: 22px;color: #b1b1b1;margin:0 0.2rem">/</span>
+                            <a style="font-size: 22px;color: #b1b1b1;" href="/home/goods/homeListPage">更多</a>
+                        </h2>
+                        <div class="desc-content">
+                            <p>你所向往的，你所追求的，你所期盼的，你所渴望的......</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <ul style="display: flex;align-items: flex-start;flex-wrap: wrap;height: 320px;overflow-y: hidden">
+                    <li th:each="item : ${recommendList}" class="col-xl-16 col-xl-20 col-lg-3 col-md-3 col-sm-3" style="padding: 10px 20px;margin-bottom: 40px">
+                        <div class="product-image">
+                            <a class="d-block" th:href="@{/home/goods/detail/}+${item.id}+'?type=2'">
+                                <img style="height: 200px"  th:src="@{${'/file/fileDown?saveName='+item.goodsPic1}}" alt="" class="product-image-1 w-100">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <div class="price-box" style="font-size: 1.2rem;color: #e4393c">
+                                <span class="regular-price ">￥[[${item.price}]]</span>
+                            </div>
+                            <div class="product-title">
+                                <p class="title-2 multi-line2">
+                                    [[${item.name}]]
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Call To Action Area Start Here -->
+    <div class="call-to-action-area mb-text">
+        <div class="container container-default custom-area">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-custom">
+                    <div class="call-to-action-item mt-0 d-lg-flex d-md-block align-items-center">
+                        <div class="call-to-action-icon">
+                            <img src="/static/assets/images/icons/icon-1.png" alt="Icon">
+                        </div>
+                        <div class="call-to-action-info">
+                            <h3 class="action-title">免费送货上门</h3>
+                            <p class="desc-content">为超过100元的所有产品提供免费送货上门服务</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-custom">
+                    <div class="call-to-action-item d-lg-flex d-md-block align-items-center">
+                        <div class="call-to-action-icon">
+                            <img src="/static/assets/images/icons/icon-2.png" alt="Icon">
+                        </div>
+                        <div class="call-to-action-info">
+                            <h3 class="action-title">品质保证</h3>
+                            <p class="desc-content">我们始终确保产品质量</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-custom">
+                    <div class="call-to-action-item d-lg-flex d-md-block align-items-center">
+                        <div class="call-to-action-icon">
+                            <img src="/static/assets/images/icons/icon-3.png" alt="Icon">
+                        </div>
+                        <div class="call-to-action-info">
+                            <h3 class="action-title">在线支持</h3>
+                            <p class="desc-content">为了让客户满意，我们尝试在线提供支持</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer Area Start Here -->
+    <footer th:replace="home/public/footer::footer"></footer>
+    <!-- Footer Area End Here -->
+</div>
+
+<!-- Scroll to Top Start -->
+<a class="scroll-to-top" href="#">
+    <i class="ion-chevron-up"></i>
+</a>
+<!-- Scroll to Top End -->
+
+<!-- JS
+============================================ -->
+
+<!-- jQuery JS -->
+<script src="/static/assets/js/vendor/jquery-3.5.1.min.js"></script>
+<!-- jQuery Migrate JS -->
+<script src="/static/assets/js/vendor/jQuery-migrate-3.3.0.min.js"></script>
+<!-- Modernizer JS -->
+<script src="/static/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/static/assets/js/vendor/bootstrap.bundle.min.js"></script>
+<!-- Slick Slider JS -->
+<script src="/static/assets/js/plugins/slick.min.js"></script>
+<!-- Countdown JS -->
+<script src="/static/assets/js/plugins/jquery.countdown.min.js"></script>
+<!-- Ajax JS -->
+<script src="/static/assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+<!-- Jquery Nice Select JS -->
+<script src="/static/assets/js/plugins/jquery.nice-select.min.js"></script>
+<!-- Jquery Ui JS -->
+<script src="/static/assets/js/plugins/jquery-ui.min.js"></script>
+<!-- jquery magnific popup js -->
+<script src="/static/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+<!-- Main JS -->
+<script src="/static/assets/js/main.js"></script>
+
+</body>
+<script type="text/javascript">
+
+    var userId='[[${session?.user?.id}]]';
+
+    function searchList() {
+        var goodsName = $("#goodsName").val();
+        window.location.href="/home/goods/homeListPage?name="+goodsName;
+
+    }
+
+    function addCart(goodsId,number){
+        if(number>99){
+            layer.msg("最大订购99件！", {icon: 2, time: 1500});
+            $("#number").val(99);
+            return false;
+        }
+        if(!userId||userId==''||userId=='null'||userId=='undefined'){
+            layer.msg("请先登录！", {icon: 2, time: 1500},function () {
+                window.location.href="/home/login";
+            });
+            return false;
+        }
+        $.ajax({
+            url: "/home/cart/add",
+            type: "post",
+            data: {"userId":userId,"goodsId":goodsId,"number":number},
+            processData: true,
+            contentType: 'application/x-www-form-urlencoded',
+            beforeSend: function(){
+                //返回的参数item，即为当前的input DOM对象
+                index = layer.load(1,{shade: [0.3,'grey']});
+            },
+            success: function (res) {
+                //关闭遮罩层
+                layer.close(index);
+                if (res.success == true) {
+                    layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                        window.location.href="/home/cart/detail?userId="+userId
+                    });
+                } else {
+                    layer.msg(res.msg, {icon: 2, time: 1500});
+                }
+            },
+            error: function (res) {
+                layer.msg(res, {icon: 2, time: 1500});
+            },
+            complete: function () {
+            }
+        });
+    }
+
+    function immediateOrder(goodsId) {
+        console.log("当前立即购买商品数量：", $("#number").val());
+        if (!userId || userId == '' || userId == 'null' || userId == 'undefined') {
+            layer.msg("请先登录！", {icon: 2, time: 1500}, function () {
+                window.location.href = "/home/login";
+            });
+            return false;
+        }
+        window.location.href="/home/order/immediateOrderPage?goodsId="+goodsId+"&number="+1;
+    }
+   
+
+</script>
+
+</html>

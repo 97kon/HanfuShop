@@ -1,0 +1,488 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head th:replace="home/public/header::head(~{::title},~{},~{})">
+    <title>商品详情-云裳·汉服商城</title>
+</head>
+
+<body>
+<style type="text/css">
+    .single-image.border img {
+        width: 100%;
+        height: 450px;
+    }
+    .single-thumb.border img {
+        height: 120px;
+    }
+
+    .single-product-main-area .tab-content {
+        padding: 2px;
+        background: white;
+    }
+
+    .breadcrumbs-area {
+        padding: 100px 0;
+        background: #f6f6f6 url(/static/common/images/hanfu4.jpeg) no-repeat scroll center center/cover;
+    }
+    .mybuybtn{
+        background-color: #e4393c;
+    }
+    .obrien-button-3.black-button {
+        background-color: #e4393c;
+        width: 335px;
+    }
+    .obrien-button-3.black-button:hover{
+        font-size: 1.5rem;
+    }
+    .btn.obrien-button.primary-btn:hover{
+        background-color: #e4393c;
+        color: white;
+    }
+    .single-product-main-area .nav-tabs .nav-item .nav-link.active{
+        background-color: #e4393c;
+        border-color: #e4393c;
+    }
+    @media (min-width: 1200px){
+        .col-xl-20 {
+            flex: 0 0 auto;
+            width: 20%;
+        }
+    }
+    @media (min-width: 1800px){
+        .col-xl-16 {
+            flex: 0 0 auto;
+            width: 16.666667%;
+        }
+    }
+    .product-area .single-product .product-content {
+        background-color: #efedee;
+        padding: 0 5px 20px;
+    }
+    .product-image {
+        border: 1px solid #efedee;
+    }
+    .multi-line2 {
+        min-height: 52px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: clip;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+    div.desc-content div,img,vieo{
+        max-width: 100%;
+    }
+    input[type="checkbox"] {
+         display: inline-block;
+    }
+    .parameter2,.p-parameter-list{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .parameter2,.p-parameter-list li{
+        margin: 5px 10px;
+    }
+    .clothSpan{
+        padding: 5px;
+        margin: 0 5px;
+        border: 1px solid #abaaaa;
+        cursor: pointer;
+    }
+    span.active {
+        background-color: #00a0e9;
+        color: white;
+    }
+    .detail-content-wrap{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+    <div class="shop-wrapper">
+
+        <!-- Header Area Start Here -->
+        <div th:replace="home/public/header::headmenu"></div>
+        <!-- Header Area End Here -->
+
+        <!-- Breadcrumb Area Start Here -->
+        <div class="breadcrumbs-area position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="breadcrumb-content position-relative section-content">
+                            <h3 class="title-3">商品详情</h3>
+                            <ul>
+                                <li><a href="/home/index">首页</a></li>
+                                <li>商品详情</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End Here -->
+        <!-- Single Product Main Area Start -->
+        <div class="single-product-main-area">
+            <div class="container container-default custom-area">
+                <div class="row">
+                    <div class="col-lg-5 col-custom">
+                        <div class="product-details-img horizontal-tab">
+                            <div class="product-slider popup-gallery product-details_slider" data-slick-options='{
+                        "slidesToShow": 1,
+                        "arrows": false,
+                        "fade": true,
+                        "draggable": false,
+                        "swipe": false,
+                        "asNavFor": ".pd-slider-nav"
+                        }'>
+                                <div class="single-image border" th:if="${goods.goodsPic1==null||goods.goodsPic1==''}">
+                                    <a href="#">
+                                        <img src="/static/common/images/nopic.jpg" alt="Product">
+                                    </a>
+                                </div>
+                                <div class="single-image border">
+                                    <a href="#">
+                                        <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic1}}" alt="Product">
+                                    </a>
+                                </div>
+                                <div class="single-image border">
+                                    <a href="#">
+                                        <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic2}}" alt="Product">
+                                    </a>
+                                </div>
+                                <div class="single-image border">
+                                    <a href="#">
+                                        <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic3}}" alt="Product">
+                                    </a>
+                                </div>
+                                <div class="single-image border">
+                                    <a href="#">
+                                        <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic4}}" alt="Product">
+                                    </a>
+                                </div>
+                                <div class="single-image border">
+                                    <a href="#">
+                                        <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic5}}" alt="Product">
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="pd-slider-nav product-slider" data-slick-options='{
+                        "slidesToShow": 4,
+                        "asNavFor": ".product-details_slider",
+                        "focusOnSelect": true,
+                        "arrows" : false,
+                        "spaceBetween": 30,
+                        "vertical" : false
+                        }' data-slick-responsive='[
+                            {"breakpoint":1501, "settings": {"slidesToShow": 4}},
+                            {"breakpoint":1200, "settings": {"slidesToShow": 4}},
+                            {"breakpoint":992, "settings": {"slidesToShow": 4}},
+                            {"breakpoint":575, "settings": {"slidesToShow": 3}}
+                        ]'>
+                                <div class="single-thumb border" th:if="${goods.goodsPic1==null||goods.goodsPic1==''}">
+                                    <img src="/static/common/images/nopic.jpg" alt="Product Thumnail">
+                                </div>
+
+                                <div class="single-thumb border" th:if="${goods.goodsPic1}">
+                                    <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic1}}" alt="Product Thumnail">
+                                </div>
+                                <div class="single-thumb border" th:if="${goods.goodsPic2}">
+                                    <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic2}}" alt="Product Thumnail">
+                                </div>
+                                <div class="single-thumb border" th:if="${goods.goodsPic3}">
+                                    <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic3}}" alt="Product Thumnail">
+                                </div>
+                                <div class="single-thumb border" th:if="${goods.goodsPic4}">
+                                    <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic4}}" alt="Product Thumnail">
+                                </div>
+                                <div class="single-thumb border" th:if="${goods.goodsPic5}">
+                                    <img th:src="@{${'/file/fileDown?saveName='+goods.goodsPic5}}" alt="Product Thumnail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-custom">
+                        <div class="product-summery position-relative">
+                            <div class="product-head mb-3">
+                                <h2 class="product-title">[[${goods.name}]]</h2>
+                                <p style="color: red" class="mt-4">[[${goods.tags}]]</p>
+                            </div>
+                            <div class="price-box mb-4">
+                                <span class="regular-price" style="color: #e4393c">[['价格：'+${goods.price}]]</span>
+                                <!--<span class="old-price"><del>￥[[${goods.price}]]</del></span>-->
+                            </div>
+                            <div class="sku mb-4" >
+                                <!--<span>剩余库存: [[${goods.stock}]]</span>-->
+                                <span>累计销量: [[${goods.saleNumber}]]</span>
+                            </div>
+                            <div class="product-rating mb-4">
+                                <span>分类: [[${goods.categoryName}]]</span>
+                            </div>
+                            <div class="sku mb-4">
+                                <span>商品二级分类: [[${goods.secondCName}]]</span>
+                            </div>
+                            <div class="sku" style="margin-bottom: 40px">
+                                <span>商品尺码: </span>
+                                <span class="clothSpan" th:each="object :${clothSize}" th:data="${object}" th:value="${object}">[[${object}]]</span>
+                            </div>
+
+                            <div class="sku" style="margin-bottom: 20px">
+                                <input type="checkbox" name="ifSend" id="ifSend"  title="是否到店自提"/>
+                                <span>是否到店自提</span>
+                            </div>
+                            <div class="quantity-with_btn mb-4" >
+
+                                <div class="quantity">
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" value="1"  type="number" id="number">
+                                        <div class="dec qtybutton">-</div>
+                                        <div class="inc qtybutton">+</div>
+                                    </div>
+                                </div>
+                                <div class="add-to_cart" >
+                                    <a class="btn obrien-button primary-btn" href="javascript:;"  th:onclick="addCart([[${goods.id}]])">添加购物车</a>
+                                </div>
+                            </div>
+                            <div class="buy-button mb-5 mt-5">
+                                <a href="javascript:;" th:onclick="immediateOrder([[${goods.id}]])" class="btn obrien-button-3 black-button mybuybtn">立即购买</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-no-text">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active text-uppercase text-left"  id="home-tab" data-toggle="tab" href="#connect-1" role="tab" aria-selected="true">商品详情</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content mb-text" id="myTabContent">
+                            <div class="tab-pane fade show active" id="connect-1" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="desc-content" >
+                                    <!--<p style="font-size: 16px;font-weight: bold; width: 100%;text-align: left">商品参数</p>-->
+                                    <div style="display: flex;font-size: 16px;justify-content: space-between;align-items: center;margin: 5px 0;padding: 20px;background-color: rgba(229,229,229,0.85)">
+                                        <span>名称：<span> [[${goods.name}]]</span></span>
+                                        <span>定价：<span> [[${goods.price}]]</span></span>
+                                        <span>一级分类：<span> [[${goods.categoryName}]]</span></span>
+                                        <span>二级分类：<span> [[${goods.secondCName}]]</span></span>
+                                        <span>销量：<span> [[${goods.saleNumber}]]</span></span>
+                                        <span>库存：<span> [[${goods.stock}]]</span></span>
+                                    </div>
+                                </div>
+                                <div class="desc-content" th:utext="${goods.content}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Product Main Area End -->
+
+        <!-- Product Area Start Here -->
+        <div class="product-area mb-no-text">
+            <div class="container container-default custom-area">
+                <div class="row">
+                    <div class="col-lg-5 m-auto text-center col-custom">
+                        <div class="section-content">
+                            <h2 class="title-1 text-uppercase">您可能还喜欢</h2>
+                            <div class="desc-content">
+                                <p>大多数客户选择我们的产品,你也可能喜欢我们的产品。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 product-wrapper col-custom" style="display: flex;flex-wrap: nowrap;overflow-x: hidden;">
+                            <div class="single-item col-xl-16 col-xl-20 col-lg-3 col-md-3 col-sm-3" th:each="item : ${hotList}">
+                                <div class="single-product position-relative">
+                                    <div class="product-image">
+                                        <a class="d-block" th:href="@{/home/goods/detail/}+${item.id}">
+                                            <img style="height: 200px"  th:src="@{${'/file/fileDown?saveName='+item.goodsPic1}}" alt="" class="product-image-1 w-100">
+                                            <img style="height: 200px"  th:src="@{${'/file/fileDown?saveName='+item.goodsPic1}}" alt="" class="product-image-2 position-absolute w-100">
+                                        </a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div  style="font-size: 1.2rem;color: #e4393c">
+                                            <span class="regular-price ">￥[[${item.discount}]]</span>
+                                        </div>
+                                        <div class="product-title" style="margin-bottom: 0">
+                                            <p class="title-2 multi-line2">[[${item.name}]]</p>
+                                        </div>
+                                        <div  style="display: flex;justify-content: space-between;">
+                                            <a href="javascript:;" th:onclick="addCart([[${item.id}]],1)" title="添加购物车" style="margin-right: 15px">
+                                                <i class="ion-bag" style="font-style: normal;">添加购物车</i>
+                                            </a>
+                                            <a href="javascript:;" th:onclick="immediateOrder([[${item.id}]],1)" title="立即购买">
+                                                <i class="ion-eye" style="font-style: normal;">立即购买</i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!--<div class="product-content">-->
+                                        <!--<div class="product-title">-->
+                                            <!--<p class="title-2 multi-line2">-->
+                                                <!--[[${item.name}]]-->
+                                            <!--</p>-->
+                                            <!--&lt;!&ndash;<h4 class="title-2"> <a th:href="@{/home/goods/detail/}+${item.id}">[[${item.name}]]</a></h4>&ndash;&gt;-->
+                                        <!--</div>-->
+                                        <!--<div class="price-box">-->
+                                            <!--<span class="regular-price ">￥[[${item.discount}]]</span>-->
+                                            <!--<span class="old-price"><del>￥[[${item.price}]]</del></span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="add-action d-flex position-absolute">-->
+                                        <!--<a href="javascript:;" th:onclick="addCart([[${item.id}]])" title="添加购物车">-->
+                                            <!--<i class="ion-bag"></i>-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+<!-- Footer Area Start Here -->
+<footer th:replace="home/public/footer::footer"></footer>
+<!-- Footer Area End Here -->
+
+    <!-- Scroll to Top Start -->
+    <a class="scroll-to-top" href="#">
+        <i class="ion-chevron-up"></i>
+    </a>
+    <!-- Scroll to Top End -->
+
+    <!-- JS
+============================================ -->
+
+    <!-- jQuery JS -->
+    <script src="/static/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <!-- jQuery Migrate JS -->
+    <script src="/static/assets/js/vendor/jQuery-migrate-3.3.0.min.js"></script>
+    <!-- Modernizer JS -->
+    <script src="/static/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/static/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="/static/assets/js/plugins/slick.min.js"></script>
+    <!-- Countdown JS -->
+    <script src="/static/assets/js/plugins/jquery.countdown.min.js"></script>
+    <!-- Ajax JS -->
+    <script src="/static/assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Nice Select JS -->
+    <script src="/static/assets/js/plugins/jquery.nice-select.min.js"></script>
+    <!-- Jquery Ui JS -->
+    <script src="/static/assets/js/plugins/jquery-ui.min.js"></script>
+    <!-- jquery magnific popup js -->
+    <script src="/static/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/assets/js/main.js"></script>
+<script type="text/javascript">
+
+    var currClothSize="";
+    var userId='[[${session?.user?.id}]]';
+    $(function (){
+        $(".clothSpan").click(function (e){
+            $(".clothSpan").each(function (index){
+                $(this).removeClass("active")
+            })
+            console.log($(this).attr("value"));
+            currClothSize=$(this).attr("value");
+            $(this).addClass("active");
+        })
+    })
+
+    function addCart(goodsId) {
+        console.log("当前添加购物车商品：", goodsId);
+        console.log("当前添加购物车商品数量：", $("#number").val());
+        let number = $("#number").val();
+        if (!userId || userId == '' || userId == 'null' || userId == 'undefined') {
+            layer.msg("请先登录！", {icon: 2, time: 1500}, function () {
+                window.location.href = "/home/login";
+            });
+            return false;
+        }
+        if (number > 99) {
+            layer.msg("最大订购99件！", {icon: 2, time: 1500});
+            $("#number").val(99);
+            return false;
+        }
+        if (!currClothSize) {
+            layer.msg("请选择尺码！", {icon: 2, time: 1500});
+            return false;
+        }
+
+        $.ajax({
+            url: "/home/cart/add",
+            type: "post",
+            data: {"userId": userId, "goodsId": goodsId, "number": number,"clothSize":currClothSize},
+            processData: true,
+            contentType: 'application/x-www-form-urlencoded',
+            beforeSend: function () {
+                //返回的参数item，即为当前的input DOM对象
+                index = layer.load(1, {shade: [0.3, 'grey']});
+            },
+            success: function (res) {
+                //关闭遮罩层
+                layer.close(index);
+                if (res.success == true) {
+                    layer.msg(res.msg, {icon: 1, time: 1500}, function () {
+                        window.location.href = "/home/cart/detail?userId=" + userId
+                    });
+                } else {
+                    layer.msg(res.msg, {icon: 2, time: 1500});
+                }
+            },
+            error: function (res) {
+                layer.msg(res, {icon: 2, time: 1500});
+            },
+            complete: function () {
+            }
+        });
+    }
+
+    function immediateOrder(goodsId) {
+        console.log("当前立即购买商品数量：", $("#number").val());
+
+        console.log("当前立即购买是否需要发货：", $("#ifSend").is(':checked'));
+        var ifSendVal=$("#ifSend").is(':checked')?1:0;
+        console.log("当前立即购买是否需要发货：", ifSendVal);
+        let number = $("#number").val();
+        if (number > 99) {
+            layer.msg("最大订购99件！", {icon: 2, time: 1500});
+            $("#number").val(99);
+            return false;
+        }
+        if (!currClothSize) {
+            layer.msg("请选择尺码！", {icon: 2, time: 1500});
+            return false;
+        }
+        if (!userId || userId == '' || userId == 'null' || userId == 'undefined') {
+            layer.msg("请先登录！", {icon: 2, time: 1500}, function () {
+                window.location.href = "/home/login";
+            });
+            return false;
+        }
+        window.location.href="/home/order/immediateOrderPage?goodsId="+goodsId+"&number="+number+"&ifSend="+ifSendVal+"&clothSize="+currClothSize;
+    }
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/public/head::head(~{::title},~{},~{})">
+    <title>订单驳回-云裳·汉服商城</title>
+</head>
+
+<body>
+<style type="text/css">
+    .weadmin-body{
+        padding: 20px;
+    }
+
+    .we-red{
+        color: red;
+    }
+</style>
+<div class="weadmin-body">
+    <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data">
+        <input type="hidden" name="id" th:value="${order.id}"/>
+        <div class="layui-form-item">
+            <label for="refuseDesc" class="layui-form-label">
+                <span class="we-red">*</span>驳回缘由
+            </label>
+        </div>
+        <div class="layui-form-item">
+            <div >
+                <input type="text" id="refuseDesc"  name="refuseDesc" required lay-verify="required"
+                       placeholder="请输入驳回缘由" autocomplete="off"  class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="justify-content: center;display: flex;">
+            <button style="width:55%;max-width: 300px" class="layui-btn" lay-filter="edit" lay-submit>提交</button>
+        </div>
+    </form>
+</div>
+<!-- 百度编辑器配置文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.config.js}"></script>
+<!-- 百度编辑器编辑器源码文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.all.js}"></script>
+
+<script type="text/javascript">
+    layui.use(['form', 'layer','upload', 'jquery', 'admin'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            upload = layui.upload,
+            layer = layui.layer;
+        //监听提交
+        form.on('submit(edit)', function (data) {
+            console.log(data.field);
+            var formData = new FormData($("#form")[0]);
+            $.ajax({
+                url: "/order/cancel",
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function(){
+                    //返回的参数item，即为当前的input DOM对象
+                    index = layer.load(1,{shade: [0.3,'grey']});
+                },
+                success: function (res) {
+                    //关闭遮罩层
+                    layer.close(index);
+                    if (res.success == true) {
+                        layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                            refreshParent();
+                        });
+                    } else {
+                        layer.msg(res.msg, {icon: 2, time: 1500});
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res, {icon: 2, time: 1500});
+                },
+                complete: function () {
+                }
+            });
+            return false;
+        });
+    });
+
+</script>
+</body>
+
+</html>

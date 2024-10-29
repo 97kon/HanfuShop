@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clothrent.mapper.UserScoreMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.clothrent.entity.UserScore">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="current_score" property="currentScore" />
+        <result column="before_score" property="beforeScore" />
+        <result column="change_score" property="changeScore" />
+        <result column="operator_id" property="operatorId" />
+        <result column="operator_name" property="operatorName" />
+        <result column="reason" property="reason" />
+        <result column="remark" property="remark" />
+        <result column="field0" property="field0" />
+        <result column="field1" property="field1" />
+        <result column="field2" property="field2" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, user_name, current_score, before_score, change_score, operator_id, operator_name, reason, remark, field0, field1, field2, create_time, update_time
+    </sql>
+
+</mapper>

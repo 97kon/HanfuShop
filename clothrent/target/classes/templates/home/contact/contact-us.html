@@ -1,0 +1,279 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head th:replace="home/public/header::head(~{::title},~{},~{})">
+    <title>联系我们-云裳·汉服商城</title>
+</head>
+
+<body>
+
+<style type="text/css">
+    .breadcrumbs-area {
+        padding: 100px 0;
+        background: #f6f6f6 url(/static/common/images/hanfu4.jpeg) no-repeat scroll center center/cover;
+        background-size: 100% 100%;
+    }
+    .breadcrumbs-area:before {
+        opacity: 0;
+    }
+
+</style>
+
+    <div class="contact-wrapper">
+
+        <!-- Header Area Start Here -->
+        <div th:replace="home/public/header::headmenu"></div>
+        <!-- Header Area End Here -->
+
+        <!-- Breadcrumb Area Start Here -->
+        <div class="breadcrumbs-area position-relative" style="height: 320px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="breadcrumb-content position-relative section-content">
+                            <!--<h3 class="title-3">联系我们</h3>-->
+                            <!--<ul>-->
+                                <!--<li><a href="/home/index">首页</a></li>-->
+                                <!--<li>联系我们</li>-->
+                            <!--</ul>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End Here -->
+
+
+
+        <!-- Contact Us Area Start Here -->
+        <div class="contact-us-area">
+            <div class="container container-default-2 custom-area">
+                <div class="row">
+                    <!-- Feature Area Start Here -->
+                    <div class="feature-area mb-no-text">
+                        <div class="container container-default custom-area">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-5 col-md-12 col-custom">
+                                    <div class="feature-content-wrapper">
+                                        <h2 class="title">弘扬中国文化</h2>
+                                        <p class="desc-content">汉服，它并非指汉朝时期的服饰，而是指汉民族的传统服装。一般我们把汉服成为“汉装”、“华服”。在明朝末期之前，汉服十分盛行。用时间来统计，汉服在古中国五千年的历史中，流行了四千多年，这个数据是十分庞大的。</p>
+                                        <p class="desc-content"> 我们目前可考究的古历史也就五千余年，汉服的存在时间就占据了八成。汉服是华夏人民智慧的结晶，它凝聚了数千年民族文化风貌，代表的不单单是服饰文化，更多的是华夏民族文化的影子，更代表了华夏人民的伟大文明。</p>
+                                        <p class="desc-content"> 汉服伴随着古中国走过悠长的岁月，它不仅仅是服饰文明，也是历史的见证者！</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-7 col-md-12 col-custom">
+                                    <div class="feature-image position-relative">
+                                        <img src="/static/common/images/hanfu9.jpg" alt="Obrien Feature">
+                                        <div class="popup-video position-absolute">
+                                            <a class="popup-vimeo" href="https://haokan.baidu.com/v?pd=wisenatural&vid=11839543051436950610">
+                                                <i class="ion-play"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Area End Here -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-custom">
+                        <div class="contact-info-item">
+                            <div class="con-info-icon">
+                                <i class="ion-ios-location-outline"></i>
+                            </div>
+                            <div class="con-info-txt">
+                                <h4>Our Location</h4>
+                                <p>四川省都江堰市青城山镇成都东软学院</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-custom">
+                        <div class="contact-info-item">
+                            <div class="con-info-icon">
+                                <i class="ion-iphone"></i>
+                            </div>
+                            <div class="con-info-txt">
+                                <h4>Contact us Anytime</h4>
+                                <p>Mobile: 13408629239<br>QQ: 3089785087</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-custom text-align-center">
+                        <div class="contact-info-item">
+                            <div class="con-info-icon">
+                                <i class="ion-ios-email-outline"></i>
+                            </div>
+                            <div class="con-info-txt">
+                                <h4>Support Overall</h4>
+                                <p>lqm3231045496@gmail.com <br> 3089785087@qq.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin: 20px 0;font-size: 20px ;color: grey">
+                    <p style="display: flex;justify-content: space-around;">
+                        <span>服务电话：13408629239</span> <span>QQ：3089785087</span>
+                        <span>联系人：kepler   </span> <span>邮箱：3089785087@qq.com</span>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="contact-map" style="padding: 2%">
+                        <div class="google-map-canvas" id="allmap" style="height: 430px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-custom">
+                        <form method="post" action="#" id="contact-form" accept-charset="UTF-8" class="contact-form">
+                            <div class="comment-box mt-5">
+                                <h5 class="text-uppercase">留下您的宝贵意见？</h5>
+                                <div class="row mt-3">
+                                    <div class="col-12 col-custom">
+                                        <div class="input-item mb-4">
+                                            <input class="border rounded-0 w-100 input-area email" type="text" name="title" id="title" placeholder="请输入意见主题">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-custom">
+                                        <div class="input-item mb-4">
+                                            <textarea cols="30" rows="5"  class="border rounded-0 w-100 custom-textarea input-area" name="content" id="content" placeholder="请留下您的宝贵意见..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-custom mt-40">
+                                        <button type="submit" id="submit" lay-filter="add"  lay-submit class="btn obrien-button primary-btn rounded-0 mb-0">提交</button>
+                                    </div>
+                                    <p class="col-12 col-custom form-message mb-0"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Support Area Start Here -->
+        <div class="support-area">
+            <div class="container container-default custom-area">
+                <div class="row">
+                    <div class="col-lg-12 col-custom">
+                        <div class="support-wrapper d-flex">
+                            <div class="support-content">
+                                <h1 class="title">需要帮助吗 ?</h1>
+                                <p class="desc-content">请拨打24小时服务热线  01234-567-890</p>
+                            </div>
+                            <div class="support-button d-flex align-items-center">
+                                <a class="obrien-button primary-btn" href="javascript:;">立即拨打</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Support Area End Here -->
+        <!-- Footer Area Start Here -->
+        <footer th:replace="home/public/footer::footer"></footer>
+        <!-- Footer Area End Here -->
+    </div>
+
+
+    <!-- Scroll to Top Start -->
+    <a class="scroll-to-top" href="#">
+        <i class="ion-chevron-up"></i>
+    </a>
+    <!-- Scroll to Top End -->
+
+    <!-- JS
+============================================ -->
+
+    <!-- jQuery JS -->
+    <script src="/static/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <!-- jQuery Migrate JS -->
+    <script src="/static/assets/js/vendor/jQuery-migrate-3.3.0.min.js"></script>
+    <!-- Modernizer JS -->
+    <script src="/static/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/static/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="/static/assets/js/plugins/slick.min.js"></script>
+    <!-- Countdown JS -->
+    <script src="/static/assets/js/plugins/jquery.countdown.min.js"></script>
+    <!-- Ajax JS -->
+    <script src="/static/assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Nice Select JS -->
+    <script src="/static/assets/js/plugins/jquery.nice-select.min.js"></script>
+    <!-- Jquery Ui JS -->
+    <script src="/static/assets/js/plugins/jquery-ui.min.js"></script>
+    <!-- jquery magnific popup js -->
+    <script src="/static/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/assets/js/main.js"></script>
+
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=1a3c89ddb9bcfaf5b9dc4b62e3f2a05b"></script>
+    <script type="text/javascript">
+        var userId='[[${session?.user?.id}]]';
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");    // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+        //添加地图类型控件
+        map.addControl(new BMap.MapTypeControl({
+            mapTypes:[
+                BMAP_NORMAL_MAP,
+                BMAP_HYBRID_MAP
+            ]}));
+        map.setCurrentCity("成都东软学院");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩
+
+        layui.use(['form', 'layer','upload', 'jquery','laydate', 'admin'], function () {
+            var form = layui.form,
+                $ = layui.jquery,
+                laydate = layui.laydate,
+                upload = layui.upload,
+                layer = layui.layer;
+
+
+            //监听提交
+            form.on('submit(add)', function (data) {
+                if(!userId||userId==''||userId=='null'||userId=='undefined'){
+                    layer.msg("请先登录！", {icon: 2, time: 1500},function () {
+                        window.location.href="/home/login";
+                    });
+                    return false;
+                }
+                console.log(data.field);
+                var title=$("#title").val();
+                var content=$("#content").val();
+                $.ajax({
+                    url: "/home/advice/add",
+                    type: "post",
+                    data: {"title":title,"content":content},
+                    processData: true,
+                    contentType: 'application/x-www-form-urlencoded',
+                    beforeSend: function(){
+                        //返回的参数item，即为当前的input DOM对象
+                        index = layer.load(1,{shade: [0.3,'grey']});
+                    },
+                    success: function (res) {
+                        //关闭遮罩层
+                        layer.close(index);
+                        if (res.success == true) {
+                            layer.msg("感谢您的反馈，我们及时整改！", {icon: 1, time: 1500},function () {
+                                refreshParent();
+                            });
+                        } else {
+                            layer.msg(res.msg, {icon: 2, time: 1500});
+                        }
+                    },
+                    error: function (res) {
+                        layer.msg(res, {icon: 2, time: 1500});
+                    },
+                    complete: function () {
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

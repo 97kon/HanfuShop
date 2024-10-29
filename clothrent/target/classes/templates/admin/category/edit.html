@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/public/head::head(~{::title},~{},~{})">
+    <title>编辑分类-云裳·汉服商城</title>
+</head>
+
+<body>
+<style type="text/css">
+    .weadmin-body{
+        padding: 20px;
+    }
+    .layui-form-item {
+        margin-bottom: 30px;
+        clear: both;
+        *zoom: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: left;
+        width: 10%;
+        min-width: 110px;
+    }
+    .layui-form-item .layui-input-inline {
+        float: left;
+        width: 90%;
+    }
+
+    .layui-form-item .wrapper-item{
+        width:50%
+    }
+    .wrapper-item .layui-form-label {
+        float: left;
+        width: 30%;
+        min-width: 110px;
+    }
+    .wrapper-item .layui-input-inline {
+        float: left;
+        width: 60%;
+    }
+    .we-red{
+        color: red;
+    }
+</style>
+<div class="weadmin-body">
+    <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data" th:object="${category}">
+        <input type="hidden" name="id" th:field="*{id}"/>
+        <div class="layui-form-item">
+            <label for="parentId" class="layui-form-label">
+                <span class="we-red">*</span>上级分类
+            </label>
+            <div class="layui-input-inline" >
+                <select  name="parentId" id="parentId" th:placeholder="请选择上级分类">
+                    <option th:selected="${category.parentId==0}"   value="0">顶级分类</option>
+                    <option th:selected="${category.parentId==object.id}"  th:each="object:${parentList}" th:value="${object.id}">[[${object.name}]]</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="name" class="layui-form-label">
+                <span class="we-red">*</span>分类名称
+            </label>
+            <div class="layui-input-inline "  >
+                <input type="text"  id="name" th:field="*{name}"  name="name" lay-verify="required"
+                       placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="justify-content: center">
+            <button style="width: 25%;" class="layui-btn" lay-filter="edit" lay-submit>编辑</button>
+        </div>
+    </form>
+</div>
+<!-- 百度编辑器配置文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.config.js}"></script>
+<!-- 百度编辑器编辑器源码文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.all.js}"></script>
+
+<script type="text/javascript">
+    layui.use(['form', 'layer','upload', 'jquery','laydate', 'admin'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            laydate = layui.laydate,
+            upload = layui.upload,
+            layer = layui.layer;
+
+
+        //监听提交
+        form.on('submit(edit)', function (data) {
+            var formData = new FormData($("#form")[0]);
+            $.ajax({
+                url: "/category/edit",
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function(){
+                    //返回的参数item，即为当前的input DOM对象
+                    index = layer.load(1,{shade: [0.3,'grey']});
+                },
+                success: function (res) {
+                    //关闭遮罩层
+                    layer.close(index);
+                    if (res.success == true) {
+                        layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                            refreshParent();
+                        });
+                    } else {
+                        layer.msg(res.msg, {icon: 2, time: 1500});
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res, {icon: 2, time: 1500});
+                },
+                complete: function () {
+                }
+            });
+            return false;
+        });
+    });
+    /*清除回显图片*/
+    function clearImg() {
+        $("#imgBox").empty();
+    }
+</script>
+</body>
+
+</html>

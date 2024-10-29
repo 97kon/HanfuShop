@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head th:replace="home/public/header::head(~{::title},~{},~{})">
+    <title>登录页-云裳·汉服商城</title>
+</head>
+
+<body>
+<style>
+    .mybreadcrumbs-area {
+        /*padding: 100px 0;*/
+        background: #f6f6f6 url(/static/common/images/hanfu10.jpg) no-repeat scroll center center/cover;
+    }
+    .login-register-wrapper {
+        background: #fff none repeat scroll 0 0;
+        padding: 37px 40px;
+        text-align: left;
+        overflow: hidden;
+    }
+    .mymiddle{
+        height: calc(100vh - 95.09px  );
+        /*height: calc(100vh - 95.09px - 64px );*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-register-wrapper .single-input-item input {
+        background: #ffffff none repeat scroll 0 0;
+        border: 1px solid rgb(223 216 216 / 50);
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #1B1B1C;
+        font-size: 14px;
+        height: 40px;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+    }
+</style>
+
+    <div class="contact-wrapper">
+        <div th:replace="home/public/header::headmenu"></div>
+
+        <!-- Breadcrumb Area Start Here -->
+        <div class="mybreadcrumbs-area position-relative mymiddle" >
+            <div class="container container-default-2 custom-area">
+                <div class="row">
+                    <div class="col-lg-6  col-md-8 offset-md-2 col-custom">
+                        <div class="login-register-wrapper">
+                            <div class="section-content text-center mb-5">
+                                <h2 class="title-4 mb-2">云裳</h2>
+                                <!--<p class="desc-content">请于下方输入账号信息.</p>-->
+                            </div>
+                            <form action="#" method="post">
+                                <div class="single-input-item mb-3">
+                                    <input type="text" name="code" id="code" placeholder="请输入账号">
+                                </div>
+                                <div class="single-input-item mb-3">
+                                    <input type="password" name="password" id="password" placeholder="请输入密码">
+                                </div>
+                                <div class="single-input-item mb-3">
+                                    <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                        <div class="remember-meta mb-3">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="rememberMe">
+                                                <label class="custom-control-label" for="rememberMe">记住我</label>
+                                            </div>
+                                        </div>
+                                        <a href="#" onclick="forgetPwd()" class="forget-pwd mb-3">忘记密码?</a>
+                                    </div>
+                                </div>
+                                <div class="single-input-item mb-3">
+                                    <button class="btn obrien-button-2 primary-color" lay-submit lay-filter="login">登录</button>
+                                </div>
+                                <div class="single-input-item">
+                                    <a href="/home/register">注册账号</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="support-area" th:replace="home/public/footer::support-area"></div>-->
+<!--        <footer th:replace="home/public/footer::footer"></footer>-->
+    </div>
+
+
+
+</body>
+<script type="text/javascript">
+    function forgetPwd() {
+        layer.msg("请联系管理员重置密码！")
+        return false;
+    }
+
+    layui.use(['form'], function () {
+        var form = layui.form;
+
+        form.on('submit(login)', function (data) {
+            var url="/user/checkLogin";
+            var code=$("#code").val();
+            var password=$("#password").val();
+            var formData={"code":code,"password":password};
+            if( !/^[\S]{6,16}$/.test(password)){
+                layer.msg("密码必须6到16位，且不能出现空格!", {icon: 2, time: 1500});
+                return false;
+            }
+            console.log("formData:",formData);
+            console.log("data.field:",data.field);
+            $.post(url, formData, function (res) {
+                console.log(res);
+                if (!res.success) {
+                    layer.msg(res.msg, {icon: 2, time: 1500});
+                    return false;
+                }
+                if(res.data.type==2){
+                    location.href = '/home/index';
+                }else{
+                    location.href = '/admin/index';
+                }
+
+            });
+            return false;
+        });
+
+        //自定义表单验证
+        form.verify({
+            //我们既支持上述函数式的方式，也支持下述数组的形式
+            //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
+            password: [
+                /^[\S]{6,16}$/
+                , '密码必须6到16位，且不能出现空格'
+            ],
+            verify_code: [
+                /^.{4}$/
+                , '验证码为4位字符！'
+            ]
+        });
+    });
+</script>
+
+</html>

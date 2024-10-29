@@ -1,0 +1,724 @@
+2024-09-28 10:31:18.893 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.1.6.Final
+2024-09-28 10:31:18.924 [restartedMain] INFO  c.c.ClothRentApplication - [logStarting,55] - Starting ClothRentApplication on X1aoMinG with PID 1672 (F:\jiedan\hanfuShop\clothrent\target\classes started by liuqiming in F:\jiedan\hanfuShop\clothrent)
+2024-09-28 10:31:18.925 [restartedMain] DEBUG c.c.ClothRentApplication - [logStarting,56] - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2024-09-28 10:31:18.925 [restartedMain] INFO  c.c.ClothRentApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+2024-09-28 10:31:20.101 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-09-28 10:31:20.101 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+2024-09-28 10:31:20.101 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2024-09-28 10:31:20.179 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-09-28 10:31:21.203 [restartedMain] WARN  c.z.h.HikariConfig - [validateNumerics,1047] - HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2024-09-28 10:31:21.204 [restartedMain] INFO  c.z.h.HikariDataSource - [getConnection,110] - HikariPool-1 - Starting...
+2024-09-28 10:31:21.328 [restartedMain] INFO  c.z.h.HikariDataSource - [getConnection,123] - HikariPool-1 - Start completed.
+2024-09-28 10:31:21.569 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-09-28 10:31:21.780 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.784 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.787 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.787 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.790 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.790 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.792 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.793 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.795 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.795 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.797 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:21.797 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 10:31:22.535 [restartedMain] INFO  c.c.ClothRentApplication - [logStarted,61] - Started ClothRentApplication in 3.842 seconds (JVM running for 7.564)
+2024-09-28 10:31:49.420 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-28 10:31:49.534 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:49.563 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:49.587 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:49.590 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:49.590 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:49.593 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:49.627 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT COUNT(1) FROM clothrent.tb_sys_goods 
+2024-09-28 10:31:49.628 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 
+2024-09-28 10:31:49.634 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods ORDER BY sale_number DESC LIMIT ?,? 
+2024-09-28 10:31:49.634 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 0(Long), 12(Long)
+2024-09-28 10:31:49.646 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - <==      Total: 12
+2024-09-28 10:31:49.649 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT COUNT(1) FROM clothrent.tb_sys_goods 
+2024-09-28 10:31:49.649 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 
+2024-09-28 10:31:49.651 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods ORDER BY id DESC LIMIT ?,? 
+2024-09-28 10:31:49.652 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 0(Long), 12(Long)
+2024-09-28 10:31:49.657 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - <==      Total: 12
+2024-09-28 10:31:49.660 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods 
+2024-09-28 10:31:49.660 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 
+2024-09-28 10:31:49.671 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 104
+2024-09-28 10:31:49.672 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 23
+2024-09-28 10:31:49.672 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 98
+2024-09-28 10:31:49.672 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 18
+2024-09-28 10:31:49.672 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 77
+2024-09-28 10:31:49.672 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 70
+2024-09-28 10:31:49.672 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 96
+2024-09-28 10:31:50.079 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.079 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.081 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.083 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.084 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.084 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.084 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.085 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.085 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.087 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.087 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.088 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.096 [http-nio-8081-exec-10] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a0be1262390f42c2af7f574996ad1c6c.avif
+2024-09-28 10:31:50.096 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:43bb6bd5420e40a5b0239ef0a7909b6c.avif
+2024-09-28 10:31:50.124 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.125 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.126 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.127 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.127 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.128 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.129 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:3347440027534954a3d0d3096a7c5f2e.avif
+2024-09-28 10:31:50.496 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.496 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.496 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.496 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.497 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.497 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.498 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.498 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.499 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.499 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.500 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.500 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.500 [http-nio-8081-exec-5] DEBUG c.c.c.FileController - [fileDown,172] - saveName:83d34b3f68744e24a63fa94c600f7d60.avif
+2024-09-28 10:31:50.500 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:7395270f39654def9a16fd28184cca3c.avif
+2024-09-28 10:31:50.542 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.542 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.542 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.543 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.543 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.543 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.543 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.543 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.543 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.543 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.543 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.543 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.545 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.545 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.545 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.545 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.545 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.546 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.547 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.547 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.547 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.547 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.547 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.547 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.547 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.547 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.548 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.548 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.548 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.548 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.549 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.549 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.549 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.549 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.549 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.549 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.549 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:bf5fa5582631470592bdf6774776c908.avif
+2024-09-28 10:31:50.549 [http-nio-8081-exec-9] DEBUG c.c.c.FileController - [fileDown,172] - saveName:5ff78cc063b044f184aa9d9cf370b071.avif
+2024-09-28 10:31:50.549 [http-nio-8081-exec-1] DEBUG c.c.c.FileController - [fileDown,172] - saveName:03ecea694cb44905bcfc9182691a1531.avif
+2024-09-28 10:31:50.549 [http-nio-8081-exec-4] DEBUG c.c.c.FileController - [fileDown,172] - saveName:084356d0e14544bb9e81888ed14bfb39.avif
+2024-09-28 10:31:50.549 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a0e35c8eaf3543c5b8e37a3d18b97776.avif
+2024-09-28 10:31:50.550 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:0fd3ee6167ec4afd94956a0bcbcea343.avif
+2024-09-28 10:31:50.567 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.567 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.567 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.568 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.568 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.568 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.568 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.569 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.569 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.570 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.570 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.570 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.570 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.570 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.570 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.571 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.571 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.571 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.571 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.572 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.572 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.572 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.572 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.572 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.572 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.572 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.572 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.572 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.572 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.573 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.573 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.573 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.573 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.573 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.573 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.573 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:de585d0bcbe14034ab1f21681b6cfaf8.avif
+2024-09-28 10:31:50.573 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.573 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:83f81a0593db4bf289773fb760e1be78.avif
+2024-09-28 10:31:50.573 [http-nio-8081-exec-10] DEBUG c.c.c.FileController - [fileDown,172] - saveName:ac21bf2e92614056bb5ac90ed2ae23a7.avif
+2024-09-28 10:31:50.574 [http-nio-8081-exec-5] DEBUG c.c.c.FileController - [fileDown,172] - saveName:db943d4f75384781a581898c00693d3c.avif
+2024-09-28 10:31:50.574 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:fd1948aee03c490497ad1486500e1676.avif
+2024-09-28 10:31:50.574 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:579e1a4b3bf64556a5682b05421572e4.avif
+2024-09-28 10:31:50.592 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.592 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.592 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.593 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.593 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.593 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.593 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.593 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.593 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.593 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.593 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.593 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.594 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.594 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.594 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.594 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.594 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.594 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.595 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.596 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.596 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.596 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.596 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.596 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.596 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.596 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.596 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.596 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.596 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.596 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.597 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.597 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.597 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.597 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.597 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.597 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.598 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:659df91cdbf64753bfa9286e8664b646.avif
+2024-09-28 10:31:50.598 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:7416236761324b8aa5ae9a906dc6cdcb.avif
+2024-09-28 10:31:50.598 [http-nio-8081-exec-9] DEBUG c.c.c.FileController - [fileDown,172] - saveName:bbf76fbc9a654e028571baec34659a9e.avif
+2024-09-28 10:31:50.598 [http-nio-8081-exec-10] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a8e440c8bb0a466293820c0fd9fb753c.avif
+2024-09-28 10:31:50.598 [http-nio-8081-exec-1] DEBUG c.c.c.FileController - [fileDown,172] - saveName:8ee2acfcf2284a5b9a8138dee188cf40.avif
+2024-09-28 10:31:50.598 [http-nio-8081-exec-4] DEBUG c.c.c.FileController - [fileDown,172] - saveName:370db59d7944448c8427f3fa936955dd.avif
+2024-09-28 10:31:50.615 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.615 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.616 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.616 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.617 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.617 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.619 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.619 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.620 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.620 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.621 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.622 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:50.622 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:7193346300aa4eea98c5891e7585606d.avif
+2024-09-28 10:31:50.622 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a352010db78247c191520d159844f40b.avif
+2024-09-28 10:31:50.976 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:50.976 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.978 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:50.980 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:50.980 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:50.981 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:54.989 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:54.989 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:54.990 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:54.991 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:54.991 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:54.992 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:31:55.054 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:31:55.055 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:55.056 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:31:55.057 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:31:55.057 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:31:55.058 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.026 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.027 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.029 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.031 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.033 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.036 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.041 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT COUNT(1) FROM clothrent.tb_sys_goods 
+2024-09-28 10:32:05.043 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 
+2024-09-28 10:32:05.052 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods ORDER BY sale_number DESC LIMIT ?,? 
+2024-09-28 10:32:05.054 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 0(Long), 12(Long)
+2024-09-28 10:32:05.067 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - <==      Total: 12
+2024-09-28 10:32:05.073 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT COUNT(1) FROM clothrent.tb_sys_goods 
+2024-09-28 10:32:05.075 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 
+2024-09-28 10:32:05.084 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods ORDER BY id DESC LIMIT ?,? 
+2024-09-28 10:32:05.086 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 0(Long), 12(Long)
+2024-09-28 10:32:05.089 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectPage - [debug,143] - <==      Total: 12
+2024-09-28 10:32:05.094 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods 
+2024-09-28 10:32:05.094 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 
+2024-09-28 10:32:05.106 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 104
+2024-09-28 10:32:05.108 [http-nio-8081-exec-10] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 100
+2024-09-28 10:32:05.109 [http-nio-8081-exec-10] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 60
+2024-09-28 10:32:05.109 [http-nio-8081-exec-10] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 18
+2024-09-28 10:32:05.109 [http-nio-8081-exec-10] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 39
+2024-09-28 10:32:05.109 [http-nio-8081-exec-10] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 72
+2024-09-28 10:32:05.110 [http-nio-8081-exec-10] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 27
+2024-09-28 10:32:05.251 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.253 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.255 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.256 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.257 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.257 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.258 [http-nio-8081-exec-4] DEBUG c.c.c.FileController - [fileDown,172] - saveName:43bb6bd5420e40a5b0239ef0a7909b6c.avif
+2024-09-28 10:32:05.609 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.609 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.609 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.609 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.610 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.610 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.611 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.611 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.611 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.611 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.612 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.612 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.612 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:3347440027534954a3d0d3096a7c5f2e.avif
+2024-09-28 10:32:05.612 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a0be1262390f42c2af7f574996ad1c6c.avif
+2024-09-28 10:32:05.622 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.622 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.622 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.622 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.623 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.623 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.626 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.626 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.627 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.627 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.629 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.629 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.629 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:7395270f39654def9a16fd28184cca3c.avif
+2024-09-28 10:32:05.629 [http-nio-8081-exec-9] DEBUG c.c.c.FileController - [fileDown,172] - saveName:83d34b3f68744e24a63fa94c600f7d60.avif
+2024-09-28 10:32:05.691 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.692 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.693 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.693 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.694 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.695 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.695 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.695 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:084356d0e14544bb9e81888ed14bfb39.avif
+2024-09-28 10:32:05.695 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.698 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.698 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.698 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.698 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.698 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.698 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.698 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.698 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.698 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.699 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.699 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.699 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.699 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.699 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.700 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.700 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.700 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.700 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.700 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.700 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.700 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:5ff78cc063b044f184aa9d9cf370b071.avif
+2024-09-28 10:32:05.700 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.700 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.700 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.700 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.701 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.701 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.701 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.701 [http-nio-8081-exec-1] DEBUG c.c.c.FileController - [fileDown,172] - saveName:03ecea694cb44905bcfc9182691a1531.avif
+2024-09-28 10:32:05.701 [http-nio-8081-exec-10] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a0e35c8eaf3543c5b8e37a3d18b97776.avif
+2024-09-28 10:32:05.701 [http-nio-8081-exec-5] DEBUG c.c.c.FileController - [fileDown,172] - saveName:0fd3ee6167ec4afd94956a0bcbcea343.avif
+2024-09-28 10:32:05.702 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.702 [http-nio-8081-exec-4] DEBUG c.c.c.FileController - [fileDown,172] - saveName:bf5fa5582631470592bdf6774776c908.avif
+2024-09-28 10:32:05.724 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.724 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.724 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.724 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.725 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.725 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.725 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.725 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.725 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.726 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.726 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.726 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.726 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.726 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.726 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.727 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.727 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.727 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.727 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.727 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.727 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.727 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.727 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.727 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.727 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.729 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.730 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.729 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.729 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.729 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.731 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:ac21bf2e92614056bb5ac90ed2ae23a7.avif
+2024-09-28 10:32:05.731 [http-nio-8081-exec-9] DEBUG c.c.c.FileController - [fileDown,172] - saveName:db943d4f75384781a581898c00693d3c.avif
+2024-09-28 10:32:05.731 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:de585d0bcbe14034ab1f21681b6cfaf8.avif
+2024-09-28 10:32:05.731 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:579e1a4b3bf64556a5682b05421572e4.avif
+2024-09-28 10:32:05.731 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:83f81a0593db4bf289773fb760e1be78.avif
+2024-09-28 10:32:05.734 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.734 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.736 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.737 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.737 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.738 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.739 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:fd1948aee03c490497ad1486500e1676.avif
+2024-09-28 10:32:05.748 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.748 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.749 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.749 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.750 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.750 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.750 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.750 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.750 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.750 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.750 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.750 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.750 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.750 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.751 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.751 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.751 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.751 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.751 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.751 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.751 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.752 [http-nio-8081-exec-1] DEBUG c.c.c.FileController - [fileDown,172] - saveName:370db59d7944448c8427f3fa936955dd.avif
+2024-09-28 10:32:05.752 [http-nio-8081-exec-10] DEBUG c.c.c.FileController - [fileDown,172] - saveName:8ee2acfcf2284a5b9a8138dee188cf40.avif
+2024-09-28 10:32:05.752 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.752 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.752 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.753 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.753 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.753 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.756 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.756 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.756 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.757 [http-nio-8081-exec-5] DEBUG c.c.c.FileController - [fileDown,172] - saveName:659df91cdbf64753bfa9286e8664b646.avif
+2024-09-28 10:32:05.757 [http-nio-8081-exec-4] DEBUG c.c.c.FileController - [fileDown,172] - saveName:bbf76fbc9a654e028571baec34659a9e.avif
+2024-09-28 10:32:05.757 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:7416236761324b8aa5ae9a906dc6cdcb.avif
+2024-09-28 10:32:05.765 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.765 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.766 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.767 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.768 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.769 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.769 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:c125cde3a56845b79bdd130895c92eff.avif
+2024-09-28 10:32:05.780 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.780 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.780 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.780 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.781 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.781 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.782 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.782 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.782 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.782 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.782 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.782 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.782 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.782 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.782 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.783 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.783 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.783 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:05.783 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a8e440c8bb0a466293820c0fd9fb753c.avif
+2024-09-28 10:32:05.783 [http-nio-8081-exec-9] DEBUG c.c.c.FileController - [fileDown,172] - saveName:4dc0afac9cb04c13bd62a2f8399178ed.avif
+2024-09-28 10:32:05.783 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:949e6353f52d422aa11d783a55da58d1.avif
+2024-09-28 10:32:05.942 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:05.942 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.944 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:05.947 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:05.947 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:05.948 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:09.102 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:09.102 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:09.103 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:09.104 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:09.104 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:09.104 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:32:09.141 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:32:09.141 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:09.142 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:32:09.143 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:32:09.143 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:32:09.143 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:34:44.128 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:34:44.129 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:34:44.130 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:34:44.131 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:34:44.131 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:34:44.131 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 10:34:44.207 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 10:34:44.207 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:34:44.208 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 10:34:44.209 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 10:34:44.209 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 10:34:44.210 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 11:33:19.406 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - [close,350] - HikariPool-1 - Shutdown initiated...
+2024-09-28 11:33:19.409 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - [close,352] - HikariPool-1 - Shutdown completed.
+2024-09-28 16:05:07.544 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.1.6.Final
+2024-09-28 16:05:07.571 [restartedMain] INFO  c.c.ClothRentApplication - [logStarting,55] - Starting ClothRentApplication on X1aoMinG with PID 4424 (F:\jiedan\hanfuShop\clothrent\target\classes started by liuqiming in F:\jiedan\hanfuShop\clothrent)
+2024-09-28 16:05:07.571 [restartedMain] DEBUG c.c.ClothRentApplication - [logStarting,56] - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2024-09-28 16:05:07.572 [restartedMain] INFO  c.c.ClothRentApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+2024-09-28 16:05:08.689 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8081"]
+2024-09-28 16:05:08.690 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+2024-09-28 16:05:08.691 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2024-09-28 16:05:08.769 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+2024-09-28 16:05:09.740 [restartedMain] WARN  c.z.h.HikariConfig - [validateNumerics,1047] - HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2024-09-28 16:05:09.740 [restartedMain] INFO  c.z.h.HikariDataSource - [getConnection,110] - HikariPool-1 - Starting...
+2024-09-28 16:05:09.859 [restartedMain] INFO  c.z.h.HikariDataSource - [getConnection,123] - HikariPool-1 - Start completed.
+2024-09-28 16:05:10.119 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8081"]
+2024-09-28 16:05:10.278 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.281 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.283 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.283 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.285 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.285 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.287 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.287 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.289 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.289 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.291 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.291 [restartedMain] WARN  s.d.s.r.o.OperationImplicitParameterReader - [modelSpecification,170] - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2024-09-28 16:05:10.995 [restartedMain] INFO  c.c.ClothRentApplication - [logStarted,61] - Started ClothRentApplication in 3.66 seconds (JVM running for 8.24)
+2024-09-28 16:21:57.222 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-28 16:21:57.456 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:57.485 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:57.528 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:57.531 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:57.532 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:57.534 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:57.561 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT COUNT(1) FROM clothrent.tb_sys_goods 
+2024-09-28 16:21:57.561 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 
+2024-09-28 16:21:57.581 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods ORDER BY sale_number DESC LIMIT ?,? 
+2024-09-28 16:21:57.581 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 0(Long), 12(Long)
+2024-09-28 16:21:57.597 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - <==      Total: 12
+2024-09-28 16:21:57.599 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT COUNT(1) FROM clothrent.tb_sys_goods 
+2024-09-28 16:21:57.600 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 
+2024-09-28 16:21:57.604 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods ORDER BY id DESC LIMIT ?,? 
+2024-09-28 16:21:57.605 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - ==> Parameters: 0(Long), 12(Long)
+2024-09-28 16:21:57.611 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectPage - [debug,143] - <==      Total: 12
+2024-09-28 16:21:57.616 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,user_id,user_name,code,cloth_size,name,category_id,category_name,catgegory_code,second_c_id,second_c_name,second_c_code,tags,state,stock,price,feedback_rate,discount,discount_radio,content,goods_pic1,goods_pic2,goods_pic3,goods_pic4,goods_pic5,sale_number,comment_num,field0,field1,create_time,update_time FROM clothrent.tb_sys_goods 
+2024-09-28 16:21:57.616 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 
+2024-09-28 16:21:57.627 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 104
+2024-09-28 16:21:57.627 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 93
+2024-09-28 16:21:57.627 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 22
+2024-09-28 16:21:57.627 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 83
+2024-09-28 16:21:57.628 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 9
+2024-09-28 16:21:57.628 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 91
+2024-09-28 16:21:57.628 [http-nio-8081-exec-1] DEBUG c.c.c.IndexController - [getRandomSix,110] - 当前随机数 ： 83
+2024-09-28 16:21:58.428 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.429 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.430 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.431 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.432 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.432 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.432 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.432 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.434 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.434 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.435 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.435 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.446 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:43bb6bd5420e40a5b0239ef0a7909b6c.avif
+2024-09-28 16:21:58.446 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a0be1262390f42c2af7f574996ad1c6c.avif
+2024-09-28 16:21:58.505 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.506 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.506 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.506 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.506 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.507 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.507 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.507 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.507 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.508 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.508 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.508 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.508 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.509 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.509 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.509 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.509 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.509 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.510 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.510 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.510 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.510 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.511 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.511 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.511 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:83d34b3f68744e24a63fa94c600f7d60.avif
+2024-09-28 16:21:58.511 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.511 [http-nio-8081-exec-5] DEBUG c.c.c.FileController - [fileDown,172] - saveName:3347440027534954a3d0d3096a7c5f2e.avif
+2024-09-28 16:21:58.511 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.512 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:7395270f39654def9a16fd28184cca3c.avif
+2024-09-28 16:21:58.516 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.516 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.518 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.519 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.522 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.522 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.523 [http-nio-8081-exec-9] DEBUG c.c.c.FileController - [fileDown,172] - saveName:0fd3ee6167ec4afd94956a0bcbcea343.avif
+2024-09-28 16:21:58.523 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:5ff78cc063b044f184aa9d9cf370b071.avif
+2024-09-28 16:21:58.525 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.527 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.527 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.528 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.529 [http-nio-8081-exec-4] DEBUG c.c.c.FileController - [fileDown,172] - saveName:084356d0e14544bb9e81888ed14bfb39.avif
+2024-09-28 16:21:58.533 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.533 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.534 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.534 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.535 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.535 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.535 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.535 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.536 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.536 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.536 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.536 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.537 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.537 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.537 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.537 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.537 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.538 [http-nio-8081-exec-10] DEBUG c.c.c.FileController - [fileDown,172] - saveName:03ecea694cb44905bcfc9182691a1531.avif
+2024-09-28 16:21:58.538 [http-nio-8081-exec-1] DEBUG c.c.c.FileController - [fileDown,172] - saveName:a0e35c8eaf3543c5b8e37a3d18b97776.avif
+2024-09-28 16:21:58.538 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.538 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:bf5fa5582631470592bdf6774776c908.avif
+2024-09-28 16:21:58.544 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.543 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.546 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.546 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.548 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.548 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.549 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.549 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.550 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.550 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.551 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.551 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.551 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.551 [http-nio-8081-exec-5] DEBUG c.c.c.FileController - [fileDown,172] - saveName:83f81a0593db4bf289773fb760e1be78.avif
+2024-09-28 16:21:58.551 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:ac21bf2e92614056bb5ac90ed2ae23a7.avif
+2024-09-28 16:21:58.551 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.552 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.553 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.554 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.555 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.555 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:de585d0bcbe14034ab1f21681b6cfaf8.avif
+2024-09-28 16:21:58.558 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.558 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.558 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.559 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.559 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.559 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.560 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.560 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.560 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.561 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.561 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.561 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.561 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.561 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.561 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.562 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.562 [http-nio-8081-exec-9] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.562 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.563 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:579e1a4b3bf64556a5682b05421572e4.avif
+2024-09-28 16:21:58.563 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:db943d4f75384781a581898c00693d3c.avif
+2024-09-28 16:21:58.563 [http-nio-8081-exec-9] DEBUG c.c.c.FileController - [fileDown,172] - saveName:fd1948aee03c490497ad1486500e1676.avif
+2024-09-28 16:21:58.564 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.564 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.565 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.565 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.566 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.566 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.567 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.567 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.568 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.568 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.571 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.571 [http-nio-8081-exec-4] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.572 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.572 [http-nio-8081-exec-4] DEBUG c.c.c.FileController - [fileDown,172] - saveName:370db59d7944448c8427f3fa936955dd.avif
+2024-09-28 16:21:58.572 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.573 [http-nio-8081-exec-1] DEBUG c.c.c.FileController - [fileDown,172] - saveName:8ee2acfcf2284a5b9a8138dee188cf40.avif
+2024-09-28 16:21:58.575 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.576 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.577 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.578 [http-nio-8081-exec-10] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.579 [http-nio-8081-exec-10] DEBUG c.c.c.FileController - [fileDown,172] - saveName:659df91cdbf64753bfa9286e8664b646.avif
+2024-09-28 16:21:58.584 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.584 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.586 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.588 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.588 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.589 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.589 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.589 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.589 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.589 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.589 [http-nio-8081-exec-3] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.589 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.589 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.590 [http-nio-8081-exec-3] DEBUG c.c.c.FileController - [fileDown,172] - saveName:bbf76fbc9a654e028571baec34659a9e.avif
+2024-09-28 16:21:58.590 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.590 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.590 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.590 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.590 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.591 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.591 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.591 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.591 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.591 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.591 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.591 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.591 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.592 [http-nio-8081-exec-5] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.592 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.592 [http-nio-8081-exec-8] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.592 [http-nio-8081-exec-2] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.592 [http-nio-8081-exec-6] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.592 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.593 [http-nio-8081-exec-8] DEBUG c.c.c.FileController - [fileDown,172] - saveName:5102f061b9874073be3755902dfa28a2.avif
+2024-09-28 16:21:58.593 [http-nio-8081-exec-5] DEBUG c.c.c.FileController - [fileDown,172] - saveName:7416236761324b8aa5ae9a906dc6cdcb.avif
+2024-09-28 16:21:58.593 [http-nio-8081-exec-2] DEBUG c.c.c.FileController - [fileDown,172] - saveName:e9ed4fdc80534f0691223aa57aeb3365.avif
+2024-09-28 16:21:58.593 [http-nio-8081-exec-6] DEBUG c.c.c.FileController - [fileDown,172] - saveName:bdeb69edf31440ee8fe4ad7554ba70eb.avif
+2024-09-28 16:21:58.593 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.594 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.595 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.596 [http-nio-8081-exec-7] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 16:21:58.596 [http-nio-8081-exec-7] DEBUG c.c.c.FileController - [fileDown,172] - saveName:4652c37f6e9c42efb503218b1d72e3f8.avif
+2024-09-28 16:21:58.719 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id = ?) 
+2024-09-28 16:21:58.720 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.721 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 2
+2024-09-28 16:21:58.722 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==>  Preparing: SELECT id,code,name,parent_id,parent_name,parent_code,field0,field1,create_time,update_time FROM clothrent.tb_sys_category WHERE (parent_id <> ?) 
+2024-09-28 16:21:58.722 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - ==> Parameters: 0(Integer)
+2024-09-28 16:21:58.723 [http-nio-8081-exec-1] DEBUG c.c.m.S.selectList - [debug,143] - <==      Total: 9
+2024-09-28 18:04:00.085 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - [close,350] - HikariPool-1 - Shutdown initiated...
+2024-09-28 18:04:00.093 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - [close,352] - HikariPool-1 - Shutdown completed.

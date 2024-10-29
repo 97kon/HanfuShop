@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clothrent.mapper.SysUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.clothrent.entity.SysUser">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="mobile" property="mobile" />
+        <result column="code" property="code" />
+        <result column="password" property="password" />
+        <result column="state" property="state" />
+        <result column="type" property="type" />
+        <result column="sex" property="sex" />
+        <result column="age" property="age" />
+        <result column="address" property="address" />
+        <result column="email" property="email" />
+        <result column="qq_number" property="qqNumber" />
+        <result column="wx_number" property="wxNumber" />
+        <result column="score" property="score" />
+        <result column="field0" property="field0" />
+        <result column="field1" property="field1" />
+        <result column="field2" property="field2" />
+        <result column="field3" property="field3" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, mobile, code, password, state, type, sex, age, address, email, qq_number, wx_number, score, field0, field1, field2, field3, create_time, update_time
+    </sql>
+
+</mapper>

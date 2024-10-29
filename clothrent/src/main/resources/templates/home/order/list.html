@@ -1,0 +1,394 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head th:replace="home/public/header::head(~{::title},~{::links},~{})">
+    <title>我的订单-云裳·汉服商城</title>
+    <links>
+        <link rel="stylesheet" href="/static/common/plugs/layui/css/layui.css">
+    </links>
+</head>
+
+<body>
+<style type="text/css">
+    .checkout-title {
+         margin-top: 0px;
+        position: relative;
+        margin-bottom: 41px;
+        text-align: center;
+    }
+
+    .layui-form-item {
+        margin-bottom: 30px;
+        clear: both;
+        *zoom: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: left;
+        width: 10%;
+        min-width: 110px;
+    }
+    .layui-form-item .layui-input-inline {
+        float: left;
+        width: 90%;
+    }
+
+    .layui-form-item .wrapper-item{
+        width:50%
+    }
+    .wrapper-item .layui-form-label {
+        float: left;
+        width: 30%;
+        min-width: 110px;
+    }
+    .wrapper-item .layui-input-inline {
+        float: left;
+        width: 60%;
+    }
+    .we-red{
+        color: red;
+    }
+    .shipping-method li {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px;
+        padding: 10px;
+        background: #fff;
+        border: 1px solid #e9e9e9;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center;
+        color: #999;
+        font-family: "Moderat";
+        cursor: pointer;
+    }
+    .shipping-method li img {
+       width: 130px;
+        height: 130px;
+    }
+
+    .checkout-title{
+        margin-top: 20px;
+    }
+
+    .checkout-title:before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #FF5722;
+        z-index: 0;
+    }
+    .checkout-title span {
+        position: relative;
+        padding: 0 1em;
+        background-color: #fff;
+        font-family: "moderat", sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        color: #FF5722;
+        z-index: 1;
+    }
+    .top-toolbar{
+        width: 100%;
+        padding: 2%;
+        font-size: 20px;
+        border: 1px solid rgba(197, 197, 197, 0.36);
+        display: flex;
+        justify-content: space-between;
+    }
+    .top-toolbar span{
+        padding: 10px 15px;
+        margin: 0 2% ;
+        border: 1px solid rgba(197, 197, 197, 0.36);
+        cursor: pointer;
+    }
+    .isActive{
+        background-color: #FF5722;
+        font-size: 22px;
+        padding: 15px 20px;
+        color:white;
+    }
+    .mytime{
+        border:1px solid rgba(197, 197, 197, 0.36);
+        width: 200px;
+        padding: 0 1em;
+        font-size: 1rem;
+
+    }
+    .myconfirmBtn{
+        cursor: pointer;
+    }
+    span.myconfirmBtn:hover{
+        background-color: #FF5722;
+        color: white;
+        padding: 5px 10px;
+    }
+    .breadcrumbs-area {
+        padding: 100px 0;
+        background: #f6f6f6 url(/static/common/images/hanfu4.jpeg) no-repeat scroll center center/cover;
+    }
+</style>
+
+    <div class="contact-wrapper">
+
+        <!-- Header Area Start Here -->
+        <div th:replace="home/public/header::headmenu"></div>
+        <!-- Header Area End Here -->
+
+        <!-- Breadcrumb Area Start Here -->
+        <div class="breadcrumbs-area position-relative" style="height: 238px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="breadcrumb-content position-relative section-content">
+                            <!--<h3 class="title-3"> </h3>-->
+                            <!--<ul>-->
+                                <!--<li><a href="/home/index"> </a></li>-->
+                                <!--<li> </li>-->
+                            <!--</ul>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End Here -->
+
+        <!-- cart main wrapper start -->
+        <div class="cart-main-wrapper  mb-no-text" style="min-height: 500px">
+            <div class="container" id="app">
+                <div class="checkout-title">
+                    <span>我的订单</span>
+                </div>
+                <div class="top-toolbar">
+                    <span @click="changeState(0)" :class="{'isActive': state==''}">全部</span>
+                    <span @click="changeState(2)" :class="{'isActive': state==2}">待发货</span>
+                    <span @click="changeState(3)" :class="{'isActive': state==3}">待收货</span>
+                    <span @click="changeState(4)" :class="{'isActive': state==4}">已完成</span>
+                    <span @click="changeState(5)" :class="{'isActive': state==5}">归还中</span>
+                    <span @click="changeState(6)" :class="{'isActive': state==6}">已归还</span>
+                    <input type="text" name="beginTime" id="beginTime" class="mytime"  v-model="beginTime"   placeholder="请选择开始日期"  >
+                    <input type="text" name="endTime"  id="endTime"  class="mytime"  v-model="endTime"   placeholder="请选择结束日期" >
+                </div>
+                <div class="list-order">
+                    <ul>
+                        <li v-for="item in orderList" style="margin: 10px 0px;font-size: 20px;display: flex;justify-content: space-between;flex-wrap: wrap">
+                            <span>订单号：{{item.code}}</span>
+                            <span>订单金额：{{item.price}}</span>
+                            <span v-if="item.state==1" style="color: #32b487">订单状态：已支付等待卖家确认</span>
+                            <span v-if="item.state==2" style="color: #88b448">订单状态：已确认</span>
+                            <span v-if="item.state==3" style="color: #b49f1b">订单状态：已发货</span>
+                            <span v-if="item.state==4" style="color: #b47208">订单状态：已收货</span>
+                            <span v-if="item.state==5" style="color: #b115b4">订单状态：申请归还</span>
+                            <span v-if="item.state==6" style="color: #b40d10">订单状态：已归还</span>
+                            <span v-if="item.state==7" style="color: #2432b4">订单状态：卖家驳回归还申请</span>
+                            <span>订单日期：{{item.createTime}}</span>
+                            <span v-if="item.state==3" style="color: rgba(32,144,22,0.8)">
+                                <span class="myconfirmBtn" @click="confirmOrder(item.id)">确认收货</span>
+                            </span>
+                            <span v-if="item.state==4" style="color: rgba(32,144,22,0.8)">
+                                 <span class="myconfirmBtn" @click="open('申请归还退押金','/home/order/applyCancelPage/'+item.id,600,400)">归还退押金</span>
+                            </span>
+                            <div style="width: 100%;padding: 10px" class="shipping-method">
+                                <ul>
+                                    <li v-for="child in item.childList" @click="toGoodDetail(child.goodsId)">
+                                        <div><img :src="'/file/fileDown?saveName='+child.field1"></div>
+                                        <div class="item-name" style="width: 40%;text-overflow: ellipsis">{{child.goodsName}}</div>
+                                        <div style="width: 5%">数量:{{child.number}}</div>
+                                        <div style="width: 5%">尺码:{{child.clothSize}}</div>
+                                        <div class="item-price" style="width: 10%"> {{ child.price | formatMoney }}</div>
+                                        <div style="color:#d1434a;width: 10%">{{child.price*child.number | formatMoney}}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="shipping-method" style="width: 100%;margin-top: -10px;padding-left:10px;font-size: 10px">
+                                <span>订单备注：</span><span>{{item.remark}}</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-custom">
+                        <div class="toolbar-bottom mt-30">
+                            <div class="layui-row text-center">
+                                <div id="laypage"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- Footer Area Start Here -->
+        <footer th:replace="home/public/footer::footer"></footer>
+        <!-- Footer Area End Here -->
+
+    </div>
+<script th:inline="javascript">
+    var userId='[[${session?.user?.id}]]';
+    if(userId==''||userId=="null"||userId=="undefined"){
+        window.location.href="/home/login";
+    }
+    /*初始化layui的分页插件*/
+    function initLayui() {
+        layui.use(['laydate','laypage'], function () {
+            var laypage = layui.laypage,
+                laydate = layui.laydate;
+            //执行一个laypage实例
+            laypage.render({
+                elem: 'laypage' //注意，这里的 test1 是 ID，不用加 # 号
+                , count: totalCount //数据总数，从服务端得到
+                ,theme: '#FF5722'
+                ,groups:7  // 连续出现的页码个数 默认值5
+                ,curr: pageIndex
+                ,skip:true
+                , limit: pageSize //每页显示的条数。laypage将会借助 count 和 limit 计算出分页数。
+                , limits: [ 6,8, 10] //每页条数的选择项。如果 layout 参数开启了 limit，则会出现每页条数的select选择框
+                , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+                , jump: function (obj, first) {
+                    //obj包含了当前分页的所有参数，比如：
+                    pageSize = obj.limit;
+                    pageIndex = obj.curr;
+                    //首次不执行
+                    if (!first) {
+                        pagination(obj.curr, obj.limit);
+                    }
+                }
+            });
+
+            laydate.render({
+                elem: '#beginTime',
+                type: 'datetime',
+                trigger:'click'
+                ,done: function(value, date, endDate) {
+                    app.$data.beginTime=value;
+                    searchList();
+                }
+            });
+            laydate.render({
+                elem: '#endTime',
+                type: 'datetime',
+                trigger:'click'
+                ,done: function(value, date, endDate){
+                    app.$data.endTime=value;
+                    searchList();
+                }
+            });
+
+        });
+    }
+
+
+
+    var that = this;
+    var app = new Vue({
+        el: "#app",
+        data: {
+            orderList: ""
+            ,sortColumn: 1 // 排序规则，默认为1 最新日期排序
+            ,state:"" // 订单状态
+            ,beginTime:"" //
+            ,endTime:"" //
+            ,column:"id"
+            ,loginUserId:""
+            ,isAsc:"desc"
+            ,initLayui: false//是否可以渲染layui，请求到数据后才可以
+        },
+        filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
+            formatMoney:function (value) { // 默认接收一个参数
+                return "¥ " + value.toFixed(2) +" 元"; // 返回一个¥ 加上2位小数
+            }
+        },
+        created: function () {
+            console.log("当前是VUE生命周期created方法，获取的userId为：",userId);
+            this.loginUserId=userId;
+        },
+        methods:{
+            changeState:function(state){
+                switch (state) {
+                    case 0:this.state='';break;
+                    case 2:this.state=2;break;
+                    case 3:this.state=3;break;
+                    case 4:this.state=4;break;
+                    case 5:this.state=5;break;
+                    case 6:this.state=6;break;
+                }
+                searchList('');
+
+            },
+
+            changeDate:function(){
+              console.log("changeDate........")
+            },
+            searchList:function () {
+                searchList('');
+            },
+            toGoodDetail(goodsId){
+                window.location.href="/home/goods/detail/"+goodsId;
+            }
+            ,open: function (title, url,width,height) {
+                WeAdminShow(title, url,width,height);
+            },
+            confirmOrder:function (orderId) {
+                layer.confirm('确认要完成收货订单吗？', function (index) {
+                    //捉到所有被选中的，发异步进行删除
+                    $.post("/order/updateState", {"id":orderId,"state":4}, function (res) {
+                        if (res.success) {
+                            layer.msg('确认订单成功', {
+                                icon: 1, time: 1500
+                            },function () {
+                                searchList();
+                            });
+
+
+                        }
+                    });
+                });
+            }
+        },
+        watch: {//监听data中的数据变化
+            'initLayui': function (newVal) {
+                if (newVal)
+                    that.initLayui();
+            }
+        }
+    });
+
+    var pageIndex = 1;
+    var pageSize = 6;
+    var totalCount = 6;
+
+    /*获取订单列表*/
+
+    function pagination(pageIndex,pageSize) {
+        pageIndex=pageIndex;
+        pageSize=pageSize;
+        searchList();
+    }
+    function searchList() {
+        var requestPath = "/home/order/list/?pageNum=" + pageIndex + "&pageSize=" + pageSize+"&userId="+app.$data.loginUserId+"&state="+app.$data.state;
+        $.post(requestPath,{"beginTime":app.$data.beginTime,"endTime":app.$data.endTime} ,function (res) {
+            totalCount = res.data.total;
+            app.$data.orderList = res.data.rows;
+            app.$data.initLayui = true;
+            that.initLayui();
+        });
+    }
+    searchList();
+</script>
+
+</body>
+
+</html>
