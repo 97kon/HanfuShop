@@ -30,10 +30,13 @@ import java.util.Map;
  * 订单明细表 前端控制器
  * </p>
  *
+ * @author liuqiming
+ * @since 2024-02-06
  */
 @Controller
 @RequestMapping({"/item","/home/item"})
 public class SysOrderItemController {
+
 
     private static  final Logger logger= LoggerFactory.getLogger(SysOrderItemController.class);
 
@@ -57,7 +60,23 @@ public class SysOrderItemController {
         return "admin/order/list_item";
     }
 
-    
+
+    @RequestMapping("/appraisePage")
+    public String appraisePage(Long orderItemId,Model model) {
+        System.out.println("执行到1");
+        SysOrderItem orderItem = orderItemService.getById(orderItemId);
+        System.out.println("执行到2");
+        model.addAttribute("orderItemId",orderItemId);
+        model.addAttribute("orderItem",orderItem);
+        System.out.println("执行到3");
+        return "home/order/appraise";
+    }
+
+
+
+
+
+
 
     /**
      * 分页列表查询

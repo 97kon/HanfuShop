@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clothrent.mapper.UserAccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.clothrent.entity.UserAccount">
+        <id column="id" property="id" />
+        <result column="user_name" property="userName" />
+        <result column="user_id" property="userId" />
+        <result column="amount" property="amount" />
+        <result column="before_num" property="beforeNum" />
+        <result column="change_num" property="changeNum" />
+        <result column="order_num" property="orderNum" />
+        <result column="order_id" property="orderId" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_name, user_id, amount, before_num, change_num, order_num, order_id, remark, create_time, update_time
+    </sql>
+
+</mapper>

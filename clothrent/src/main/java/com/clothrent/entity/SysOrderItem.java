@@ -18,6 +18,8 @@ import java.time.LocalDateTime;
  * 订单明细表
  * </p>
  *
+ * @author liuqiming
+ * @since 2024-02-11
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

@@ -11,7 +11,7 @@
 <body>
 <style type="text/css">
     .checkout-title {
-         margin-top: 0px;
+        margin-top: 0px;
         position: relative;
         margin-bottom: 41px;
         text-align: center;
@@ -68,7 +68,7 @@
         cursor: pointer;
     }
     .shipping-method li img {
-       width: 130px;
+        width: 130px;
         height: 130px;
     }
 
@@ -92,7 +92,7 @@
         background-color: #fff;
         font-family: "moderat", sans-serif;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 15px;
         color: #FF5722;
         z-index: 1;
     }
@@ -106,13 +106,14 @@
     }
     .top-toolbar span{
         padding: 10px 15px;
-        margin: 0 2% ;
+        margin: 0 10px ;
         border: 1px solid rgba(197, 197, 197, 0.36);
         cursor: pointer;
+        font-size: 15px;
     }
     .isActive{
         background-color: #FF5722;
-        font-size: 22px;
+        font-size: 15px;
         padding: 15px 20px;
         color:white;
     }
@@ -134,6 +135,10 @@
     .breadcrumbs-area {
         padding: 100px 0;
         background: #f6f6f6 url(/static/common/images/hanfu4.jpeg) no-repeat scroll center center/cover;
+    }
+    .container{
+        width: 80%;
+        max-width: 1600px;
     }
 </style>
 
@@ -174,6 +179,8 @@
                     <span @click="changeState(4)" :class="{'isActive': state==4}">已完成</span>
                     <span @click="changeState(5)" :class="{'isActive': state==5}">归还中</span>
                     <span @click="changeState(6)" :class="{'isActive': state==6}">已归还</span>
+                    <span @click="changeState(8)" :class="{'isActive': state==8}">已评价</span>
+
                     <input type="text" name="beginTime" id="beginTime" class="mytime"  v-model="beginTime"   placeholder="请选择开始日期"  >
                     <input type="text" name="endTime"  id="endTime"  class="mytime"  v-model="endTime"   placeholder="请选择结束日期" >
                 </div>
@@ -189,6 +196,8 @@
                             <span v-if="item.state==5" style="color: #b115b4">订单状态：申请归还</span>
                             <span v-if="item.state==6" style="color: #b40d10">订单状态：已归还</span>
                             <span v-if="item.state==7" style="color: #2432b4">订单状态：卖家驳回归还申请</span>
+                            <span v-if="item.state==8" style="color: #2432b4">订单状态：已评价</span>
+
                             <span>订单日期：{{item.createTime}}</span>
                             <span v-if="item.state==3" style="color: rgba(32,144,22,0.8)">
                                 <span class="myconfirmBtn" @click="confirmOrder(item.id)">确认收货</span>
@@ -205,6 +214,11 @@
                                         <div style="width: 5%">尺码:{{child.clothSize}}</div>
                                         <div class="item-price" style="width: 10%"> {{ child.price | formatMoney }}</div>
                                         <div style="color:#d1434a;width: 10%">{{child.price*child.number | formatMoney}}</div>
+                                        <div>
+                                             <span v-if="item.state==6" style="color: rgba(32,144,22,0.8)">
+                                                <span class="myconfirmBtn" @click="appraise(item.id)">评价</span>
+                                            </span>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -324,6 +338,7 @@
                     case 4:this.state=4;break;
                     case 5:this.state=5;break;
                     case 6:this.state=6;break;
+                    case 8:this.state=8;break;
                 }
                 searchList('');
 
@@ -340,6 +355,11 @@
             }
             ,open: function (title, url,width,height) {
                 WeAdminShow(title, url,width,height);
+            },
+            appraise(itemId){
+                WeAdminShow("订单评价", "/home/item/appraisePage?orderItemId="+itemId,900,700);
+                console.log(itemId);
+                console.log("/home/item/appraisePage")
             },
             confirmOrder:function (orderId) {
                 layer.confirm('确认要完成收货订单吗？', function (index) {

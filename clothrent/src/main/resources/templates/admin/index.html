@@ -9,7 +9,7 @@
 	<link rel="stylesheet" th:href="@{/layuiadmin/layui/css/layui.css}" media="all">
 	<link rel="stylesheet" th:href="@{/layuiadmin/style/admin.css}" media="all">
 	<script>
-        /^http(s*):\/\//.test(location.href) || alert('请先部署到 localhost 下再访问');
+		/^http(s*):\/\//.test(location.href) || alert('请先部署到 localhost 下再访问');
 	</script>
 </head>
 
@@ -106,6 +106,15 @@
 							<dd data-name="teline" th:if="${session.user.type!=1}">
 								<a lay-href="/user/listPage">个人信息</a>
 							</dd>
+							<dd th:if="${session.user.type==1}">
+								<a lay-href="/userNote/listPage?actionType=1">点赞列表</a>
+							</dd>
+							<dd th:if="${session.user.type==1}">
+								<a lay-href="/userNote/listPage?actionType=2">收藏列表</a>
+							</dd>
+							<dd th:if="${session.user.type==1}">
+								<a lay-href="/userNote/listPage?actionType=3">评论列表</a>
+							</dd>
 
 						</dl>
 					</li>
@@ -158,11 +167,11 @@
 					<li data-name="template" class="layui-nav-item" th:if="${session.user.type==1}">
 						<a href="javascript:;" lay-tips="用户积分" lay-direction="2">
 							<i class="layui-icon layui-icon-auz"></i>
-							<cite>用户积分</cite>
+							<cite>用户账户</cite>
 						</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a lay-href="/score/listPage">积分明细</a>
+								<a lay-href="/userAccount/listPage">变动记录</a>
 							</dd>
 						</dl>
 					</li>
@@ -178,6 +187,17 @@
 						</dl>
 					</li>
 
+					<li data-name="template" class="layui-nav-item" th:if="${session.user.type==1}">
+						<a href="javascript:;" lay-tips="用户预约" lay-direction="2">
+							<i class="layui-icon layui-icon-about"></i>
+							<cite>笔记管理</cite>
+						</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a lay-href="/note/listPage?type=1">笔记列表</a>
+							</dd>
+						</dl>
+					</li>
 
 
 					<li data-name="user" class="layui-nav-item" th:if="${session.user.type==1}">
@@ -191,6 +211,8 @@
 							</dd>
 						</dl>
 					</li>
+
+
 				</ul>
 			</div>
 		</div>
@@ -242,117 +264,117 @@
 <script>
 	// 如果是采购员 则弹窗提示未读消息数量
 	var UnReadMessage=[[${UnReadMessage}]];
-    layui.config({
-        base: '../layuiadmin/' //静态资源所在路径
-    }).extend({
-        index: 'lib/index' //主入口模块
-    }).use('index');
-    layui.use('layer', function(){ //独立版的layer无需执行这一句
-        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+	layui.config({
+		base: '../layuiadmin/' //静态资源所在路径
+	}).extend({
+		index: 'lib/index' //主入口模块
+	}).use('index');
+	layui.use('layer', function(){ //独立版的layer无需执行这一句
+		var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
 
 		console.log("当前未读消息数量为：",UnReadMessage);
 		if(UnReadMessage>0){
-		    var height=$(window).height();
-		    var width=$(window).width();
-		    console.log(width,height);
-            layer.open({
-                id:1,
-                type: 0,
-                title:false,
-                // skin:'layui-layer-rim',
-                offset: [height*0.9,width*0.5],
-                closeBtn :0, //layer提供了两种风格的关闭按钮，可通过配置1和2来展示，如果不显示，则closeBtn: 0
-                // time: 5000,//默认不会自动关闭。当你想自动关闭时，可以time: 5000，即代表5秒后自动关闭，注意单位是毫秒（1秒=1000毫秒）
-                shade: 0 ,//不显示遮罩
-                anim: 6 , //anim - 弹出动画
-                move:'#UnReadMessage',
-                content: '<span id="UnReadMessage">你有'+UnReadMessage+'条未读消息!</span>',
-                btn:['查看','关闭'],
-                btn1:function (index,layero) {
-                    $(".layadmin-iframe").attr("src","/message/listPage");
+			var height=$(window).height();
+			var width=$(window).width();
+			console.log(width,height);
+			layer.open({
+				id:1,
+				type: 0,
+				title:false,
+				// skin:'layui-layer-rim',
+				offset: [height*0.9,width*0.5],
+				closeBtn :0, //layer提供了两种风格的关闭按钮，可通过配置1和2来展示，如果不显示，则closeBtn: 0
+				// time: 5000,//默认不会自动关闭。当你想自动关闭时，可以time: 5000，即代表5秒后自动关闭，注意单位是毫秒（1秒=1000毫秒）
+				shade: 0 ,//不显示遮罩
+				anim: 6 , //anim - 弹出动画
+				move:'#UnReadMessage',
+				content: '<span id="UnReadMessage">你有'+UnReadMessage+'条未读消息!</span>',
+				btn:['查看','关闭'],
+				btn1:function (index,layero) {
+					$(".layadmin-iframe").attr("src","/message/listPage");
 
-                    layer.close(index);
-                },
-                btn2:function (index,layero) {
-                    layer.close(index);
-                }
+					layer.close(index);
+				},
+				btn2:function (index,layero) {
+					layer.close(index);
+				}
 
-            });
+			});
 		}
 
-        //触发事件
-        var active = {
-            offset: function(othis){
-                layer.open({
-                    id:1,
-                    type: 1,
-                    title:'修改密码',
-                    skin:'layui-layer-rim',
-                    area:['450px', 'auto'],
+		//触发事件
+		var active = {
+			offset: function(othis){
+				layer.open({
+					id:1,
+					type: 1,
+					title:'修改密码',
+					skin:'layui-layer-rim',
+					area:['450px', 'auto'],
 
-                    content: ' <div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">'
-                    +'<div class="col-sm-12" style="margin-top: 10px">'
-                    +'<div class="input-group">'
-                    +'<span class="input-group-addon"> 原密码:</span>'
-                    +'<input id="oldpwd" type="password"  class="form-control layui-input" placeholder="原密码">'
-                    +'</div>'
-                    +'</div>'
-                    +'<div class="col-sm-12">'
-                    +'<div class="input-group">'
-                    +'<span class="input-group-addon"> 新 密 码   :</span>'
-                    +'<input id="firstpwd" type="password" class="form-control layui-input" placeholder="请输入密码">'
-                    +'</div>'
-                    +'</div>'
-                    +'<div class="col-sm-12" style="margin-top: 10px">'
-                    +'<div class="input-group">'
-                    +'<span class="input-group-addon">确认密码:</span>'
-                    +'<input id="secondpwd" type="password" class="form-control layui-input" placeholder="请再输入一次密码">'
-                    +'</div>'
-                    +'</div>'
-                    +'</div>'
-                    ,
-                    btn:['保存','取消'],
-                    btn1:function (index,layero) {
+					content: ' <div class="row" style="width: 420px;  margin-left:7px; margin-top:10px;">'
+							+'<div class="col-sm-12" style="margin-top: 10px">'
+							+'<div class="input-group">'
+							+'<span class="input-group-addon"> 原密码:</span>'
+							+'<input id="oldpwd" type="password"  class="form-control layui-input" placeholder="原密码">'
+							+'</div>'
+							+'</div>'
+							+'<div class="col-sm-12">'
+							+'<div class="input-group">'
+							+'<span class="input-group-addon"> 新 密 码   :</span>'
+							+'<input id="firstpwd" type="password" class="form-control layui-input" placeholder="请输入密码">'
+							+'</div>'
+							+'</div>'
+							+'<div class="col-sm-12" style="margin-top: 10px">'
+							+'<div class="input-group">'
+							+'<span class="input-group-addon">确认密码:</span>'
+							+'<input id="secondpwd" type="password" class="form-control layui-input" placeholder="请再输入一次密码">'
+							+'</div>'
+							+'</div>'
+							+'</div>'
+					,
+					btn:['保存','取消'],
+					btn1:function (index,layero) {
 						var firstpwd=$("#firstpwd").val()
 						var secondpwd=$("#secondpwd").val()
 						var oldpwd=$("#oldpwd").val()
 						if (firstpwd!=secondpwd){
-                            layer.msg("两次密码不一致！", {icon: 2, time: 1500});
+							layer.msg("两次密码不一致！", {icon: 2, time: 1500});
 							return false;
 						}else {
-						    $.ajax({
-                                url:"/user/updatePWd?password="+firstpwd+"&oldpwd="+oldpwd+"&id="+[[${session?.user?.id}]],
-                                type:'post',
+							$.ajax({
+								url:"/user/updatePWd?password="+firstpwd+"&oldpwd="+oldpwd+"&id="+[[${session?.user?.id}]],
+								type:'post',
 								success:function (res) {
-                                    if (res.success){
-                                        layer.msg(res.msg, {icon: 1, time: 1500},function () {
-                                            refreshParent();
-                                        });
-                                        layer.close(index);
+									if (res.success){
+										layer.msg(res.msg, {icon: 1, time: 1500},function () {
+											refreshParent();
+										});
+										layer.close(index);
 									}else {
-                                        layer.msg(res.msg, {icon: 2, time: 1500});
+										layer.msg(res.msg, {icon: 2, time: 1500});
 									}
 
-                                },error:function () {
-                                    layer.msg(res.msg, {icon: 2, time: 1500});
-                                }
+								},error:function () {
+									layer.msg(res.msg, {icon: 2, time: 1500});
+								}
 							})
 						}
-                    },
-                    btn2:function (index,layero) {
-                        layer.close(index);
-                    }
+					},
+					btn2:function (index,layero) {
+						layer.close(index);
+					}
 
-                });
-            }
-        };
+				});
+			}
+		};
 
-        $('#layerDemo #passwd').on('click', function(){
-            var othis = $(this), method = othis.data('method');
-            active[method] ? active[method].call(this, othis) : '';
-        });
+		$('#layerDemo #passwd').on('click', function(){
+			var othis = $(this), method = othis.data('method');
+			active[method] ? active[method].call(this, othis) : '';
+		});
 
-    });
+	});
 </script>
 </body>
 

@@ -28,5 +28,6 @@
     <sql id="Base_Column_List">
         id, order_id, code, goods_id,cloth_size, goods_name, category_id, category_name, price, number, state, user_id, user_name, remark, field0, field1, create_time, update_time
     </sql>
+    <select id="getByOrderId" resultType="com.clothrent.entity.SysOrderItem"></select>
 
 </mapper>

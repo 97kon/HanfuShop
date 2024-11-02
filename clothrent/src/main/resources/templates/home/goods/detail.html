@@ -32,7 +32,9 @@
         width: 335px;
     }
     .obrien-button-3.black-button:hover{
-        font-size: 1.5rem;
+        /*font-size: 1.5rem;*/
+        color: whitesmoke;
+        background-color: #f5282b;
     }
     .btn.obrien-button.primary-btn:hover{
         background-color: #e4393c;
@@ -69,12 +71,13 @@
         text-overflow: clip;
         overflow: hidden;
         font-size: 1rem;
+        line-height: 26px;
     }
     div.desc-content div,img,vieo{
         max-width: 100%;
     }
     input[type="checkbox"] {
-         display: inline-block;
+        display: inline-block;
     }
     .parameter2,.p-parameter-list{
         display: flex;
@@ -258,7 +261,10 @@
                     <div class="col-lg-12">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active text-uppercase text-left"  id="home-tab" data-toggle="tab" href="#connect-1" role="tab" aria-selected="true">商品详情</a>
+                                <a class="nav-link active text-uppercase text-left" @click="showDetail"  id="home-tab" data-toggle="tab" href="#connect-1" role="tab" aria-selected="true">商品详情</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link  text-uppercase text-left" @click="showAppraise" id="home-tab" data-toggle="tab" href="#connect-2" role="tab" >商品评论</a>
                             </li>
 
                         </ul>
@@ -266,7 +272,7 @@
                             <div class="tab-pane fade show active" id="connect-1" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="desc-content" >
                                     <!--<p style="font-size: 16px;font-weight: bold; width: 100%;text-align: left">商品参数</p>-->
-                                    <div style="display: flex;font-size: 16px;justify-content: space-between;align-items: center;margin: 5px 0;padding: 20px;background-color: rgba(229,229,229,0.85)">
+                                    <div style="display: flex;font-size: 13px;justify-content: space-between;align-items: center;margin: 5px 0;padding: 20px;background-color: rgba(229,229,229,0.85)">
                                         <span>名称：<span> [[${goods.name}]]</span></span>
                                         <span>定价：<span> [[${goods.price}]]</span></span>
                                         <span>一级分类：<span> [[${goods.categoryName}]]</span></span>
@@ -275,9 +281,37 @@
                                         <span>库存：<span> [[${goods.stock}]]</span></span>
                                     </div>
                                 </div>
-                                <div class="desc-content" th:utext="${goods.content}">
+                                <div class="desc-content" style="text-align: center;border: 1px solid black;;" th:utext="${goods.content}">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-content mb-text" id="myTabContent">
+
+                        <div :class="appraiseClass" id="connect-2" role="tabpanel" aria-labelledby="home-tab">
+                            <p style="font-size: 16px;margin: 10px 0">商品评论({{total}})条</p>
+                            <ul>
+                                <li v-for="item in commentList" style="display: flex;flex-direction: row;align-items: flex-start;width: 100%;padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid rgba(222,218,218,0.38)">
+                                    <div style="width: 120px;flex-shrink: 0">
+                                        <img :src="'/file/fileDown?saveName='+item.userImg" style="width: 100px;height: 100px;border-radius: 50%;">
+                                    </div>
+
+                                    <div style="width: 100%;">
+                                        <div style="font-size: 14px;margin-bottom: 10px;width: 100%">
+                                            <span>{{item.userName}}</span>
+                                            <span style="float: right">{{item.createTime}}</span>
+                                        </div>
+                                        <div style="margin-bottom: 5px">{{item.content}}</div>
+                                        <div style="width: 100%;display: flex;flex-direction: row;flex-wrap: wrap;align-items: center">
+                                            <img :src="iteminner" v-for="iteminner in item.image.split(',')" style="width: 100px;height: 100px;margin: 5px;cursor: pointer" @click="showImage(iteminner)">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="layui-row text-center" v-if="total>0">
+                                <div id="laypage"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -310,7 +344,7 @@
                                     </div>
                                     <div class="product-content">
                                         <div  style="font-size: 1.2rem;color: #e4393c">
-                                            <span class="regular-price ">￥[[${item.discount}]]</span>
+                                            <span class="regular-price ">￥[[${item.price}]]</span>
                                         </div>
                                         <div class="product-title" style="margin-bottom: 0">
                                             <p class="title-2 multi-line2">[[${item.name}]]</p>
@@ -441,7 +475,7 @@
                 layer.close(index);
                 if (res.success == true) {
                     layer.msg(res.msg, {icon: 1, time: 1500}, function () {
-                        window.location.href = "/home/cart/detail?userId=" + userId
+                        // window.location.href = "/home/cart/detail?userId=" + userId
                     });
                 } else {
                     layer.msg(res.msg, {icon: 2, time: 1500});

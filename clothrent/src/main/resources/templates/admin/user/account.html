@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/public/head::head(~{::title},~{},~{})">
+    <title>编辑用户-云裳·汉服商城</title>
+</head>
+
+<body>
+<style type="text/css">
+    .weadmin-body{
+        padding: 20px;
+    }
+    .layui-form-item {
+        margin-bottom: 30px;
+        clear: both;
+        *zoom: 1;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: left;
+        width: 10%;
+        min-width: 110px;
+    }
+    .layui-form-item .layui-input-inline {
+        float: left;
+        width: 90%;
+    }
+
+    .layui-form-item .wrapper-item{
+        width:50%
+    }
+    .wrapper-item .layui-form-label {
+        float: left;
+        width: 30%;
+        min-width: 110px;
+    }
+    .wrapper-item .layui-input-inline {
+        float: left;
+        width: 60%;
+    }
+    .we-red{
+        color: red;
+    }
+    .mybtn{
+        width: 25%;max-width: 300px;
+        background-color: #c38342;
+    }
+</style>
+<div class="weadmin-body">
+    <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data" th:object="${user}">
+        <!--<input type="hidden" name="type" th:value="${user.type}"/>-->
+        <input type="hidden" name="id" th:field="*{id}"/>
+
+        <div class="layui-form-item">
+            <label for="name" class="layui-form-label">
+                <span class="we-red">*</span>当前余额
+            </label>
+            <div class="layui-input-inline marginright">
+                <input type="text" id="account"  name="account" th:field="*{account}" required lay-verify="required" readonly
+                       placeholder="当前余额" autocomplete="off"  class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="number" class="layui-form-label">
+                <span class="we-red">*</span>充值金额
+            </label>
+            <div class="layui-input-inline marginright">
+                <input type="text" id="number"  name="number"  required lay-verify="required"
+                       placeholder="充值金额" autocomplete="off"  class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="display: flex;justify-content: center">
+            <button  class="layui-btn mybtn " lay-filter="edit" lay-submit>修改</button>
+        </div>
+    </form>
+</div>
+<!-- 百度编辑器配置文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.config.js}"></script>
+<!-- 百度编辑器编辑器源码文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.all.js}"></script>
+
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+</script>
+<script type="text/javascript">
+    layui.use(['form', 'layer','upload', 'jquery','laydate', 'admin'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            laydate = layui.laydate,
+            upload = layui.upload,
+            layer = layui.layer;
+
+        laydate.render({
+            elem: '#bornDate',
+            type: 'datetime',
+            trigger: 'click'
+        });
+
+        //自定义验证规则
+        form.verify({
+            phone: [/1[345789]\d{9}$/, '请输入正确的手机号'],
+            email: [/(.+)@.+\..+$/, '请输入正确的邮箱'],
+            repass: function (value) {
+                if ($('#L_pass').val() != $('#L_repass').val()) {
+                    return '两次密码不一致';
+                }
+            }
+        });
+        //图片上传
+        var uploadInst = upload.render({
+            elem: '#uploadimg'
+            , multiple: false//多图上传，不支持IE8/9
+            , field: 'file'//后台接收字段名
+            , auto: false//不自动上传
+            , acceptMime: 'image/*'//（只显示图片文件）
+            , choose: function (obj) { //选择图片后执行
+                //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+                $("#imgBox").empty();
+                obj.preview(function (index, file, result) {
+                    var img = "<img width='100px' height='100px' src='" + result + "'alt='' class='img-rounded'>";
+                    $("#imgBox").append(img);
+                });
+            }
+        });
+        //监听提交
+        form.on('submit(edit)', function (data) {
+            var formData = new FormData($("#form")[0]);
+            $.ajax({
+                url: "/user/payAccount",
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function(){
+                    //返回的参数item，即为当前的input DOM对象
+                    index = layer.load(1,{shade: [0.3,'grey']});
+                },
+                success: function (res) {
+                    //关闭遮罩层
+                    layer.close(index);
+                    if (res.success == true) {
+                        layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                            refreshParent();
+                        });
+                    } else {
+                        layer.msg(res.msg, {icon: 2, time: 1500});
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res, {icon: 2, time: 1500});
+                },
+                complete: function () {
+                }
+            });
+            return false;
+        });
+    });
+    /*清除回显图片*/
+    function clearImg() {
+        $("#imgBox").empty();
+    }
+</script>
+</body>
+
+</html>

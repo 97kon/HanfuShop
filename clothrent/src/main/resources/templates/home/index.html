@@ -53,7 +53,7 @@
         /*border-radius: 20px;*/
     }
     /*.mylist-top-search input,i{*/
-        /*height: 50px;*/
+    /*height: 50px;*/
     /*}*/
 
 
@@ -219,15 +219,16 @@
                                 <!--<h4 class="title-2"> <a th:href="@{/home/goods/detail/}+${item.id}">[[${item.name}]]</a></h4>-->
                             </div>
                         </div>
-                        <div class="add-action d-flex position-absolute" style="display: flex;justify-content: space-between;margin-top: 1rem">
-                            <a href="javascript:;" th:onclick="addCart([[${item.id}]],1)" title="添加购物车" style="margin-right: 15px">
-                                <i class="ion-bag" style="font-style: normal;">添加购物车</i>
-                            </a>
-                            <a href="javascript:;" th:onclick="immediateOrder([[${item.id}]],1)" title="立即购买">
-                                <i class="ion-eye" style="font-style: normal;">立即购买</i>
-                            </a>
+                        <!--                        添加购物车 -->
+                        <!--                        <div class="add-action d-flex position-absolute" style="display: flex;justify-content: space-between;margin-top: 1rem">-->
+                        <!--                            <a href="javascript:;" th:onclick="addCart([[${item.id}]],1)" title="添加购物车" style="margin-right: 15px">-->
+                        <!--                                <i class="ion-bag" style="font-style: normal;">添加购物车</i>-->
+                        <!--                            </a>-->
+                        <!--                            <a href="javascript:;" th:onclick="immediateOrder([[${item.id}]],1)" title="立即购买">-->
+                        <!--                                <i class="ion-eye" style="font-style: normal;">立即购买</i>-->
+                        <!--                            </a>-->
 
-                        </div>
+                        <!--                        </div>-->
                     </li>
                 </ul>
             </div>
@@ -251,7 +252,7 @@
                 </div>
             </div>
             <div class="row">
-                <ul style="display: flex;align-items: flex-start;flex-wrap: wrap;height: 320px;overflow-y: hidden">
+                <ul style="display: flex;align-items: flex-start;flex-wrap: wrap;height: 300px;overflow-y: hidden">
                     <li th:each="item : ${goodsListNew}" class="col-xl-16 col-xl-20 col-lg-3 col-md-3 col-sm-3" style="padding: 10px 20px;margin-bottom: 40px">
                         <div class="product-image">
                             <a class="d-block" th:href="@{/home/goods/detail/}+${item.id}+'?type=1'">
@@ -460,7 +461,7 @@
         }
         window.location.href="/home/order/immediateOrderPage?goodsId="+goodsId+"&number="+1;
     }
-   
+
 
 </script>
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clothrent.mapper.GoodsAppraiseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.clothrent.entity.GoodsAppraise">
+        <id column="id" property="id" />
+        <result column="goods_id" property="goodsId" />
+        <result column="goods_name" property="goodsName" />
+        <result column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="user_img" property="userImg" />
+        <result column="goods_img" property="goodsImg" />
+        <result column="score" property="score" />
+        <result column="content" property="content" />
+        <result column="order_id" property="orderId" />
+        <result column="order_item_id" property="orderItemId" />
+        <result column="image" property="image" />
+        <result column="reply_info" property="replyInfo" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, goods_id, goods_name, user_id, user_name, user_img, goods_img, score, content, order_id, order_item_id, image, reply_info, create_time, update_time
+    </sql>
+
+</mapper>

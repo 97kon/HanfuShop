@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/public/head::head(~{::title},~{},~{})">
+    <title>订单评价-云裳·汉服商城</title>
+</head>
+
+<body>
+<style type="text/css">
+    .weadmin-body{
+        padding: 20px;
+    }
+
+    .we-red{
+        color: red;
+    }
+    .layui-form-item {
+        margin-bottom: 30px;
+        clear: both;
+        *zoom: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: left;
+        width: 10%;
+        min-width: 110px;
+    }
+    .layui-form-item .layui-input-inline {
+        float: left;
+        width: 90%;
+    }
+</style>
+<div class="weadmin-body" id="app">
+    <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data" th:object="${orderItem}">
+        <input type="hidden" name="orderItemId" th:value="${orderItem.id}"/>
+        <div class="layui-form-item">
+                <span class="we-red">*</span>请于下方填写评价信息
+        </div>
+        <div class="layui-form-item">
+            <label for="name" class="layui-form-label">
+                商品名称
+            </label>
+            <div class="layui-input-inline "  >
+                <input type="text"  id="name" th:field="*{goodsName}"  name="goodsName" lay-verify="required"
+                       readonly autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="name" class="layui-form-label">
+                订单评价
+            </label>
+            <div class="layui-input-inline "  >
+                <input type="text"  id="content"  name="content" lay-verify="required"
+                       placeholder="请输入商品评价信息" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="justify-content: flex-start;">
+            <div class="wrapper-item">
+                <label class="layui-form-label">图片分享</label>
+                <div class="layui-input-inline" style="margin-right: 0px;width: 30%">
+                    <button type="button" onclick="clearImg();" class="layui-btn" id="uploadimg">
+                        <i class="layui-icon">&#xe67c;</i>选择图片
+                    </button>
+                </div>
+                <span  id="imgBox"></span>
+            </div>
+        </div>
+        <div style="width: 100%;display: flex;flex-wrap: wrap;flex-direction: row">
+            <div v-for="item in fileList" style="margin: 5px ;padding: 5px;position: relative">
+                <img :src="item" style="width: 100px;height: 100px;"/>
+                <span style="position: absolute;right: 3px;top: 3px;cursor: pointer;background-color: whitesmoke;color: grey" @click="removeFile(item)">删除</span>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="justify-content: center;display: flex;">
+            <button style="width:55%;max-width: 300px;background-color: #FF5722" class="layui-btn" lay-filter="edit" lay-submit>提交</button>
+        </div>
+    </form>
+</div>
+<script src="/static/home/cart/js/vue2.min.js"></script>
+<script src="/static/home/cart/js/vue-resource.min.js"></script>
+<script type="text/javascript">
+    layui.use(['form', 'layer','upload', 'jquery', 'admin'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            upload = layui.upload,
+            layer = layui.layer;
+
+        //图片上传
+        var uploadInst = upload.render({
+            elem: '#uploadimg'
+            , multiple: true//多图上传，不支持IE8/9
+            ,url: '/file/uploadOnly/'
+            , field: 'file'//后台接收字段名
+            , auto: true//不自动上传
+            , acceptMime: 'image/*'//（只显示图片文件）
+            , choose: function (obj) { //选择图片后执行
+                //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+                // $("#imgBox").empty();
+                obj.preview(function (index, file, result) {
+                    console.log("file index : ",index)
+                    console.log("file file : ",file)
+                    console.log("file result : ",result)
+                    // var img = "<img width='100px' height='100px' src='" + result + "'alt='' class='img-rounded'>";
+                    // $("#imgBox").append(img);
+                });
+            }
+            ,allDone: function(obj){ //当文件全部被提交后，才触发
+
+                console.log("allDone:",obj.total); //得到总文件数
+                console.log("allDone:",obj.successful); //请求成功的文件数
+                console.log("allDone:",obj.aborted); //请求失败的文件数
+            }
+            ,done: function(res, index, upload){ //每个文件提交一次触发一次。详见“请求成功的回调”
+                console.log("done res : ",res)
+                console.log("done index : ",index)
+                console.log("done upload : ",upload)
+                vm.$data.fileList.push(res.data.field1)
+                console.log("vm.$data.fileList :",vm.$data.fileList)
+            }
+        });
+
+        //监听提交
+        form.on('submit(edit)', function (data) {
+            console.log(data.field);
+            var formData = new FormData($("#form")[0]);
+            var image=vm.$data.fileList.join(",");
+            $.ajax({
+                url: "/goodsAppraise/add?image="+image,
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function(){
+                    //返回的参数item，即为当前的input DOM对象
+                    index = layer.load(1,{shade: [0.3,'grey']});
+                },
+                success: function (res) {
+                    //关闭遮罩层
+                    layer.close(index);
+                    if (res.success == true) {
+                        layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                            refreshParent();
+                        });
+                    } else {
+                        layer.msg(res.msg, {icon: 2, time: 1500});
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res, {icon: 2, time: 1500});
+                },
+                complete: function () {
+                }
+            });
+            return false;
+        });
+    });
+
+    /*清除回显图片*/
+    function clearImg() {
+        // $("#imgBox").empty();
+    }
+
+    var vm = new Vue({
+        el:'#app' , // 构造参数，实例需要监听的模型范围，对象 #app 下的任何元素都可以背vue操控
+        data:{      // data 重点 vue的模型
+           fileList:[]
+        },
+        filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
+
+        },
+        created(){
+
+        },
+        watch:{
+            fileList(newVal,oldVal){
+                console.log("  console.log(newVal,oldVal)")
+                console.log(newVal,oldVal)
+            }
+        },
+        methods:{   // 所有事件的绑定都会在 methods 中定义
+            removeFile(file){
+                this.fileList.splice(this.fileList.findIndex(item => item === file), 1)
+            },
+        }
+    });
+</script>
+</body>
+
+</html>

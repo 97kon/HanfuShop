@@ -1,0 +1,265 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head th:replace="home/public/header::head(~{::title},~{},~{})">
+    <title>发布笔记-云裳·汉服商城</title>
+    <links>
+        <link rel="stylesheet" th:href="@{/layuiadmin/layui/css/layui.css}"  media="all">
+        <link rel="stylesheet" th:href="@{/layuiadmin/style/admin.css}" media="all">
+        <link rel="stylesheet" href="/static/common/plugs/layui/css/layui.css">
+    </links>
+</head>
+<link rel="stylesheet" th:href="@{/layuiadmin/layui/css/layui.css}"  media="all">
+<link rel="stylesheet" th:href="@{/layuiadmin/style/admin.css}" media="all">
+<link rel="stylesheet" href="/static/common/plugs/layui/css/layui.css">
+<body>
+<style type="text/css">
+    .breadcrumbs-area {
+        padding: 100px 0;
+        background: #f6f6f6 url(/static/common/images/hanfu3.jpeg) no-repeat scroll center center/cover;
+        background-size: 100% 100%;
+    }
+    .weadmin-body{
+        padding: 20px;
+    }
+    .layui-form-item {
+        margin-bottom: 30px;
+        clear: both;
+        *zoom: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: left;
+        width: 10%;
+        min-width: 110px;
+    }
+    .layui-form-item .layui-input-inline {
+        float: left;
+        width: 90%;
+    }
+
+    .layui-form-item .wrapper-item{
+        width:50%
+    }
+    .wrapper-item .layui-form-label {
+        float: left;
+        width: 30%;
+        min-width: 110px;
+    }
+    .wrapper-item .layui-input-inline {
+        float: left;
+        width: 60%;
+    }
+    .we-red{
+        color: red;
+    }
+</style>
+
+    <div class="blog-wrapper">
+
+        <!-- Header Area Start Here -->
+        <div th:replace="home/public/header::headmenu"></div>
+        <!-- Header Area End Here -->
+
+        <!-- Breadcrumb Area Start Here -->
+        <div class="breadcrumbs-area position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="breadcrumb-content position-relative section-content">
+                            <ul>
+                                <li><a href="/home/index">首页</a></li>
+                                <li><a href="/home/note/homeListPage?type=1">笔记列表</a></li>
+                                <li>发布笔记</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb Area End Here -->
+        <!-- Blog Main Area Start Here -->
+        <div class="blog-main-area" id="app">
+            <div class="container container-default-2 custom-area">
+                <div class="row flex-row-reverse">
+                    <div class="col-12 col-custom">
+                        <!-- Blog Details wrapper Area Start -->
+                        <div class="blog-post-details">
+<!--                            <figure class="blog-post-thumb mb-5">-->
+<!--                                <img class="w-100" th:src="${'/file/fileDown?saveName='+note.field1}" alt="Blog Image">-->
+<!--&lt;!&ndash;                                <img class="w-100" src="/static/assets/images/blog/large-size/1.jpg" alt="Blog Image">&ndash;&gt;-->
+<!--                            </figure>-->
+                            <section class="blog-post-wrapper product-summery">
+                                <div class="weadmin-body">
+                                    <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data">
+                                        <input type="hidden" name="type" value="1">
+                                        <div class="layui-form-item">
+                                            <label for="title" class="layui-form-label">
+                                                <span class="we-red">*</span>笔记标题
+                                            </label>
+                                            <div class="layui-input-inline"  >
+                                                <input type="text" id="title"  name="title" required lay-verify="required"
+                                                       placeholder="请输入笔记标题" autocomplete="off"  class="layui-input">
+                                            </div>
+                                        </div>
+
+                                        <div class="layui-form-item">
+                                            <label  class="layui-form-label">
+                                                详细内容
+                                            </label>
+                                            <div class="layui-input-inline"  style="z-index:999">
+                                                <textarea id="container" name="content" style="min-height: 400px" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item" style="justify-content: flex-start;">
+                                            <label class="layui-form-label">封面主图</label>
+                                            <div class="layui-input-inline" style="margin-right: 0px;width: 30%">
+                                                <button type="button" onclick="clearImg();" class="layui-btn layui-btn-warm" id="uploadimg">
+                                                    <i class="layui-icon">&#xe67c;</i>选择图片
+                                                </button>
+                                            </div>
+                                            <span  id="imgBox"></span>
+                                        </div>
+                                        <div class="layui-form-item" >
+                                            <button style="width: 25%;max-width: 300px" class="layui-btn layui-bg-blue" lay-filter="add" lay-submit>添加</button>
+                                        </div>
+                                    </form>
+                                </div>
+                             
+
+                            </section>
+                        </div>
+                        <!-- Blog Details Wrapper Area End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Main Area End Here -->
+
+
+        <!-- Footer Area Start Here -->
+        <footer th:replace="home/public/footer::footer"></footer>
+        <!-- Footer Area End Here -->
+    </div>
+
+
+    <!-- Scroll to Top Start -->
+    <a class="scroll-to-top" href="#">
+        <i class="ion-chevron-up"></i>
+    </a>
+    <!-- Scroll to Top End -->
+<!-- 百度编辑器配置文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.config.js}"></script>
+<!-- 百度编辑器编辑器源码文件 -->
+<script type="text/javascript" th:src="@{/static/common/plugs/ueditor/ueditor.all.js}"></script>
+
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+</script>
+    <!-- JS
+============================================ -->
+
+    <!-- jQuery JS -->
+    <script src="/static/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <!-- jQuery Migrate JS -->
+    <script src="/static/assets/js/vendor/jQuery-migrate-3.3.0.min.js"></script>
+    <!-- Modernizer JS -->
+    <script src="/static/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/static/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="/static/assets/js/plugins/slick.min.js"></script>
+    <!-- Countdown JS -->
+    <script src="/static/assets/js/plugins/jquery.countdown.min.js"></script>
+    <!-- Ajax JS -->
+    <script src="/static/assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Nice Select JS -->
+    <script src="/static/assets/js/plugins/jquery.nice-select.min.js"></script>
+    <!-- Jquery Ui JS -->
+    <script src="/static/assets/js/plugins/jquery-ui.min.js"></script>
+    <!-- jquery magnific popup js -->
+    <script src="/static/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/assets/js/main.js"></script>
+
+
+    <script src="/static/home/cart/js/vue2.min.js"></script>
+    <script src="/static/home/cart/js/vue-resource.min.js"></script>
+
+<script type="text/javascript">
+    layui.use(['form', 'layer','upload', 'jquery','laydate', 'admin'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            laydate = layui.laydate,
+            upload = layui.upload,
+            layer = layui.layer;
+
+
+        //图片上传
+        var uploadInst = upload.render({
+            elem: '#uploadimg'
+            , multiple: false//多图上传，不支持IE8/9
+            , field: 'file'//后台接收字段名
+            , auto: false//不自动上传
+            , acceptMime: 'image/*'//（只显示图片文件）
+            , choose: function (obj) { //选择图片后执行
+                //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+                $("#imgBox").empty();
+                obj.preview(function (index, file, result) {
+                    var img = "<img width='100px' height='100px' src='" + result + "'alt='' class='img-rounded'>";
+                    $("#imgBox").append(img);
+                });
+            }
+        });
+
+        //监听提交
+        form.on('submit(add)', function (data) {
+            console.log(data.field);
+            var formData = new FormData($("#form")[0]);
+            if(data.field.file==null||data.field.file==''){
+                layer.msg("请上传图片！", {icon: 2, time: 1500});
+                return false;
+            }
+            $.ajax({
+                url: "/home/note/add",
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function(){
+                    //返回的参数item，即为当前的input DOM对象
+                    index = layer.load(1,{shade: [0.3,'grey']});
+                },
+                success: function (res) {
+                    //关闭遮罩层
+                    layer.close(index);
+                    if (res.success == true) {
+                        layer.msg(res.msg, {icon: 1, time: 1500},function () {
+                            // refreshParent();
+                            window.location.href="/home/note/myhomeListPage"
+                        });
+                    } else {
+                        layer.msg(res.msg, {icon: 2, time: 1500});
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res, {icon: 2, time: 1500});
+                },
+                complete: function () {
+                }
+            });
+            return false;
+        });
+    });
+    /*清除回显图片*/
+    function clearImg() {
+        $("#imgBox").empty();
+    }
+</script>
+</body>
+
+</html>

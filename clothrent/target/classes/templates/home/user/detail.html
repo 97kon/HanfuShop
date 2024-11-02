@@ -72,7 +72,10 @@
                                                 </tr>
                                                 <tr>
                                                     <th class="layui-col-md8">用户性别</th>
-                                                    <td th:text="${user.sex}">出错啦</td>
+<!--                                                    <td th:text="${user.sex}">出错啦</td>-->
+                                                    <td>
+                                                        <span th:text="${user.sex == '1' ? '男' : (user.sex == '2' ? '女' : '未知')}">出错啦</span>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <th class="layui-col-md8">联系方式</th>
