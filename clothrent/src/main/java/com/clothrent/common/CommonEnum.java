@@ -16,7 +16,8 @@ public enum CommonEnum {
     REFRESH_VERIFYCODE("0007","请刷新验证码"),
     ERROR_VERIFYCODE("0008","验证码错误"),
     INVALID_MOBILE("0010","无效的手机号码"),
-    NO_RECORD("0016","没有查到相关记录");
+    NO_RECORD("0016","没有查到相关记录"),
+    PAY_ERROR("600","支付失败");
 
     private String code;
 

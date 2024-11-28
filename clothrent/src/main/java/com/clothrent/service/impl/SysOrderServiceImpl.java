@@ -48,6 +48,7 @@ public class SysOrderServiceImpl extends ServiceImpl<SysOrderMapper, SysOrder> i
     @Autowired
     UserScoreService userScoreService;
 
+    /*从购物车创建订单*/
     @Override
     @Transactional(rollbackFor = Exception.class)
     public SysOrder generateOrder(List<SysCart> cartList, UserAddress userAddress,String remark) {
@@ -73,7 +74,7 @@ public class SysOrderServiceImpl extends ServiceImpl<SysOrderMapper, SysOrder> i
         sysOrder.setUserName(userAddress.getUserName()); // 订单所属用户名称
         sysOrder.setPrice(new BigDecimal(totalMoney)); // 订单总金额
         sysOrder.setUserAddressId(userAddress.getId());// 收货地址ID
-        sysOrder.setState(1);// 状态：0 待支付；1 已支付；2 已确认；3 已发货 ；4 已收货；5 申请归还；6 已归还；7 归还驳回
+        sysOrder.setState(0);// 状态：0 待支付；1 已支付；2 已确认；3 已发货 ；4 已收货；5 申请归还；6 已归还；7 归还驳回
         orderMapper.insert(sysOrder);
         LOGGER.debug("生成的订单结果为：{}",sysOrder);
 
@@ -240,4 +241,18 @@ public class SysOrderServiceImpl extends ServiceImpl<SysOrderMapper, SysOrder> i
 
         return sysOrder;
     }
+
+
+
+//    @Override
+//    public List<SysOrder> getByCode(String code) {
+//        return orderMapper.getByCode(code);
+//    }
+
+    @Override
+    public SysOrder getByCode(String code){
+        return orderMapper.getByCode(code);
+    }
+
+
 }

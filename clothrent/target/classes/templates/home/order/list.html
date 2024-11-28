@@ -10,6 +10,34 @@
 
 <body>
 <style type="text/css">
+    .breadcrumb-content{
+        background-color: #f5f5f596;
+        width: 100%;
+        padding: 15px 0;
+    }
+    .breadcrumbs-area {
+        padding: 100px 0;
+        /*background: #f6f6f6 url(/static/common/images/hanfu27.png) no-repeat scroll center center/cover;*/
+        /*background-size: 100% 100%;*/
+        background-image: url(/static/common/images/hanfu23.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        /*background-size: auto;*/
+    }
+    .breadcrumbs-area:before {
+        background: #ffffff none repeat scroll 0 0;
+        opacity: 0;
+        content: "";
+        height: 100%;
+        left: 0;
+        top: 0;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        width: 100%;
+        position: absolute;
+    }
+
     .checkout-title {
         margin-top: 0px;
         position: relative;
@@ -132,124 +160,133 @@
         color: white;
         padding: 5px 10px;
     }
-    .breadcrumbs-area {
-        padding: 100px 0;
-        background: #f6f6f6 url(/static/common/images/hanfu4.jpeg) no-repeat scroll center center/cover;
-    }
-    .container{
-        width: 80%;
-        max-width: 1600px;
-    }
+    /*.breadcrumbs-area {*/
+    /*    padding: 100px 0;*/
+    /*    background: #f6f6f6 url(/static/common/images/hanfu4.jpeg) no-repeat scroll center center/cover;*/
+    /*}*/
+    /*.container{*/
+    /*    width: 80%;*/
+    /*    max-width: 1600px;*/
+    /*}*/
 </style>
 
-    <div class="contact-wrapper">
+<div class="contact-wrapper">
 
-        <!-- Header Area Start Here -->
-        <div th:replace="home/public/header::headmenu"></div>
-        <!-- Header Area End Here -->
+    <!-- Header Area Start Here -->
+    <div th:replace="home/public/header::headmenu"></div>
+    <!-- Header Area End Here -->
 
-        <!-- Breadcrumb Area Start Here -->
-        <div class="breadcrumbs-area position-relative" style="height: 238px">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <div class="breadcrumb-content position-relative section-content">
-                            <!--<h3 class="title-3"> </h3>-->
-                            <!--<ul>-->
-                                <!--<li><a href="/home/index"> </a></li>-->
-                                <!--<li> </li>-->
-                            <!--</ul>-->
-                        </div>
+    <!-- Breadcrumb Area Start Here -->
+    <div class="breadcrumbs-area position-relative" style="height: 320px">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="breadcrumb-content position-relative section-content">
+                        <h3 class="title-3">我的订单</h3>
+                        <ul>
+                        <li><a href="/home/index">首页</a></li>
+                            <li><a href="/home/order/list">我的订单</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Breadcrumb Area End Here -->
+    </div>
+    <!-- Breadcrumb Area End Here -->
 
-        <!-- cart main wrapper start -->
-        <div class="cart-main-wrapper  mb-no-text" style="min-height: 500px">
-            <div class="container" id="app">
-                <div class="checkout-title">
-                    <span>我的订单</span>
-                </div>
-                <div class="top-toolbar">
-                    <span @click="changeState(0)" :class="{'isActive': state==''}">全部</span>
-                    <span @click="changeState(2)" :class="{'isActive': state==2}">待发货</span>
-                    <span @click="changeState(3)" :class="{'isActive': state==3}">待收货</span>
-                    <span @click="changeState(4)" :class="{'isActive': state==4}">已完成</span>
-                    <span @click="changeState(5)" :class="{'isActive': state==5}">归还中</span>
-                    <span @click="changeState(6)" :class="{'isActive': state==6}">已归还</span>
-                    <span @click="changeState(8)" :class="{'isActive': state==8}">已评价</span>
-
-                    <input type="text" name="beginTime" id="beginTime" class="mytime"  v-model="beginTime"   placeholder="请选择开始日期"  >
-                    <input type="text" name="endTime"  id="endTime"  class="mytime"  v-model="endTime"   placeholder="请选择结束日期" >
-                </div>
-                <div class="list-order">
-                    <ul>
-                        <li v-for="item in orderList" style="margin: 10px 0px;font-size: 20px;display: flex;justify-content: space-between;flex-wrap: wrap">
-                            <span>订单号：{{item.code}}</span>
-                            <span>订单金额：{{item.price}}</span>
-                            <span v-if="item.state==1" style="color: #32b487">订单状态：已支付等待卖家确认</span>
-                            <span v-if="item.state==2" style="color: #88b448">订单状态：已确认</span>
-                            <span v-if="item.state==3" style="color: #b49f1b">订单状态：已发货</span>
-                            <span v-if="item.state==4" style="color: #b47208">订单状态：已收货</span>
-                            <span v-if="item.state==5" style="color: #b115b4">订单状态：申请归还</span>
-                            <span v-if="item.state==6" style="color: #b40d10">订单状态：已归还</span>
-                            <span v-if="item.state==7" style="color: #2432b4">订单状态：卖家驳回归还申请</span>
-                            <span v-if="item.state==8" style="color: #2432b4">订单状态：已评价</span>
-
-                            <span>订单日期：{{item.createTime}}</span>
-                            <span v-if="item.state==3" style="color: rgba(32,144,22,0.8)">
+    <!-- cart main wrapper start -->
+    <div class="cart-main-wrapper  mb-no-text" style="min-height: 500px">
+        <div class="container" id="app">
+            <div class="checkout-title">
+                <span>我的订单</span>
+            </div>
+            <div class="top-toolbar">
+                <span @click="changeState(0)" :class="{'isActive': state==''}">全部</span>
+                <span @click="changeState(2)" :class="{'isActive': state==2}">待发货</span>
+                <span @click="changeState(3)" :class="{'isActive': state==3}">待收货</span>
+                <span @click="changeState(4)" :class="{'isActive': state==4}">已完成</span>
+                <span @click="changeState(5)" :class="{'isActive': state==5}">归还中</span>
+                <span @click="changeState(6)" :class="{'isActive': state==6}">已归还</span>
+                <span @click="changeState(8)" :class="{'isActive': state==8}">已评价</span>
+                <input type="text" name="beginTime" id="beginTime" class="mytime"  v-model="beginTime"   placeholder="请选择开始日期"  >
+                <input type="text" name="endTime"  id="endTime"  class="mytime"  v-model="endTime"   placeholder="请选择结束日期" >
+            </div>
+            <div class="list-order">
+                <ul>
+                    <li v-for="item in orderList" style="margin: 10px 0px;font-size: 15px;display: flex;justify-content: space-between;flex-wrap: wrap">
+                        <span>订单号：{{item.code}}</span>
+                        <span>订单金额：{{item.price}}</span>
+                        <span v-if="item.state==0" style="color: #32b487">订单状态：待支付</span>
+                        <span v-if="item.state==1" style="color: #32b487">订单状态：已支付等待卖家确认</span>
+                        <span v-if="item.state==2" style="color: #88b448">订单状态：已确认</span>
+                        <span v-if="item.state==3" style="color: #b49f1b">订单状态：已发货</span>
+                        <span v-if="item.state==4" style="color: #b47208">订单状态：已收货</span>
+                        <span v-if="item.state==5" style="color: #b115b4">订单状态：申请归还</span>
+                        <span v-if="item.state==6" style="color: #b40d10">订单状态：已归还</span>
+                        <span v-if="item.state==7" style="color: #2432b4">订单状态：卖家驳回归还申请</span>
+                        <span v-if="item.state==8" style="color: #2432b4">订单状态：已评价</span>
+                        <span>订单日期：{{item.createTime}}</span>
+                        <span v-if="item.state==3" style="color: rgba(32,144,22,0.8)">
                                 <span class="myconfirmBtn" @click="confirmOrder(item.id)">确认收货</span>
                             </span>
-                            <span v-if="item.state==4" style="color: rgba(32,144,22,0.8)">
+                        <span v-if="item.state==4" style="color: rgba(32,144,22,0.8)">
                                  <span class="myconfirmBtn" @click="open('申请归还退押金','/home/order/applyCancelPage/'+item.id,600,400)">归还退押金</span>
                             </span>
-                            <div style="width: 100%;padding: 10px" class="shipping-method">
-                                <ul>
-                                    <li v-for="child in item.childList" @click="toGoodDetail(child.goodsId)">
-                                        <div><img :src="'/file/fileDown?saveName='+child.field1"></div>
-                                        <div class="item-name" style="width: 40%;text-overflow: ellipsis">{{child.goodsName}}</div>
-                                        <div style="width: 5%">数量:{{child.number}}</div>
-                                        <div style="width: 5%">尺码:{{child.clothSize}}</div>
-                                        <div class="item-price" style="width: 10%"> {{ child.price | formatMoney }}</div>
-                                        <div style="color:#d1434a;width: 10%">{{child.price*child.number | formatMoney}}</div>
-                                        <div>
+                        <div style="width: 100%;padding: 10px" class="shipping-method">
+                            <ul>
+                                <li v-for="child in item.childList" >
+                                    <div><img :src="'/file/fileDown?saveName='+child.field1" @click="toGoodDetail(child.goodsId)"></div>
+                                    <div class="item-name" style="width: 40%;text-overflow: ellipsis" @click="toGoodDetail(child.goodsId)">{{child.goodsName}}</div>
+                                    <div style="width: 5%">数量:{{child.number}}</div>
+                                    <div style="width: 5%">尺码:{{child.clothSize}}</div>
+                                    <div class="item-price" style="width: 10%"> {{ child.price | formatMoney }}</div>
+                                    <div style="color:#d1434a;width: 10%">{{child.price*child.number | formatMoney}}</div>
+                                    <div>
                                              <span v-if="item.state==6" style="color: rgba(32,144,22,0.8)">
                                                 <span class="myconfirmBtn" @click="appraise(item.id)">评价</span>
                                             </span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shipping-method" style="width: 100%;margin-top: -10px;padding-left:10px;font-size: 10px">
-                                <span>订单备注：</span><span>{{item.remark}}</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-custom">
-                        <div class="toolbar-bottom mt-30">
-                            <div class="layui-row text-center">
-                                <div id="laypage"></div>
-                            </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-
-                    </div>
-                </div>
+                        <div class="shipping-method" style="width: 100%;margin-top: -10px;padding-left:10px;font-size: 12px">
+                            <p>
+                                    <span style="margin-right: 10px">
+                                        <span style="margin-right: 10px">预约服务：</span>
+                                        <span v-if="item.isHz=='1'" style="margin-right: 10px;color: red">预约拍照</span>
+                                        <span v-if="item.isPic=='1'" style="color: red">预约化妆</span>
+                                    </span>
+<!--                                    <span>-->
+<!--                                        <span>租赁截止日期：</span><span>{{item.rentDay}}</span>-->
+<!--                                    </span>-->
+                            </p>
+                            <span>订单备注：</span><span>{{item.remark}}</span>
+                        </div>
+                    </li>
+                </ul>
 
             </div>
+            <div class="row">
+                <div class="col-sm-12 col-custom">
+                    <div class="toolbar-bottom mt-30">
+                        <div class="layui-row text-center">
+                            <div id="laypage"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-
-
-
-        <!-- Footer Area Start Here -->
-        <footer th:replace="home/public/footer::footer"></footer>
-        <!-- Footer Area End Here -->
-
     </div>
+
+
+
+    <!-- Footer Area Start Here -->
+    <footer th:replace="home/public/footer::footer"></footer>
+    <!-- Footer Area End Here -->
+
+</div>
 <script th:inline="javascript">
     var userId='[[${session?.user?.id}]]';
     if(userId==''||userId=="null"||userId=="undefined"){
@@ -345,21 +382,21 @@
             },
 
             changeDate:function(){
-              console.log("changeDate........")
+                console.log("changeDate........")
             },
             searchList:function () {
                 searchList('');
             },
             toGoodDetail(goodsId){
                 window.location.href="/home/goods/detail/"+goodsId;
-            }
-            ,open: function (title, url,width,height) {
+            },
+            open: function (title, url,width,height) {
                 WeAdminShow(title, url,width,height);
             },
             appraise(itemId){
-                WeAdminShow("订单评价", "/home/item/appraisePage?orderItemId="+itemId,900,700);
+                WeAdminShow("订单评价", "/home/item/appraisePage?orderItemId="+(itemId-1),900,700);
                 console.log(itemId);
-                console.log("/home/item/appraisePage")
+                console.log("/home/item/appraisePage");
             },
             confirmOrder:function (orderId) {
                 layer.confirm('确认要完成收货订单吗？', function (index) {

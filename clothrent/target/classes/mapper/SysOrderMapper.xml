@@ -28,4 +28,8 @@
         id, code, state, saler_id,saler_name,price, user_id, user_name, user_address_id, address, express_num, refuse_desc, remark, field0, field1, create_time, update_time
     </sql>
 
+    <select id="getByCode" resultType="SysOrder">
+        SELECT * FROM tb_sys_order WHERE code = #{code}
+    </select>
+
 </mapper>

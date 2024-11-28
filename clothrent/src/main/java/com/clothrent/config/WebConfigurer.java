@@ -82,6 +82,7 @@ public class WebConfigurer implements WebMvcConfigurer {
                 , "/file/**" //文件请求
                 , "/ueditor/**" //文富文本编辑器的请求
                 , "/images/**" //图片请求
+                , "/alipay/**" // 支付包沙箱支付
         );
     }
 

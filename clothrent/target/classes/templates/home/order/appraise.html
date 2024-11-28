@@ -36,7 +36,7 @@
     <form class="layui-form layui-form-pane" id="form" enctype="multipart/form-data" th:object="${orderItem}">
         <input type="hidden" name="orderItemId" th:value="${orderItem.id}"/>
         <div class="layui-form-item">
-                <span class="we-red">*</span>请于下方填写评价信息
+            <span class="we-red">*</span>请于下方填写评价信息
         </div>
         <div class="layui-form-item">
             <label for="name" class="layui-form-label">
@@ -167,7 +167,7 @@
     var vm = new Vue({
         el:'#app' , // 构造参数，实例需要监听的模型范围，对象 #app 下的任何元素都可以背vue操控
         data:{      // data 重点 vue的模型
-           fileList:[]
+            fileList:[]
         },
         filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
 

@@ -75,7 +75,7 @@ public class SysOrderController {
      */
     @RequestMapping("insertOrderFromGoods")
     @ResponseBody
-    public ResponseBean insertOrderFromGoods(Long userAddressId, @RequestParam("goodsId") Long goodsId, Long number,String remark,String ifSend,String clothSize){
+    public ResponseBean insertOrderFromGoods(Long userAddressId, @RequestParam("goodsId") Long goodsId, Long number,String remark,String ifSend,String clothSize) throws Exception {
         if(userAddressId==null||goodsId==null||number==null){
             return  ResultUtil.error(CommonEnum.BAD_PARAM);
         }
@@ -89,7 +89,9 @@ public class SysOrderController {
             orderItemUpdateWrapper.eq("order_id",order.getId()).set("state",3);
             orderItemService.update(orderItemUpdateWrapper);
         }
-        return ResultUtil.successData(order);
+//
+
+        return ResultUtil.successData(order.getCode());
     }
 
     // 从购物车--确认订单--生成订单

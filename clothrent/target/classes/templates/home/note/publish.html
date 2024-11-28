@@ -14,11 +14,37 @@
 <link rel="stylesheet" href="/static/common/plugs/layui/css/layui.css">
 <body>
 <style type="text/css">
+
+
+    .breadcrumb-content{
+        background-color: #f5f5f596;
+        width: 100%;
+        padding: 15px 0;
+    }
     .breadcrumbs-area {
         padding: 100px 0;
-        background: #f6f6f6 url(/static/common/images/hanfu3.jpeg) no-repeat scroll center center/cover;
-        background-size: 100% 100%;
+        /*background: #f6f6f6 url(/static/common/images/hanfu27.png) no-repeat scroll center center/cover;*/
+        /*background-size: 100% 100%;*/
+        background-image: url(/static/common/images/hanfu25.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        /*background-size: auto;*/
     }
+    .breadcrumbs-area:before {
+        background: #ffffff none repeat scroll 0 0;
+        opacity: 0;
+        content: "";
+        height: 100%;
+        left: 0;
+        top: 0;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        width: 100%;
+        position: absolute;
+    }
+
+
     .weadmin-body{
         padding: 20px;
     }
@@ -65,11 +91,12 @@
         <!-- Header Area End Here -->
 
         <!-- Breadcrumb Area Start Here -->
-        <div class="breadcrumbs-area position-relative">
+        <div class="breadcrumbs-area position-relative" style="height: 320px">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
                         <div class="breadcrumb-content position-relative section-content">
+                            <h3 class="title-3">发布笔记</h3>
                             <ul>
                                 <li><a href="/home/index">首页</a></li>
                                 <li><a href="/home/note/homeListPage?type=1">笔记列表</a></li>

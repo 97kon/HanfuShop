@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "alipay",
+      "type": "com.clothrent.config.AliPayConfig",
+      "sourceType": "com.clothrent.config.AliPayConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "alipay.alipay-public-key",
+      "type": "java.lang.String",
+      "sourceType": "com.clothrent.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.app-id",
+      "type": "java.lang.String",
+      "sourceType": "com.clothrent.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.merchant-private-key",
+      "type": "java.lang.String",
+      "sourceType": "com.clothrent.config.AliPayConfig"
+    },
+    {
+      "name": "alipay.notify-url",
+      "type": "java.lang.String",
+      "sourceType": "com.clothrent.config.AliPayConfig"
+    }
+  ],
+  "hints": []
+}

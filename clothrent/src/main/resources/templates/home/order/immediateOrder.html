@@ -286,9 +286,9 @@
                                     <div class="checkout-title">
                                         <span>请确认订单提交</span>
                                     </div>
-                                    <div style="width:100%">
-                                        <img src="/static/common/images/pay_old.jpg" style="width:100%"/>
-                                    </div>
+<!--                                    <div style="width:100%">-->
+<!--                                        <img src="/static/common/images/pay_old.jpg" style="width:100%"/>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
                             <div class="btn-wrap ">
@@ -504,8 +504,21 @@
                 let queryParams="userId="+userId+"&goodsId="+this.goodsObj.id+"&userAddressId="+this.currenAddressId+"&number="+this.goodsObj.number+"&remark="+this.remark+"&ifSend="+ifSend+"&clothSize="+clothSize;
                 this.$http.post("/home/order/insertOrderFromGoods?"+queryParams).then(function (response) {
                     console.log("购物车支付订单结果为：",response);
-                    window.location.href="/home/order/homeListPage";
-                });
+                    console.log(response.body.success);
+                    // window.location.href="/home/order/homeListPage";
+                    if (response.body.success){
+                        const orderCode = response.body.data;
+                        console.log(orderCode);
+                        window.location.href = "http://localhost:8081/alipay/pay?orderNo=" + orderCode;
+                    } else {
+                        console.log("response不为success")
+                        layer.msg(response.body.message, {icon: 2, time: 1500});
+                    }
+                })
+                    .catch(function (error){
+                        console.error("支付接口调用失败：", error);
+                        layer.msg("支付接口调用失败，请稍后重试",{icon: 2, time: 1500});
+                    })
 
             }
         }
